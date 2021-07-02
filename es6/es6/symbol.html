@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>symbol</title>
+    <script>
+        //创建symbol
+        let s = Symbol('此处为标识');
+        console.log(s);
+
+        //symbol.for()创建
+        let sf = Symbol.for('此处为标识for');
+        console.log(sf);
+        //不能与其他数据进行运算
+
+        
+        /*
+            应用：向对象中添加属性，避免重复
+        */
+       let game = {
+           up:function(){
+               console.log('向上');
+           },
+           down:function(){
+               console.log('向下');
+           }  
+       };
+
+       //声明一个对象
+       let methods = {
+           up:Symbol('up'),
+           down:Symbol('down')
+       };
+       //添加
+       game[methods.up] = function(){
+            console.log('向上--symbol');
+       };
+       game[methods.down] = function(){
+            console.log('向下--Symbol');
+       };
+
+       console.log(game);
+       //调用
+       game.up();
+       game[methods.up]();
+
+
+       //添加方法2
+       let symbol1 = Symbol('sed');
+       let youxi = {
+            sed:function(){
+                console.log('塞尔达传说');
+            },
+            [symbol1]:function(){
+                console.log('塞尔达传说2');
+            }
+
+       };
+       console.log(youxi);
+       youxi.sed();
+       youxi[symbol1]();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

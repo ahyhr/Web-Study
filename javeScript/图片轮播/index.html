@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/tool.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#box1{width:500px;height: 333px;
+				margin: 0 auto;
+				border: 10px antiquewhite solid;
+				overflow: hidden;
+				position: relative;
+				background-color: antiquewhite;
+			}
+			#imgList{list-style: none;
+			display: flex;
+			position: absolute;
+			left: 0;
+			}
+			#imgList li{margin-right: 10px;
+			}
+			#navDiv{position: absolute;
+			top: 90%;
+			left: 50%;
+			/* 偏移自身一半 */
+			transform: translateX(-50%);
+			}
+			#navDiv a{width: 20px;height: 20px;
+			background-color: blanchedalmond;
+			display: inline-block;
+			opacity: 0.9;
+			/* 透明兼容ie8 */
+			filter: alpha(opacity=90);
+			}
+			#navDiv a:hover{background-color: whitesmoke;
+			opacity: 1;
+			/* 透明兼容ie8 */
+			filter: alpha(opacity=100);}
+			#navDiv .active{background-color: whitesmoke;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.getElementById("box1");
+				var imgList = document.getElementById("imgList");
+				var li = document.getElementsByTagName("li");
+				var navDiv = document.getElementById("navDiv");
+				var allA = navDiv.children;
+				var active = document.querySelector(".active");
+				
+				var index = 0;
+				var timer;
+				
+				for (var i = 0; i < allA.length; i++) {
+					allA[i].num = i;
+					
+					allA[i].onclick = function(){
+						//停止自动切换
+						clearInterval(timer);
+						
+						index = this.num;
+						//设置选中的a
+						// imgList.style.left = -510*index +"px";
+						setA();
+						
+						//切换图片
+						move(imgList,"left",-510*index,50,function(){
+							//手动切换完后，开启自动切换
+							autoChange();
+						});
+					}
+				};
+				
+				autoChange();
+				
+				
+				
+				//设置a的样式
+				function setA(){
+					if(index >= li.length -1){
+						index = 0;
+						imgList.style.left = 0;
+					}
+					//通过索引更换样式
+					for (var i = 0; i < allA.length; i++) {
+						allA[i].className= "";
+					}
+					allA[index].className = "active";
+				}	
+			
+			
+			
+			//开启自动切换图片
+			function autoChange(){
+				timer = setInterval(function(){
+					index++;
+					move(imgList,"left",-510*index,20,function(){
+						setA();
+					});
+				},3000);
+				
+			};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			<ul id="imgList">
+				<li><img src="img/01.jpg" ></li>
+				<li><img src="img/02.jpg" ></li>
+				<li><img src="img/03.jpg" ></li>
+				<li><img src="img/04.jpg" ></li>
+				<li><img src="img/01.jpg" ></li>
+			</ul>
+			<div id="navDiv">
+				<a href="#" class="active"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+			</div>
+		</div>
+	</body>
+</html>

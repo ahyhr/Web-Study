@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//参数为函数dom加载后，执行回调函数
+			$(function(){
+				//参数为选择器字符串，查找匹配的标签，封装为jqueart对象
+				$(".but").click(function(){
+					
+					//this为发生的dom元素<button>
+					//参数为dom对象，封装为jqueart对象
+					alert($(this).html());
+					
+					//参数为标签字符串，创建标签对象，封装为jqueart对象
+					//appendTo添加到
+					$('<input type="text" name="" id="" value="" /><br>').appendTo("div");
+				
+					//遍历数组
+					var arr = [2,5,7];
+					$.each(arr,function(index,item){
+						console.log(index,item);
+					});
+					//$.trim()去除两边空格
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="">
+			<button type="button" class="but">按钮</button>
+			<br>
+			<input type="text" name="" id="" value="" /><br>
+		</div>
+	</body>
+</html>

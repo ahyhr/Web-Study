@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var buts = document.getElementsByTagName("button");
+				
+				//使用下标实现
+				// for (var i = 0, length = buts.length; i < length; i++) {
+				// 	buts[i].index = i;
+				// 	buts[i].onclick = function(){
+				// 		alert("第"+(this.index+1)+"个");
+				// 	};
+				// }
+				
+				
+				//使用闭包
+				for (var i = 0,length = buts.length; i < length; i++) {
+					(function(i){
+						buts[i].onclick = function(){
+							alert("第"+(i+1)+"个");
+						};
+					})(i)
+				}
+				
+			};
+		</script>
+	</head>
+	<body>
+		<button type="button">按钮1</button>
+		<button type="button">按钮2</button>
+		<button type="button">按钮3</button>
+	</body>
+</html>

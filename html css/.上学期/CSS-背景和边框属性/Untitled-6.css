@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+body{background-image:url(images/eg_bg_04.gif);}
+.a1{border-style:dashed;
+border-color:#F00;}
+.a2{
+	border-width:250px;
+	background-image:url(images/20090116095855978.jpg);
+	background-repeat:no-repeat;}
+.a3{border-style:double dotted;
+border-width:10px
+
+}

@@ -1,0 +1,27 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#employeeTable{width: 400px;
+	border: 1px solid black;
+border-collapse: collapse;
+empty-cells: hide;
+text-align: center;
+font-size: 16px;
+margin-left: 30%;
+margin-top: 20px;}
+
+#employeeTable td , #employeeTable th{
+	border: 1px solid black;
+}
+
+#formDiv{width: 400px;
+border: 1px solid black;
+margin-left: 30%;
+margin-top: 20px;}
+
+#formDiv h4{text-align: center;
+margin: 10px;}
+
+#formDiv table{margin: 5px 100px;}

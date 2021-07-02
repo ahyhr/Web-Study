@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-on 的修饰符使用</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .von .box1 {
+    width: 200px;
+    height: 200px;
+    background-color: palegreen;
+  }
+
+  .von .box1 button {
+    margin: 50px;
+  }
+
+  .von .box2,
+  .box3,
+  .box4 {
+    margin-top: 50px;
+  }
+</style>
+
+<body>
+  <div class="von">
+    <h2>阻止事件冒泡</h2>
+    <div class="box1" @click='divClick'>
+      <!-- 1.@click.stop  阻止事件的冒泡 -->
+      <button @click.stop='butClick'>事件冒泡</button>
+    </div>
+
+    <div class="box2">
+      <h2>阻止默认事件</h2>
+      <form action="baidu">
+        <input type="text">
+        <!-- @click.prevent 阻止默认事件 -->
+        <input type="submit" @click.prevent='submitClick'>
+      </form>
+    </div>
+
+    <div class="box3">
+      <h2>键盘按键点击</h2>
+      <!-- @keyup.enter   监听特定的按键 -->
+      <input type="text" @keyup.enter='keyClick'>
+    </div>
+
+    <div class="box4">
+      <h2>once 只执行一次</h2>
+      <span>{{count}}</span>
+      <button @click.once = 'countAdd'>按钮</button>
+    </div>
+  </div>
+
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.von',
+    data: {
+      count:0
+    },
+    methods: {
+      divClick() {
+        console.log('divclick');
+      },
+      butClick() {
+        console.log('butclick');
+      },
+      submitClick() {
+        console.log('sub');
+      },
+      keyClick() {
+        console.log('keyUp--enter');
+      },
+      countAdd(){
+        this.count++
+      }
+    }
+  })
+</script>
+
+</html>

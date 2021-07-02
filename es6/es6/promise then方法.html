@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise then</title>
+    <script>
+        const p = new Promise((resolve,reject)=>{
+            reject('成功');
+            // reject('失败');
+        });
+
+        //返回的是promise对象 包含是否成功
+        const result = p.then((value)=>{
+            console.log(value);
+        },(reason)=>{
+            console.log(reason);
+        });
+
+        console.log(result);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数参数初始值</title>
+    <script>
+        //给形参赋默认值
+        function add(a=0,b=0,c=0) {
+            return a+b+c;
+        }
+        let result = add(1,5);
+        console.log(result);
+
+        //与解构赋值结合
+        function connect({host="127.0.0.1",username,password,port}) {
+            console.log(host);
+            console.log(username);
+            console.log(password);
+            console.log(port);
+        }
+        connect({ 
+            //不传host 使用默认值
+            username:"root",
+            password:"root",
+            port:3306
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

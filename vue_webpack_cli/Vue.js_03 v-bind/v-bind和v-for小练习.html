@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-bind和v-for小练习</title>
+</head>
+<style>
+  .active {
+    color: orangered;
+  }
+</style>
+
+<body>
+  <div class="box">
+    <ul>
+      <li @click='clk(index)' :class="{active:index===currentIndex}" v-for="(item, index) in movies">{{index}}{{item}}
+      </li>
+    </ul>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.box',
+    data: {
+      movies: ['海尔兄弟', '猫和老鼠', '邋遢大王历险记', '虹猫蓝兔七侠传'],
+      currentIndex: 0
+    },
+    methods: {
+      clk: function (index) {
+        this.currentIndex = index;
+      }
+    }
+  })
+</script>
+
+</html>

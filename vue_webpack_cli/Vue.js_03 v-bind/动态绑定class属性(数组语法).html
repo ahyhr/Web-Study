@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态绑定class属性(数组语法)</title>
+</head>
+<style>
+  .active {
+    color: orange;
+  }
+
+  .line {
+    border: 1px solid orange;
+  }
+</style>
+
+<body>
+  <div class="box">
+    <!-- 使用数组动态绑定class  -->
+    <h1 :class="[class1,class2]">你好</h1>
+    <!-- 调用方法绑定 -->
+    <h1 :class="getClass()">你好</h1>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.box',
+    data: {
+      class1: 'active',//设置class
+      class2: 'line'
+    },
+    methods: {
+      getClass: function () {
+        return [this.class1,this.class2]
+      }
+    }
+  })
+</script>
+
+</html>

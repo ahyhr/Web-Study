@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>WPS中国区官网首页</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			li {
+				list-style-type: none;
+			}
+
+			button {
+				border: 0;
+				outline: none;
+			}
+
+			.fl {
+				float: left;
+			}
+
+			.fr {
+				float: right;
+			}
+
+			.clearAfter::after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+
+			a {
+				color: #333;
+				text-decoration: none;
+			}
+
+			body {
+				color: #333;
+			}
+
+
+			.header {
+				position: fixed;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+
+			}
+
+			.header .top {
+				width: 1190px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-between;
+
+			}
+
+			.header .top .logo {
+				width: 88px;
+				height: 56px;
+				background: url(img/logo.svg) no-repeat center;
+			}
+
+			.header .top .nav {
+				flex: 1;
+			}
+
+			.header .top .nav ul {
+				font-size: 0;
+				text-align: center;
+			}
+
+			.header .top .nav ul li {
+				display: inline-block;
+				font-size: 16px;
+			}
+
+			.header .top .nav ul li a {
+				display: inline-block;
+				font-size: 18px;
+				line-height: 56px;
+				padding: 0px 30px;
+			}
+
+			.header .top .login {}
+
+			.header .top .login .kf {
+				display: inline-block;
+				line-height: 56px;
+				padding: 0 10px 0 40px;
+				margin-right: 20px;
+				text-align: right;
+				background: url(img/header_kf.svg) no-repeat left;
+			}
+
+			.header .top .login button {
+				background: none;
+				border: 1px solid #ddd;
+				padding: 10px 30px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			.header .top .login button:hover {
+				background-color: deepskyblue;
+				color: white;
+			}
+
+			.h56 {
+				height: 56px;
+			}
+
+			/* banner */
+			.banner {
+				position: relative;
+			}
+
+			.banner img {
+				width: 100%;
+				min-width: 1190px;
+			}
+
+			.banner .banner_container {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%) translateY(-50%);
+				/* border: 5px solid red; */
+				text-align: center;
+				color: white;
+			}
+
+			.banner .banner_container .hero {
+				display: inline-block;
+				width: 92px;
+				height: 92px;
+				background: url(./img/hero_logo.svg) no-repeat;
+				background-size: contain;
+				margin-bottom: 10px;
+			}
+
+			.banner .banner_container h2 {}
+
+			.banner .banner_container p {
+				line-height: 30px;
+				font-size: 20px;
+			}
+
+			.banner .banner_container .enter {
+				text-align: center;
+				margin-top: 20px;
+			}
+
+			.banner .banner_container .enter a {
+				display: inline-block;
+				font-size: 18px;
+				padding: 8px 60px;
+				border: 1px solid white;
+				border-radius: 5px;
+				color: white;
+				margin-right: 10px;
+				transition: background 0.5s;
+			}
+
+			.banner .banner_container .enter a:hover {
+				background: rgba(255, 255, 255, 0.3);
+			}
+
+
+			/* 热门下载 */
+			.hotDown {
+				width: 1190px;
+				margin: 0 auto;
+				padding: 30px 0;
+			}
+
+			.hotDown .case {
+				text-align: center;
+			}
+
+			.hotDown .case h2 {}
+
+			.hotDown .case p {
+				letter-spacing: 3px;
+				color: #ddd;
+			}
+
+			.hotDown .down {
+				display: flex;
+				justify-content: space-between;
+				margin-top: 30px;
+			}
+
+			.hotDown .down .box {
+				width: 290px;
+				text-align: center;
+				background-color: #f9f9f9;
+				padding-top: 20px;
+			}
+
+			.hotDown .down .box a.title {
+				display: inline-block;
+				padding: 30px 0;
+
+			}
+
+			.hotDown .down .box a.text {
+				display: inline-block;
+			}
+
+			.hotDown .down .box .text p {
+				line-height: 30px;
+				color: #666;
+			}
+
+			.hotDown .down .box a.btn {
+				background-color: #417ff9;
+				display: inline-block;
+				padding: 8px 30px;
+				border-radius: 5px;
+				color: white;
+				margin-bottom: 50px;
+			}
+
+			.hotDown .down .box a.tu {
+				display: inline-block;
+				width: 100%;
+				background-size: contain !important;
+				height: 180px;
+				vertical-align: middle;
+			}
+
+			.hotDown .down .box a.tu_1 {
+				background: url(img/hot01-290x180.jpg) no-repeat;
+			}
+
+			.hotDown .down .box a.tu_2 {
+				background: url(img/hot02-290x180.jpg) no-repeat;
+			}
+
+			.hotDown .down .box a.tu_3 {
+				background: url(img/hot03-290x180.jpg) no-repeat;
+			}
+
+			.hotDown .down .box a.tu_4 {
+				background: url(img/hot04-290x180.jpg) no-repeat;
+			}
+
+			.line_1 {
+				border-top: 2px solid royalblue;
+
+			}
+
+			.line_2 {
+				border-top: 2px solid deepskyblue;
+			}
+
+			.line_3 {
+				border-top: 2px solid lightgreen;
+			}
+
+			.line_4 {
+				border-top: 2px solid orangered;
+			}
+
+			.banner2{
+				width: 100%;
+				display: flex;
+				justify-content:space-between;
+				flex-wrap: wrap;
+				margin-top: 30px;
+				margin-bottom: 10px;
+			}
+			.banner2 .bg_tu{
+				width:753px;
+				height: 466px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-top: 10px;
+				background-size: contain !important;
+			}
+			.banner2 .bg_tu1{
+				background: url(img/wpsImg.jpg) no-repeat;
+			}
+			.banner2 .bg_tu2{
+				background: url(img/wpsCiBa.jpg) no-repeat;
+			}
+			.banner2 .bg_tu3{
+				background: url(img/wpsOffice.jpg) no-repeat;
+			}
+			.banner2 .bg_tu4{
+				background: url(img/wpsDaZi.jpg) no-repeat;
+			}
+			.banner2 .logobox{
+				width: 100%;
+				height: 200px;
+				text-align: center;
+			}
+			.banner2 .logobox a.logos{
+				display: block;
+				width: 85px;
+				height: 85px;
+				position: relative;
+				left: 44%;
+				margin: 10px 0;
+				background-size: contain !important;
+			}
+			.banner2 .logobox a.wpslogo{
+				background: url(img/wpsimg1.svg) no-repeat;
+			}
+			.banner2 .logobox a.jscblogo{
+				background: url(img/jinshanciba.svg) no-repeat;
+			}
+			.banner2 .logobox a.offocelogo{
+				background: url(img/jinshanoffice.svg) no-repeat;
+			}
+			.banner2 .logobox a.jsdzlogo{
+				background: url(img/jinshandazi.svg) no-repeat;
+			}
+			.banner2 h2{
+				font-weight: 500;
+				margin: 5px 0;
+			}
+			.banner2 p{
+				font-size: 0.875rem;
+			}
+			
+			.banner2 .logobox .button{
+				width: 120px;
+				height: 35px;
+				background-color: #00BFFF;
+				border-radius: 6px;
+				border: none;
+				color: white;
+				margin: 20px 0;
+			}
+			.banner2 .logobox .button:hover{
+				background-color: #00a4da;
+				cursor: pointer;
+			}
+			.banner2 .logobox .button:focus{
+				outline: none;
+			}
+			
+			.footer{
+				width: 100%;
+				height: 360px;
+				background: url(img/kf_bg.d8f56661.jpg) no-repeat center;
+				background-size: cover;	
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.footer .infobox{
+				width: 1190px;
+				height: 240px;
+				display: flex;
+				justify-content: space-between;
+			}
+			.footer .infobox1{
+				width: 650px;
+				height: 230px;
+				display: flex;
+				justify-content: space-between;
+			}
+			.footer .info{
+				margin: 0 50px;
+			}
+			.footer .info1{
+				margin-left: 0;
+			}
+			.footer .info4{
+				margin-right: 0;
+			}
+			.footer .infobox .infobox1 h3{
+				font-weight: 400;
+				font-size: 17px;
+			}
+			.footer .infobox .infobox1 a p{
+				font-weight: 200;
+				font-size: 15px;
+				margin: 10px 0;
+			}
+			.footer .infobox .infobox1 .ewm{
+				width: 100px;
+				height: 100px;
+				background: url(img/code.347b1e88.png) no-repeat;
+				background-size: cover;
+			}
+			.footer .infobox .infobox1 span{
+				margin-left: 10%;
+				line-height: 30px;
+				font-weight: 200;
+				font-size: 12px;
+			}
+			.footer .infobox .infobox2{
+				
+				height: 230px;
+				
+			}
+			.footer .infobox .infobox2 h2{
+				font-weight: 500;
+				margin: 10px 0;
+			}
+			.footer .infobox .infobox2 p{
+				font-weight: 200;
+				font-size: 12px;
+				margin: 5px 0;
+			}
+			
+			.footer2{
+				width: 100%;
+				height: 300px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.footer2 .footer2box{
+				width: 1190px;
+				height: 240px;
+				display: flex;
+				justify-content: space-between;
+			}
+			.footer2 .footer2box .fotter2_left{
+				width: 600px;
+				height: 240px;
+			}
+			.footer2 .footer2box .fotter2_left .hezuo{
+				width: 100%;
+				height: 30px;
+				margin-bottom: 30px;
+			}
+			.footer2 .footer2box .fotter2_left .hezuo ul li{
+				display: inline-block;
+				line-height: 30px;
+				font-size: 12px;
+				font-weight: 200;
+				margin: 0 5px;
+			}
+			
+			.footer2 .footer2box .fotter2_left .ppt{
+				width: 100%;
+				height: 20px;
+				margin: 5px 0;
+			}
+			.footer2 .footer2box .fotter2_left .ppt ul li{
+				display: inline-block;
+				padding-right: 5px;
+				height: 15px;
+				font-size: 12px;
+				font-weight: 200;
+				border-right: 1px #c6c6c6 solid;
+			}
+			
+			.footer2 .footer2box .fotter2_left .copyright{
+				height: 15px;
+				font-size: 12px;
+				font-weight: 200;
+				margin: 5px 0;
+			}
+			.footer2 .footer2box .fotter2_left .yingyie{
+				height: 15px;
+				font-size: 12px;
+				font-weight: 200;
+				margin: 5px 0;
+			}
+			.footer2 .footer2box .fotter2_left .d{
+				width: 340px;
+				height: 40px;
+				display: flex;
+				justify-content: space-between;
+				margin: 20px 0;
+			}
+			.footer2 .footer2box .fotter2_left .d .d_l{
+				width: 200px;
+				height: 100%;
+				background-color: #DDDDDD;
+			}
+			.footer2 .footer2box .fotter2_left .d .d_r{
+				font-size: 12px;
+				font-weight: 200;
+				margin-top: 5px;
+			}
+			
+			.footer2 .footer2box .fotter2_right{
+				height: 240px;
+
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			.footer2 .footer2box .fotter2_right .fotter2_right_up .Language{
+				width: 160px;
+				height: 30px;
+				border: 1px #DDDDDD solid;
+				border-radius: 2px;
+			}
+			
+			.footer2 .footer2box .fotter2_right .fotter2_right_up .Language p{
+				font-size: 12px;
+				line-height: 30px;
+				margin: 0 10px;
+			}
+			.footer2 .footer2box .fotter2_right .fotter2_right_up .Language .Language_li{
+				width: 160px;
+				height: 0px;
+				border: 1px #DDDDDD solid;
+				border-radius: 2px;
+				overflow: hidden;
+			}
+			.footer2 .footer2box .fotter2_right .fotter2_right_up .Language .Language_li a li{
+				display: block;
+				height: 20px;
+				font-size: 12px;
+				width: 100%;	
+			}
+			.footer2 .footer2box .fotter2_right .fotter2_right_up .Language .Language_li a li p{
+				line-height: 20px;
+			}
+			.footer2 .footer2box .fotter2_right .fotter2_right_up .Language .Language_li a li:hover{
+				background-color:seashell;
+			}
+			.footer2 .footer2box .fotter2_right .fotter2_right_up .Language:hover .Language_li{
+				height: 80px;
+			}
+			.footer2 .footer2box .fotter2_right .fotter2_right_down img{
+				transform:translateX(80%) ;
+			}
+			.footer2 .footer2box .fotter2_right .fotter2_right_down p{
+				font-size: 14px;
+				letter-spacing: 8px;
+				transform:translateX(5%) ;
+			}
+
+
+			/* 媒体查询 */
+
+			@media only screen and (max-width:1190px) {
+
+				/*  */
+				.header {
+					left: 0;
+					transform: none;
+				}
+
+				.banner {
+					min-width: 1190px;
+				}
+				
+				.banner2{
+					min-width: 1190px;
+				}
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="top clearAfter">
+				<div class="logo fl"></div>
+				<div class="nav fl">
+					<ul>
+						<li><a href="#">所有产品</a></li>
+						<li><a href="#">政企服务</a></li>
+						<li><a href="#">中小企业</a></li>
+						<li><a href="#">会员服务</a></li>
+						<li><a href="#">关于WPS</a></li>
+					</ul>
+				</div>
+				<div class="login fr">
+					<div class="kf"><a href="#">客服中心</a></div>
+					<button type="button">登录</button>
+				</div>
+			</div>
+		</div>
+		<div class="h56"></div>
+
+		<div class="banner">
+			<img src="img/hero_bg_origin.35389676.jpg">
+			<div class="banner_container">
+				<div class="hero"></div>
+				<h2>金山文档</h2>
+				<p>多人实时协作的在线Office</p>
+				<div class="enter">
+					<a href="#">个人使用</a>
+					<a href="#">企业使用</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="hotDown">
+			<div class="case">
+				<h2>热门下载</h2>
+				<p>Download</p>
+			</div>
+			<div class="down">
+				<div class="box line_1">
+					<a href="#" class="title">
+						<h2>WPS Office 2019 PC版</h2>
+					</a>
+					<div class="text">
+						<p>简单 创造不简单</p>
+						<p>个性化的办公软件</p>
+						<p>全面支持PDF</p>
+					</div>
+					<a href="#" class="btn">立即下载</a>
+					<a href="#" class="tu tu_1"></a>
+
+				</div>
+				<div class="box line_2">
+					<a href="#" class="title">
+						<h2>WPS Office 2019 PC版</h2>
+					</a>
+					<div class="text">
+						<p>简单 创造不简单</p>
+						<p>个性化的办公软件</p>
+						<p>全面支持PDF</p>
+					</div>
+					<a href="#" class="btn">立即下载</a>
+					<a href="#" class="tu tu_2"></a>
+
+				</div>
+				<div class="box line_3">
+					<a href="#" class="title">
+						<h2>WPS Office 2019 PC版</h2>
+					</a>
+					<div class="text">
+						<p>简单 创造不简单</p>
+						<p>个性化的办公软件</p>
+						<p>全面支持PDF</p>
+					</div>
+					<a href="#" class="btn">立即下载</a>
+					<a href="#" class="tu tu_3"></a>
+
+				</div>
+				<div class="box line_4">
+					<a href="#" class="title">
+						<h2>WPS Office 2019 PC版</h2>
+					</a>
+					<div class="text">
+						<p>简单 创造不简单</p>
+						<p>个性化的办公软件</p>
+						<p>全面支持PDF</p>
+					</div>
+					<a href="#" class="btn">立即下载</a>
+					<a href="#" class="tu tu_4"></a>
+				</div>
+			</div>
+</div>
+
+		<div class="banner2">
+				<div class="bg_tu bg_tu1">
+					<div class="logobox">
+						<a href="#" class="logos wpslogo">
+						</a>
+						<h2>金山词霸</h2>
+						<p>您身边的翻译专家</p>
+						<input type="button" value="立即体验"  class="button"/>
+					</div>
+				</div>
+				
+				<div class="bg_tu bg_tu2">
+					<div class="logobox">
+						<a href="#" class="logos jscblogo">
+						</a>
+						<h2>WPS图片</h2>
+						<p>快速看图、轻巧好用</p>
+						<input type="button" value="立即体验"  class="button"/>
+					</div>
+				</div>
+				
+				<div class="bg_tu bg_tu3">
+					<div class="logobox">
+						<a href="#" class="logos offocelogo">
+						</a>
+						<h2>WPS Office 2019 For Linux</h2>
+						<p>原生，兼容，高效</p>
+						<input type="button" value="立即体验"  class="button"/>
+					</div>
+				</div>
+				
+				<div class="bg_tu bg_tu4">
+					<div class="logobox">
+						<a href="#" class="logos jsdzlogo">
+						</a>
+						<h2>金山打字通</h2>
+						<p>零基础入门，轻松学打字</p>
+						<input type="button" value="立即体验"  class="button"/>
+					</div>
+				</div>
+			</div>
+
+		<div class="footer">
+			<div class="infobox">
+				<div class="infobox1">
+					<div class="info info1">
+						<h3>企业服务</h3>
+						<a href="#"><p>在线购买</p></a>
+						<a href="#"><p>政企采购</p></a>
+						<a href="#"><p>商务合作</p></a>
+					</div>
+					<div class="info">
+						<h3>产品支持</h3>
+						<a href="#"><p>会员中心</p></a>
+						<a href="#"><p>WPS开放平台</p></a>
+						<a href="#"><p>办公技巧</p></a>
+						<a href="#"><p>服务协议</p></a>
+					</div>
+					<div class="info">
+						<h3>关于我们</h3>
+						<a href="#"><p>新浪微博</p></a>
+						<a href="#"><p>金山荣誉</p></a>
+						<a href="#"><p>发展历程</p></a>
+						<a href="#"><p>公司简介</p></a>
+						<a href="#"><p>加入我们</p></a>
+						<a href="#"><p>投资者关系</p></a>	
+					</div>
+					<div class="info info4">
+						<h3>用户支持</h3>
+						<a href="#"><p>练习我们</p></a>
+						<a href="#"><p>邮箱反馈</p></a>
+						<div class="ewm">	
+						</div>
+						<span>微信扫码反馈</span>
+					</div>
+				</div>
+				<div class="infobox2">
+					<img src="img/footer_t_logo.svg" >
+					<h2>400-677-5005(客服咨询热线)</h2>
+					<h2>400-677-5005(客服咨询热线)</h2>
+					<p>北京市海淀区小营西路33号 金山软件大厦 100085</p>
+					<p>珠海金山办公软件有限公司</p>
+					<p>电话：010-629927777(总机)</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer2">
+			<div class="footer2box">
+				<div class="fotter2_left">
+					<div class="hezuo">
+						<ul>
+							<a href="#"><li style="margin-left: 0;">合作伙伴:</li></a>
+							<a href="#"><li>WPS*云办公</li></a>
+							<a href="#"><li>图表秀</li></a>
+							<a href="#"><li>PPT模板</li></a>
+							<a href="#"><li>打字通</li></a>
+							<a href="#"><li>做题室</li></a>
+							<a href="#"><li>金山格式转换器</li></a>
+							<a href="#"><li>WPS教程</li></a>
+							<a href="#"><li>更多</li></a>
+						</ul>
+					</div>
+					<div class="ppt">
+						<ul>
+							<a href="#"><li>PPT模板</li></a>
+							<a href="#"><li>PPT免费下载</li></a>
+							<a href="#"><li>PPT背景</li></a>
+							<a href="#"><li>PPT背景图片</li></a>
+							<a href="#"><li>PPT素材</li></a>
+							<a href="#"><li>金山格式转换器</li></a>
+							<a href="#"><li style="border-right: none;">WPS技巧</li></a>
+						</ul>
+					</div>
+					<a href="#">
+						<p class="copyright">
+						Copyright © 2008-2020 Kingsoft Office, All Rughts Reserved. 
+						</p>
+					</a>
+					<p class="yingyie">
+						营业执照	<img src="img/hz.png" style="width: 15px;height: 15px;" >粤公网安备44049102496073号  
+					</p>
+					<div class="d">
+						<div class="d_l">
+							
+						</div>
+						<div class="d_r">
+							<p>举报电话:	400-677-5005</p>
+							<p>举报邮箱:	wps@wps.cn</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="fotter2_right">
+					<div class="fotter2_right_up">
+						<div class="Language">
+							<p>简体中文（中国大陆)</p>
+							<ul class="Language_li">
+								<a href="#"><li><p>English</p></li></a>
+								<a href="#"><li><p>日本语</p></li></a>
+								<a href="#"><li><p>繁体中文</p></li></a>
+								<a href="#"><li><p>繁体中文</p></li></a>
+							</ul>
+						</div>
+					</div>
+					<div class="fotter2_right_down">
+						<img src="img/logo.svg" >
+						<p>简单创造不简单</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

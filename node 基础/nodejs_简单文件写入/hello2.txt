@@ -1,0 +1,1 @@
+我是通过wiriteFileSync---写入的内容

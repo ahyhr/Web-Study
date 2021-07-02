@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.box1{width: 100px;height: 100px;
+			background-color: antiquewhite;
+			position: absolute;
+			left: 0px;}
+			.x{height: 100%;
+			border-left: 1px black solid;
+			position: absolute;
+			left: 500px;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var but = document.getElementById("but");
+				var box1 = document.querySelector(".box1");
+				var bol = true;
+				but.onclick = function(){
+					if(bol){
+						startMove(500);
+					}else{
+						startMove(0);
+					}
+						bol = !bol;	
+				};
+				
+				
+				var timer = null;
+				function startMove(dis){
+					clearInterval(timer);
+					
+					timer = setInterval(function(){
+						 //缓冲运动 距离-当前位置
+						var speed = (dis - box1.offsetLeft) / 15;
+						//取整 计算机不能识别1px以下
+						speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); 
+						if(box1.offsetLeft == dis){
+							clearInterval(timer);
+						}else{
+							box1.style.left = box1.offsetLeft + speed + "px";
+						}
+						console.log(box1.offsetLeft);
+						console.log(speed);
+					},20);
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<button type="button" id="but">按钮</button>
+		<div class="box1">
+			
+		</div>
+		<div class="x">
+			
+		</div>
+	</body>
+</html>

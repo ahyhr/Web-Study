@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			.nav{
+				color: #ddd;width: 200px;background: #333;}
+				li{list-style: none;}
+				.nav1{padding: 20px;}
+				.nav1 h2{margin-bottom: 10px;}
+				.nav1 ul li{padding: 10px 0;}
+				
+				.nav2{width: 100%;height: 50px;}
+				.nav2 ul{text-align:center;}
+				.nav2 ul li{
+					display: inline-block;
+					padding: 0px 20px;
+					line-height: 50px;
+					font-weight: 900;
+				}
+				.nav2 ul li.active{
+					background: skyblue;
+					color: orangered;
+				}
+				
+				.nav3{width: 100%;}
+				.nav3 ul li{
+					float: left;
+					padding: 0px 20px;
+					line-height: 50px;
+					font-weight: 900;
+				}
+				.nav3 .clear{clear: both;}
+				.nav3 ul li.active{
+					background: orangered;
+					color: white;
+				}
+		</style>
+	</head>
+	<body>
+		<!--垂直导航  -->
+		<h1>垂直导航</h1>
+		<div class="nav nav1">
+			<h2>二级学院组成</h2>
+			<ul>
+				<li>旅游管理学院</li>
+				<li>机械与汽车工程学院</li>
+				<li>计算机与艺术学院</li>
+				<li>商贸学院</li>
+				<li>电气工程学院</li>
+				<li>财经学院</li>
+				<li>地质与建筑工程学院</li>
+			</ul>
+		</div>
+		
+		<!-- 水平导航 -行内块-->
+		<h1>水平导航 -行内块</h1>
+		<div class="nav nav2">			
+			<ul>
+				<li>旅游管理学院</li>
+				<li>机械与汽车工程学院</li>
+				<li class="active">计算机与艺术学院</li>
+				<li>商贸学院</li>
+				<li>电气工程学院</li>
+				<li>财经学院</li>
+				<li>地质与建筑工程学院</li>
+			</ul>
+		</div>
+		
+		<!--水平导航-浮动  -->
+		<h1>水平导航-浮动</h1>
+		<div class="nav nav3">
+			<ul>
+				<li>旅游管理学院</li>
+				<li>机械与汽车工程学院</li>
+				<li class="active">计算机与艺术学院</li>
+				<li>商贸学院</li>
+				<li>电气工程学院</li>
+				<li>财经学院</li>
+				<li>地质与建筑工程学院</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+    <script>
+        //实例化promise对象             resolve 成功    reject 失败
+        const p = new Promise(function(resolve,reject){
+            setTimeout(()=>{    //使用异步
+                let date = '数据库中用户的数据';
+                resolve(date);
+            },1000);
+        });
+        //调用then方法  
+        p.then(function(value){
+            //成功
+            console.log(value);
+            console.log('成功');
+        },function(reason){
+            //失败
+            console.log('失败');
+        });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

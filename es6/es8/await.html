@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>await</title>
+    <script>
+        //创建 Promise对象
+        const p = new Promise((resolve,reject)=>{
+            // resolve('成功的数据');
+            reject('失败的数据');
+        });
+
+        //await要放在async函数中
+        async function fn(){
+            //try catch语句 捕获失败
+            try {
+                let result = await p;
+                console.log(result);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fn();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

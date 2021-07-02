@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			//构造函数和原型组合继承
+			
+			
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			Person.prototype.sayName = function(){
+				console.log(this.name);
+			};
+			
+			function Student(name,age,money){
+				//修改call()
+				Person.call(this,name,age);
+				this.money = money;
+			}
+			
+			//修改原型
+			Student.prototype = new Person();
+			//修改constructor指向为自己,不改为Person
+			Student.prototype.constructor = Student;
+			
+			Student.prototype.sayMoney = function(){
+				console.log(this.money);
+			};
+			
+			var stud = new Student("小王",20,5000);
+			
+			stud.sayName();
+			stud.sayMoney();
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

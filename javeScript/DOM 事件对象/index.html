@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#areaDiv{width: 200px;height: 50px;
+			border: 1px solid black;
+			margin-bottom: 10px;
+			position: relative;}
+			#showMsg{width: 200px;height: 20px;
+			border: 1px solid black;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var areaDiv = document.getElementById("areaDiv");
+				var showMsg = document.getElementById("showMsg");
+				//onmousemove	鼠标移动时		event包含鼠标键盘的属性
+					//ie8中为 window.event
+					
+					areaDiv.onmousemove = function (event){
+						
+						//兼容ie8
+						// if(!event){
+						// 	event =window.event;
+						// }
+						event = event || window.event;
+						
+						//鼠标的x轴 y轴
+						var x = event.clientX;
+						var y = event.clientY;
+						showMsg.innerHTML = "x="+x+",y="+y;
+						};
+						//鼠标离开
+						areaDiv.onmouseout = function(){
+						showMsg.innerHTML = "";
+						};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="areaDiv">
+		</div>
+		<div id="showMsg">
+		</div>
+	</body>
+</html>

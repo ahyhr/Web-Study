@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>父子组件通信结合双向绑定</title>
+</head>
+
+<body>
+  <!-- 父组件模板 -->
+  <div class="app">
+    <cpn :pnum1="num1" :pnum2="num2" @chagenum1="chagenum1" @chagenum2="chagenum2"></cpn>
+  </div>
+
+  <!-- 子组件模板 -->
+  <template id="cpnC">
+    <div>
+      <h2>props:{{pnum1}}</h2>
+      <h2>data:{{dnum1}}</h2>
+      <!-- <input type="text" v-model="dnum1"> -->
+      <input type="text" :value="dnum1" @input="dnum1Iput">
+
+      <h2>props:{{pnum2}}</h2>
+      <h2>data:{{dnum2}}</h2>
+      <!-- <input type="text" v-model="dnum2"> -->
+      <input type="text" :value="dnum2" @input="dnum2Iput">
+    </div>
+  </template>
+  <script src="./js/vue.js"></script>
+  <script>
+    //父组件
+    const app = new Vue({
+      el: '.app',
+      data: {
+        num1: 0,
+        num2: 0
+      },
+      methods: {
+        chagenum1(val) {
+          this.num1 = parseFloat(val);
+        },
+        chagenum2(val) {
+          this.num2 = parseFloat(val);
+        }
+      },//子组件
+      components: {
+        'cpn': {
+          template: '#cpnC',
+          props: {
+            pnum1: { type: Number },
+            pnum2: { type: Number }
+          },
+          data() {//通过data使用,vue不建议直接使用
+            return {
+              dnum1: this.pnum1,
+              dnum2: this.pnum2
+            }
+          },
+          methods: {
+            dnum1Iput(event) {
+              this.dnum1 = event.target.value;
+              this.$emit('chagenum1', this.dnum1);
+            },
+            dnum2Iput(event) {
+              this.dnum2 = event.target.value;
+              this.$emit('chagenum2', this.dnum2);
+            }
+          },
+        }
+      },
+
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var timer;
+				//鼠标滚轮监听
+				$("body,html").bind("mousewheel",function(){
+					clearInterval(timer);
+				});
+				
+				$(".blackTop").click(function(){
+					clearInterval(timer);
+					//总距离
+					var distance = $("html").scrollTop()+$("body").scrollTop();
+					//总时间
+					var time = 200;
+					//间隔时间
+					var intervalTime = 20;
+					//行走距离
+					var itemDistance = distance/(time/intervalTime);
+					  timer = setInterval(function(){
+						distance -= itemDistance;
+						//到达顶部停止
+						if(distance <= 0){
+							distance == 0;//修正
+							clearInterval(timer);
+						}
+						 //移动滚动条
+						$("html,body").scrollTop(distance);	
+					},intervalTime);
+					
+				});
+				
+			});
+		</script>
+		<style type="text/css">
+			.blackTop{
+				width: 50px;
+				height: 50px;
+				background-color: beige;
+				position: fixed;
+				bottom: 5%;
+				right: 5%;
+				box-sizing: border-box;
+				padding: 5px;
+				text-align: center;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body style="height: 1000px;">
+		<div class="blackTop">
+			回到顶部
+		</div>
+	</body>
+</html>

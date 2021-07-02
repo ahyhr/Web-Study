@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			
+			#box1{width: 100px;height: 100px;
+			background-color: crimson;
+			margin-top: 50px;
+			position: absolute;}
+			
+			.x{width: 1px;height: 100%;
+			background-color: black;
+			position: absolute;
+			left: 800px;
+			top: 0;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.getElementById("box1");
+				var but= document.getElementById("but");
+				var but2= document.getElementById("but2");
+				//定时器标识
+				
+				var dis;
+				but.onclick = function(){
+					//取消上一个定时器	避免重复按会加速
+					clearInterval(box1.timer);
+					
+					//定时器标识写到对象属性中，不会出现有多个定时器覆盖的情况
+					box1.timer = setInterval(function(){
+						//获取新位置
+						var newdis = box1.offsetLeft + 18;
+						
+						if(newdis >= 800){
+							newdis = 800;
+						}
+						//移动
+						box1.style.left = newdis  +"px";
+						//偏移
+						dis = box1.offsetLeft;
+						
+						if(newdis == 800){
+							console.log(dis);
+							//重置按钮
+							but2.onclick = function(){
+								//到达800
+								if(dis >= 800){
+									box1.style.left = 0 +"px";
+								}
+							};
+							//停止定时器位置到800
+							clearInterval(box1.timer);
+							
+						}
+						
+					},30);	
+				};
+				
+					
+					
+				
+				
+				
+			};
+		</script>
+	</head>
+	<body>
+		<button id="but" type="button">移动</button>
+		<button id="but2" type="button" style="margin-left: 50px;">重置</button>
+		<div id="box1">
+		</div>
+		<div class="x">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+$ ll	查看当前目录下的文件
+$ ls -lA	包含隐藏目录文件
+$ mkdir <weChat>	创建weChat名称文件夹
+$ cat <文件>	打开文件
+$ pwd	当前路径
+$ cd ~	home目录
+
+
+---git命令---
+
+初始化仓库
+-$ git init	
+
+设置签名
+ -项目级别:本地库范围内有效-
+-$ git config user.name yhr 	名称
+-$ git config user.email ***@*.com    邮箱
+-系统用户级别:当前登录的操作系统用户范围-
+- git config --global user.name yhr 	名称
+- git config --global user.email ***@*.com    邮箱
+
+添加提交和查看状态
+- git status	查看暂存区
+- git add <文件>	添加到暂存区
+- git rm --cached <文件>	移除暂存区
+
+提交和查看记录版本
+- git commit -m "提交的消息" <文件>	提交
+- git log		查看记录
+- git log --oneline	简洁查看记录(只显示当前版本后的 历史版本)
+- git reflog	显示步数查看(显示所有版本)
+
+前进和后退版本
+- git reset --hard [局部索引值(哈希值)]	
+- git reset --hard HEAD^	退回1个版本(^符为一个版本,^^为两个,依次类推)
+- git reset --hard HEAD~2	退回2个版本(~3为3个版本,根据~后数字)
+
+比较文件
+- git diff <文件>	将工作区的文件和暂存区进行比较
+- git diff [本地库中的历史版本] <文件名>	工作区和本地库历史记录比较 不带文件名比较多个文件
+
+远程库
+- git remote -v	查看远程库地址
+- git remote add <地址别名> [https://github.com/ahyhr/Web-Study.git 地址]
+- GitHub 访问管理中可设置权限
+
+- git push <地址别名> <分支>	提交到远程库
+- git clone [地址]		克隆远程库 会自动初始化本地库 
+
+- git fetch <地址别名> <远程分支>  		抓取(不做合并)
+- git checkout <地址别名>/<远程分支>	查看抓取内容
+- git merge <分支>			合并
+- git pull = fetch+merge
+
+
+
+

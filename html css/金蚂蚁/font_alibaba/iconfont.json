@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "647265",
+      "name": "Dot",
+      "font_class": "dot",
+      "unicode": "e6b1",
+      "unicode_decimal": 59057
+    },
+    {
+      "icon_id": "812005",
+      "name": "dot",
+      "font_class": "dot1",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "7127391",
+      "name": "x",
+      "font_class": "x",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "7500576",
+      "name": "商城，购物袋",
+      "font_class": "icon_mall-",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    }
+  ]
+}

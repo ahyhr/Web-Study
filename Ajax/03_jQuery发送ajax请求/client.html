@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03_jQuery发送ajax请求</title>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+  <h2>jQuery发送ajax请求</h2>
+  <hr>
+  <button type="button" class="btn btn-info">Get</button>
+  <button type="button" class="btn btn-success">Pose</button>
+  <button type="button" class="btn btn-danger">通用型方法ajax</button>
+  <h5></h5>
+  <script>
+    $('button').eq(0).click(function(){
+      //发送get请求
+      $.get('http://127.0.0.1:8000/jquery',{a:100,b:200},function(data){
+        //data 响应体数据
+        console.log(data);
+        $('h5')[0].innerText ='发送GET请求: '+ data;
+      },'json')
+    })
+
+    //发送post请求
+    $('button').eq(1).click(function(){
+      //发送get请求
+      $.post('http://127.0.0.1:8000/jquery',{a:100,b:200},function(data){
+        //data 响应体数据
+        $('h5')[0].innerText ='发送POST请求: '+ data;
+      })
+    })
+
+    //通用发送方法
+    $('button').eq(2).click(function(){
+      $.ajax({
+        //url
+        url: 'http://127.0.0.1:8000/jquery',
+        //参数
+        data: {a:100, b:200},
+        //请求类型
+        type: 'GET',
+        //响应体结果
+        dataType: 'json',
+        //请求成功回调
+        success: function(data) {
+          $('h5')[0].innerText ='通用方法: '+ data.name;
+        },
+
+        //超时时间
+        timeout: 2000,
+        //失败回调
+        error: function() {
+          console.log('出错了');
+        }
+      })
+    })
+
+
+  </script>
+</body>
+
+</html>

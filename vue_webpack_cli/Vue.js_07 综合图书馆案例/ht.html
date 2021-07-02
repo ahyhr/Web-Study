@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="box">
+    <div v-if="books.length">
+      <table>
+        <tr>
+          <th></th>
+          <th>书籍名称</th>
+          <th>出版日期</th>
+          <th>价格</th>
+          <th>购买数量</th>
+          <th>操作</th>
+        </tr>
+        <tr v-for="(item, index) in books">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.data}}</td>
+          <!-- | 使用过滤器 -->
+          <td>￥{{item.price | showPrice}}</td>
+          <td class="but">
+            <button @click="reduce(item)" :disabled="item.count<=1">-</button>
+            {{item.count}}
+            <button @click="add(item)">+</button>
+          </td>
+          <td><button @click="remove(index)">移除</button></td>
+        </tr>
+      </table>
+      <h2>总价：￥{{allPrice | showPrice}}元</h2>
+    </div>
+    <div v-else="books.length<=0"><h2>当前购物车为空</h2></div>
+  </div>
+
+  <script src="./js/vue.js"></script>
+  <script src="./js/mina.js"></script>
+</body>
+
+</html>

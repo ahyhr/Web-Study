@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-cloak指令</title>
+</head>
+<style>
+  /* 浏览器有些时候可能会显示未编译的Mustache标签 */
+  /* 使用 v-cloak 配合css进行隐藏     vue编译完成会自动去除 v-cloak属性 */
+  [v-cloak]{
+    display: none;
+  }
+</style>
+<body>
+  <div class="box">
+    <h2 v-cloak>{{value}}</h2>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  setInterval(() => {
+
+    const app = new Vue({
+      el: '.box',
+      data: {
+        value: '显示'
+      }
+    });
+
+  }, 1000);
+</script>
+
+</html>

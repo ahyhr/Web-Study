@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>语法糖写法</title>
+</head>
+
+<body>
+<div class="app">
+  <cpn></cpn>
+  <cpn2></cpn2>
+</div>
+
+  <script src="./js/vue.js"></script>
+  <script>
+    //全局语法糖
+    Vue.component('cpn2',{template:`
+                            <div>
+                              <h2>我是全局语法糖</h2>
+                            </div>
+    `})
+
+    const app = new Vue({
+      el:".app",
+      data:{
+        message:'你好'
+      },//局部组件语法糖
+      components:{
+        'cpn':{
+          template:`
+            <div>
+              <h2>我是局部语法糖</h2>
+            </div>
+        `}
+      }
+    });
+  </script>
+</body>
+
+</html>

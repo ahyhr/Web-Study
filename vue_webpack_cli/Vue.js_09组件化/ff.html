@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="app">
+    <cpn :c-Message="message"></cpn>
+    <cpn :c-Message="message"></cpn>
+    <button @click="cl">ann</button>
+  </div>
+
+  <template id="cpnC">
+    <div>
+      <h1>{{cMessage}}</h1>
+      <h2>{{count}}</h2>
+      <button @click="sub">-</button>
+      <button @click="add">+</button>
+    </div>
+  </template>
+
+  <script src="./js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'.app',
+      data:{
+        message:'你好'
+      },
+      methods: {
+        cl(){
+          this.message='nihao'
+        }
+      },
+      components:{
+        'cpn':{
+          template:'#cpnC',
+          data() {
+            return {
+              count:0
+            }
+          },
+          methods: {
+            add(){
+              this.count++;
+            },
+            sub(){
+              this.count--;
+            }
+          },
+          props:{
+            cMessage:{
+              type:String
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

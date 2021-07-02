@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#ul{}
+			#ul li{list-style: none;
+			background-color:lightskyblue;
+			display: block;
+			width: 100px;
+			height: 30px;
+			margin: 5px 0;
+			text-align: center;
+			line-height: 30px;
+			border: 1px solid saddlebrown;
+			border-radius: 10px;
+			color: white;
+			}
+			#ul button{width: 100px;
+			border-radius: 5px;
+			height: 50px;
+			background-color:mistyrose;}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var ul = document.getElementById("ul");
+				//向ul添加响应函数
+				//如果点击ul中的元素，会冒泡到ul
+				ul.onclick = function(event){
+					//event.target	选中的元素
+					//如果选中的是li标签才会执行
+					if(event.target.tagName == "LI"){
+						alert(event.target.innerHTML);
+					}
+				};
+				
+				var lis = ul.getElementsByTagName("li");
+				
+				var but = document.getElementById("but");
+				//点击按钮将li添加到ul中
+				but.onclick = function(){
+					var li = document.createElement("li");
+					li.innerHTML = lis.length+1;
+					ul.appendChild(li);
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		<ul id="ul">
+			<button type="button" id="but">添加一个li</button>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</body>
+</html>

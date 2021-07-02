@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			//构造函数(类)
+			//创建名称首字母大写 		
+			
+			// function Person(name,age,gender){
+			// 	this.name = name;
+			// 	this.age = age;
+			// 	this.gender = gender;
+			// 	this.sayName = function(){
+			// 		alert(this.name);
+			// 	}
+			// }
+			// //加 new 关键字
+			// var person1 = new Person("张三",24,"男");
+			// var person2 = new Person("张四",31,"男");
+			// console.log(person1);
+			// console.log(person2);
+			
+
+			function Dog(name,gender){
+				this.name = name;
+				this.gender = gender;
+				this.sayHello = function(){
+					alert("汪汪~~~");
+				}
+			}
+			var dog1 = new Dog("旺财","公");
+			var dog2 = new Dog("小黑","母");
+			console.log(dog1);
+			console.log(dog2);
+			
+			
+			//原型 prototype		相当于公共场所-实例都可以访问
+			//将共有的属性，方法统一添加到原型对象中，创建的每个对象都可以访问
+			
+			function Person(name,age,gender){
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+			}
+			//向Person的原型中添加一个方法			
+			Person.prototype.sayName = function(){
+				alert("我是"+this.name);
+			}
+			//加 new 关键字
+			var person1 = new Person("张三",24,"男");
+			var person2 = new Person("张四",31,"男");
+			console.log(person1);
+			console.log(person2);
+			
+			person2.sayName();
+			
+			//使用in检查使用对象的属性，会检查原型
+			console.log("sayName" in person1);
+			//使用hasOwnProperty检查使用对象的属性，不会检查原型
+			console.log(person1.hasOwnProperty("sayName"));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

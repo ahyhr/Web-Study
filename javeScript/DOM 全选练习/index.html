@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			你的爱好是?
+			<input type="checkbox" name="" id="checkedAllBox" value="" />全选/全不选
+			<br />
+			<input type="checkbox" name="items" value="足球" />足球
+			<input type="checkbox" name="items" value="蓝球" />蓝球
+			<input type="checkbox" name="items" value="羽毛球" />羽毛球
+			<input type="checkbox" name="items" value="乒乓球" />乒乓球
+			<br />
+			<input type="button" id="checkedAllBtn" value="全 选" />
+			<input type="button" id="checkedNoBtn" value="全不选" />
+			<input type="button" id="checkedRevBtn" value="反 选" />
+			<input type="button" id="sebdBtn" value="提交" />
+		</form>
+	</body>
+	
+	
+	
+	<script type="text/javascript">
+		//所有待选择块
+		var items = document.getElementsByName("items");
+		
+		//获取全选按钮
+		var checkedAllBtn = document.getElementById("checkedAllBtn");
+		checkedAllBtn.onclick = function(){
+			for (var i = 0; i < items.length; i++) {
+				items[i].checked = true;
+			}
+			checkedAllBox.checked = true;
+		};
+		
+		//获取不选按钮
+		var checkedNoBtn = document.getElementById("checkedNoBtn");
+		checkedNoBtn.onclick = function(){
+			for (var i = 0; i < items.length; i++) {
+				items[i].checked = false;
+			}
+			checkedAllBox.checked = false;
+		};
+		
+		//获取反选按钮
+		var checkedRevBtn = document.getElementById("checkedRevBtn");
+		checkedRevBtn.onclick = function(){
+			checkedAllBox.checked = true;
+			
+			for (var i = 0; i < items.length; i++) {
+				// if (items[i].checked == true) {
+				// 	items[i].checked = false;
+				// } else{
+				// 	items[i].checked = true;
+				// }
+				items[i].checked = !items[i].checked;
+				
+
+				if (items[i].checked==false) {
+					checkedAllBox.checked = false;
+				}
+			}
+		};
+		
+		//获取提交按钮
+		var sebdBtn = document.getElementById("sebdBtn");
+		sebdBtn.onclick = function(){
+			for (var i = 0; i < items.length; i++) {
+				if (items[i].checked) {
+					alert(items[i].value);
+				}
+			}
+		};
+		
+		
+		//全选/全不选
+		var checkedAllBox = document.getElementById("checkedAllBox");
+		
+			checkedAllBox.onclick = function(){
+				for (var i = 0; i < items.length; i++) {
+					items[i].checked = checkedAllBox.checked;
+					// items[i].checked = this.checked;	
+				}	
+		};
+		
+		
+		//items
+		//获取四个元素
+		for (var i = 0; i < items.length; i++) {
+			//添加onclock
+			items[i].onclick = function(){
+				//全选/全不选默认为true
+				checkedAllBox.checked = true;
+				
+				for (var j = 0; j < items.length; j++) {
+					//如果一个为false 改为false
+					if (items[j].checked==false) {
+						checkedAllBox.checked = false;
+						break;
+					}
+				}
+			}
+		}
+		
+		
+		
+	</script>
+</html>

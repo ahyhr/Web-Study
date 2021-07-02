@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			.box1{width: 100%;
+			background-color: #0d468d;
+			height: 30px;}
+			.box2{width: 1100px;
+			height: 30px;
+			margin: 0 auto;}
+			.box2 p{font-size: 14px;
+			line-height:30px;
+			color: white;
+			float: left;}
+			.box2 p a{color: white;text-decoration: none;}
+			.box2 p a:hover{color:#DC143C;}
+			.bg_box{width: 100%;
+			height: 212px;
+			background-image: url(img/top_banner_bg.jpg);
+			margin: 0 auto;}
+			.logo_box{width: 1100px;
+			padding-top: 30px;
+			margin: 0 auto;}
+			.nav{width: 1100px;
+			margin: 0 auto;}
+			.nav ul{text-align: center;
+			line-height: 45px;
+			margin-top: 46px;}
+			.nav ul li{display: inline-block;
+			padding: 0 38px;
+			font-size: 15px;}
+			.nav ul li.a{background-color: #0d468d;
+			color: white;}
+			/* 我市创新... */
+			.box3{margin: 0 auto;
+			width: 1100px;
+			height: 80px;
+			 border: 1px solid whitesmoke;
+			 margin-top: 20px;
+			 text-align: center;}
+			 .box3 h2{color:crimson;
+			 margin:8px 0;}
+			 .box3 p{font-size: 13px;}
+			 .box3 p a{text-decoration: none;}
+			 .box3 p a:hover{color: #DC143C;}
+			 /* 坚决打赢... */
+			 .box4{margin: 0 auto;
+			 width: 1100px;
+			 height: 375px;
+			 margin-top: 20px;}
+			 .box4 .img{background-image: url(img/news-img02.jpg);
+			 background-size: 100% 100%;
+			 width: 580px;
+			 height: 375px;
+			 float: left;}
+			 .box4 .right{width: 500px;
+			 height: 300px;
+			 float: right;}
+			 .box4 .right .righttop{border-bottom: 1px solid whitesmoke;
+			 width: 500px;
+			 height: 40px;}
+			 .box4 .right .righttop ul{list-style: none;}
+			 .box4 .right .righttop ul li{display: inline-block;
+			 line-height: 40px;
+			 padding: 0 20px;
+			 font-size: 18px;
+			 font-weight: 600;}
+			 .box4 .right .rightdown{width: 500px;
+			 height: 320px;
+			 margin-top: 8px;}
+			 .box4 .right .rightdown ul{list-style: none;}
+			 .box4 .right .rightdown ul li{background: url(img/dot.png) no-repeat left;
+			 padding: 6px;
+			 padding-left: 10px;}
+			 .box4 .right .rightdown ul li a{text-decoration: none;
+			 font-size: 14px;
+			 color: black;}
+			 .box4 .right .rightdown ul li a:hover{color: firebrick;}
+			 .box4 .right .rightdown ul span{float: right;
+			 font-size: 12px;
+			 color:#959595;}
+			 /* 医改动态... */
+			 .box5{margin: 0 auto;
+			 width: 1100px;
+			 height: 235px;
+			 margin-top: 15px;}
+			 .box5 .left{width: 600px;
+			 height: 235px;
+			 border-right: 1px whitesmoke solid;
+			 float: left;}
+			 .box5 .left .left_top{width: 580px;
+			 height: 40px;
+			 border-bottom: 1px whitesmoke solid;}
+			 .box5 .left .left_top h2{line-height: 40px;
+			  display: inline-block;
+			 padding: 0 20px;
+			 font-size: 18px;
+			 font-weight: 600;
+			 color:#0D468D ;
+			 border-bottom: 2px #0D468D solid ;}
+			 .box5 .left .left_down{}
+			 .box5 ..left .left_down{width: 500px;
+			 height: 320px;
+			 margin-top: 8px;}
+			 .box5 .left .left_down ul{list-style: none;}
+			 .box5 .left .left_down ul li{background: url(img/dot.png) no-repeat left;
+			 padding: 6px;
+			 padding-left: 10px;}
+			 .box5 .left .left_down ul li a{text-decoration: none;
+			 font-size: 14px;
+			 color: black;}
+			 .box5 .left .left_down ul li a:hover{color: firebrick;}
+			 .box5 .left .left_down ul span{float: right;
+			 font-size: 12px;
+			 color:#959595;}
+			 .box5 .right{width: 480px;
+			 float: right;}
+			 .box5 .right .down{width: 480px;
+			 height: 109px;
+			 background-color: whitesmoke;
+			 padding: 5px 0;
+			 text-align: center;
+			 margin-top: 10px;}
+			 .box5 .right .down a{display: inline-block;
+			 width: 160px;
+			 background-color: white;
+			 text-decoration: none;
+			 padding: 10px 20px;
+			 margin: 5px;
+			 text-align: left;
+			 font-size: 14px;
+			 line-height: 22px;
+			 color: #0D468D;
+			 border: 1px #0D468D solid;}
+			  .box5 .right .down a img{vertical-align: middle;
+			  margin-right: 10px;}
+			  .box5 .right .down a:hover{color: firebrick;}
+			  
+			 /* 专题专栏... */
+			 .box6{width: 1100px;
+			 height: 100px;
+			 margin:20px auto;
+			 background-color: whitesmoke;}
+			 .box6 .zl_left{height: 100px;
+			 width: 50px;
+			 background-color: #0D468D;
+			 float: left;}
+			 .box6 .zl_left h2{padding: 8px 10px;
+			 text-align: center;
+			 font-size: 16px;
+			 color: white;}
+			 .box6 .zl_right{width: 1020px;
+			 height: 70px;
+			 float: right;
+			margin: 15px 10px;}
+			.box6 .zl_right img{padding-right: 4px;}
+			
+			/* 政民互动 */
+			.box7{width: 1100px;
+			height: 280px;
+			margin: 0 auto;}
+			.box7 .zm_left{width: 590px;
+			height: 280px;
+			float: left;}
+			.box7 .zm_lefttop{width: 590px;
+			height: 40px;
+			border-bottom: 1px whitesmoke solid;}
+			.box7 .zm_lefttop h2{display: inline-block;
+			 padding: 0 20px;
+			 font-size: 18px;
+			 font-weight: 600;
+			 color:#0D468D ;
+			 line-height: 40px;
+			 border-bottom: 2px #0D468D solid ;}
+			 .box7 .zm_leftdownle{width: 131px;
+			 height: 210px;
+			 float: left;
+			 margin-top: 20px;}
+			 .box7 .zm_leftdownle .img1{width: 131px;
+			 height: 95px;
+			 background-image: url(img/hdbtn1.png);
+			 text-align:center;
+			 line-height: 156px;
+			 color: white;}
+			 .box7 .zm_leftdownle .img2{width: 131px;
+			 height: 95px;
+			 background-image: url(img/hdbtn2.png);
+			 margin-top: 20px;
+			 text-align:center;
+			 line-height: 156px;
+			 color: white;}
+			 .box7 .zm_leftdownri{width:449px;
+			 margin-top: 20px;
+			 float: right;}
+			 .box7 .zm_leftdownri .t{width: 449px;
+			 height: 40px;
+			 background-color:#e6ecf3;}
+			 .box7 .zm_leftdownri .t h2{isplay: inline-block;
+			 padding: 0 20px;
+			 font-size: 18px;
+			 font-weight: 600;
+			 color:#0D468D ;
+			 line-height: 40px;}
+			 .box7 .zm_leftdownri .t img{margin-top: 15px;
+			 float: left;}
+			 .box7 .zm_leftdownri .d{width: 40px;
+				 height: 16px;
+				 float: left;
+				 background-color: #999999;
+				 font-size: 10px;
+				 text-align: center;
+				 line-height: 16px;
+				 color: white;
+				 margin-right: 8px;
+				 margin-top: 2px;}
+				 .box7 .zm_leftdownri ul{list-style: none;}
+				 .box7 .zm_leftdownri ul li{ padding: 17px 0;}
+				 .box7 .zm_leftdownri ul li a{text-decoration: none;
+				font-size: 14px;
+				color: black;
+				float: left;}
+				 .box7 .zm_leftdownri ul li a:hover{color: darkred;}
+				 .box7 .zm_leftdownri span{float: right;
+			 font-size: 12px;
+			 color:#959595;}
+			 .box7 .zm_right{width: 500px;
+			 height: 300px;
+			 float: right;}
+			 .box7 .zm_right .zm_righttop{border-bottom: 1px solid whitesmoke;
+			 width: 500px;
+			 height: 40px;}
+			 .box7 .zm_right .zm_righttop ul{list-style: none;}
+			 .box7 .zm_right .zm_righttop ul li{display: inline-block;
+			 line-height: 40px;
+			 padding: 0 20px;
+			 font-size: 18px;
+			 font-weight: 600;}
+			 .box7 .zm_right .zm_rightdown{margin-top: 12px;}
+			 .box7 .zm_right .zm_rightdown ul{list-style: none;}
+			 .box7 .zm_right .zm_rightdown ul li{background: url(img/dot.png) no-repeat left;
+			 padding: 5.7px;
+			 padding-left: 10px;}
+			 .box7 .zm_right .zm_rightdown ul li a{text-decoration: none;
+			 font-size: 14px;
+			 color: black;}
+			 .box7 .zm_right .zm_rightdown ul li a:hover{color: firebrick;}
+			 .box7 .zm_right .zm_rightdown span{float: right;
+			 font-size: 12px;
+			 color:#959595;}
+			 
+			 /* 页尾 */
+			 .box8{width: 100%;
+			 height: 180px;
+			 border: #0D468D solid;
+			 background-color: #0D468D;
+			 margin-top: 18px;}
+			.box8 p{text-align: center;
+			margin: 15px 0;
+			font-size: 14px;
+			color: gainsboro;}
+			.box8 p a{color: white;
+			text-decoration: none;}
+			 .box8 p a:hover{color: firebrick;}
+			 
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="box2">
+				<p><a href="#">淮北市人民政府</a></p>
+				<p style="float: right; font-size: 13px;"><a href="#">繁体中文</a> | <a href="#">登录注册</a> | <a href="#">加入收藏</a> | <a href="#">无障碍浏览</a></p>
+			</div>
+		</div>
+		<div class="bg_box">
+			<div class="logo_box"><img src="img/logo.png" ></div>
+			<div class="nav">
+				<ul>
+					<li class="a">首页</li>
+					<li>信息发布</li>
+					<li>政务公开</li>
+					<li>网上办事</li>
+					<li>互动交流</li>
+					<li>监督执法</li>
+					<li>医改动态</li>
+					<li>专题专栏</li>
+				</ul>
+			</div>
+		</div>
+		<hr size="4" color="slateblue"/>
+		
+		<!-- 我市创新...  -->
+		<div class="box3">
+			<h2>我市创新"一进二督三带四帮助"举措织牢疫情防控网</h2>
+			<p>日前，市新冠肺炎疫情防控应急综合指挥部办公室印发《关于开展”- 进二督三带四帮助”工作的通知》,
+			选派疾控、卫生专业人..<<a href="#">查看洋细</a>></p>
+		</div>
+		
+		<!-- 坚决打赢... -->
+		<div class="box4">
+			<div class="img"></div>
+			<div class="right">
+				<div class="righttop">
+					<ul>
+						<li style="border-bottom:2px #0D468D solid;color: #0D468D;">工作动态</li>
+						<li>通知公告</li>
+						<li>重要转载</li>
+					</ul>
+				</div>
+				<div class="rightdown">
+				<ul>
+					<li><a href="#">市人民医院开展扶贫走访活动</a>
+					<span>03-16</span>
+					</li>
+					<li><a href="#">濉溪县疫防指导员入驻重点复工复产单位</a>
+					<span>03-13</span>
+					</li>
+					<li><a href="#">市卫生健康委走访慰问三堤口社区特困家庭</a>
+					<span>03-12</span>
+					</li>
+					<li><a href="#">我市各级卫生监督机构积极参与新冠肺炎疫情防控</a>
+					<span>03-09</span>
+					</li>
+					<li><a href="#">相山区领导"三八节”慰问-线女医务工作者</a>
+					<span>03-09</span>
+					</li>
+					<li><a href="#">市政务.服务中心卫生健康委窗口优化服务全力助推企业复工复产</a>
+					<span>03-06</span>
+					</li>
+					<li><a href="#">.杜集区多举措加强疫情期问精神障碍患者管理</a>
+					<span>03-05</span>
+					</li>
+					<li><a href="#">市人民医院“火线”发展党员激励战“疫”斗志</a>
+					<span>03-04</span>
+					</li>
+					<li><a href="#">濉溪县开展复工建筑工地疫情防控专项检查指导</a>
+					<span>03-04</span>
+					</li>
+					<li><a href="#">濉溪县疾控中心精准指导重点场所及人群开展疫情防控工作</a>
+					<span>03-04</span>
+					</li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	
+	<!-- 医改动态... -->
+	<div class="box5">
+		<div class="left">
+			<div class="left_top">
+				<h2>医改动态</h2>
+			</div>
+			<div class="left_down">
+				<ul>
+					<li><a href="#">我市紧扣为民导向深化综合医改让人民群众得实惠</a>
+					<span>01-21</span>
+					</li>
+					<li><a href="#">我市深入实施“四个试点"推动综合医改显实效</a>
+					<span>01-21</span>
+					</li>
+					<li><a href="#">市卫生健康系统“建设高品质医院、打造区城医疗高地”座谈会召开</a>
+					<span>01-16</span>
+					</li>
+					<li><a href="#">市人民医院与国药控股签约启动延伸服务项目</a>
+					<span>01-10</span>
+					</li>
+					<li><a href="#">濉溪县开展城乡居民高血压糖尿病门]诊用药人员认定工作</a>
+					<span>01-10</span>
+					</li>
+					<li><a href="#">市人民医院牵手上海交通大学附属第一 人民医院新增一 个知名专家工作室</a>
+					<span>01-09</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="right">
+			<img src="img/ahzwfww.png" >
+			<div class="down">
+					<a href="#"><img src="img/gkbtn1.png">政府信息公开指南</a>
+					<a href="#"><img src="img/gkbtn2.png" >政府信息公开年报</a>
+					<a href="#"><img src="img/gkbtn3.png" >政府信息公开目录</a>
+					<a href="#"><img src="img/gkbtn4.png" >依申请公开</a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 专题专栏... -->
+	<div class="box6">
+		<div class="zl_left">
+			<h2>专题专栏</h2>
+		</div>
+		<div class="zl_right">
+			<img src="img/zhuanlan-img01.jpg" >
+			<img src="img/zhuanlan-img02.jpg" >
+			<img src="img/zhuanlan-img03.jpg" >
+			<img src="img/zhuanlan-img04.jpg" >
+		</div>
+	</div>
+	
+	<!-- 政民互动 -->
+	<div class="box7">
+		<div class="zm_left">
+			<div class="zm_lefttop">
+				<h2>政民互动</h2>
+			</div>
+			<div class="zm_leftdownle">
+				<div class="img1">
+					部门信箱
+				</div>
+				<div class="img2">
+					在线访谈
+				</div>
+			</div>
+			<div class="zm_leftdownri">
+				<div class="t">
+					<img src="img/dczjlist.png" >
+					<h2>政务咨询</h2>
+				</div>
+				<ul>
+					<li><a href="#"><div class="d">已办结</div>关于“六库六策”在哪里能查看</a>
+					<span>2020-02-20</span>
+					</li>
+					<li><a href="#"><div class="d">已办结</div>医师要不要参加规培</a>
+					<span>2019-10-31</span>
+					</li>
+					<li><a href="#"><div class="d">已办结</div>咨询卫生专业副高级评审</a>
+					<span>2019-10-10</span>
+					</li>
+					<li><a href="#"><div class="d">已办结</div>淮北市疾控中心淮海路接种门诊疫苗长..</a>
+					<span>2019-05-08</span>
+					</li>
+					<li><a href="#"><div class="d">已办结</div>独生子女证是否还能办理?</a>
+					<span>2019-04-25</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	<div class="zm_right">
+		<div class="zm_righttop">
+			<ul>
+				<li style="border-bottom:2px #0D468D solid;color: #0D468D;">监督执法</li>
+				<li>疾病防控</li>
+			</ul>
+		</div>
+		<div class="zm_rightdown">
+			<ul>
+				<li><a href="#">市人民医院开展扶贫走访活动</a>
+				<span>03-16</span>
+				</li>
+				<li><a href="#">濉溪县疫防指导员入驻重点复工复产单位</a>
+				<span>03-13</span>
+				</li>
+				<li><a href="#">市卫生健康委走访慰问三堤口社区特困家庭</a>
+				<span>03-12</span>
+				</li>
+				<li><a href="#">我市各级卫生监督机构积极参与新冠肺炎疫情防控</a>
+				<span>03-09</span>
+				</li>
+				<li><a href="#">相山区领导"三八节”慰问-线女医务工作者</a>
+				<span>03-09</span>
+				</li>
+				<li><a href="#">市政务.服务中心卫生健康委窗口优化服务全力助推企业复工复产</a>
+				<span>03-06</span>
+				</li>
+				<li><a href="#">.杜集区多举措加强疫情期问精神障碍患者管理</a>
+				<span>03-05</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	
+	<!-- 页尾 -->
+	<div class="box8">
+		<img src="img/gov_red.png"style="position: absolute;left:15%; margin-top: 50px;">
+		<img src="img/jiucuo.png" style="position: absolute;right: 15%;margin-top: 50px;" >
+			<p ><a href="#">关于我们</a> | <a href="#">网站地图</a> | <a href="#">管理制度</a></p>
+			<p>主办单位:淮北市人民政府承办单位:淮北市信息化管理办公室电话: 0561-3119555</p>
+			<p>地址:淮北市相山区孟山中路155号皖ICP备18021616号-2  <img src="img/gaj.png" style="vertical-align: bottom;" > 皖公网安备34060002010056号</p>
+			<p>网站标识码: 3406000007 技术支持:龙讯科技</p>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest参数</title>
+    <script>
+        //rest参数 用来代替arguments
+        function fun(a,b,c) {
+            console.log(arguments);
+        }
+        fun(1,2,3);
+
+        //  ...
+        //返回为数组   可以使用数组方法进行处理
+        //必须放到最后
+        function fun2(a,...args) {
+            console.log(args);
+        }
+        fun2(1,2,3,4,5,6);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

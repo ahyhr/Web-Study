@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $aul = $(".aul");
+				var $but = $("#but");
+				// $aul.children("*").click(function(){
+				// 	this.style.backgroundColor = "red";
+				// });
+				
+				/*
+				-事件委托
+					将多个子元素(li)的事件监听委托给父元素(ul)处理
+					操作子元素(li)时会冒泡到父元素(ul),
+					父元素根据event.target得到当前子元素(ul),
+					并通过子元素(li)调用事件回调函数
+					
+				好处:
+					添加新的子元素，自动有事件响应处理
+					减少事件监听的数量变为1个
+					
+				API:
+					设置事件委托:$("").delegate(孩子,事件名,回调函数);
+					移除事件委托:$("").undelegate(事件名)
+				*/
+			   //ul设置委托
+				$aul.delegate("li","click",function(){
+					this.style.backgroundColor = "red";
+				});
+				
+				//点击添加li
+				$but.click(function(){
+					$("<li>新添加的li</li>").appendTo($aul);
+				});
+				
+				//点击移除委托
+				$("#but2").click(function(){
+					$aul.undelegate("click");//不传参数为移除所有
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<ul class="aul">
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+		</ul>
+		<button type="button" id="but">添加</button>
+		<button type="button" id="but2">删除事件委托</button>
+	</body>
+</html>

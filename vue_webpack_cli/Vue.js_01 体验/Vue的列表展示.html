@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue的列表展示</title>
+
+</head>
+
+<body>
+  <div class="box">
+    <ul>
+      <!-- v-for 语法遍历 -->
+      <li v-for="item in movies">{{item}}</li>
+    </ul>
+  </div>
+
+
+</body>
+
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.box',
+    data: {
+      movies: ['星际穿越', '大话西游', '霸王别姬', '闻香识女人']
+    }
+  });
+  app.movies.push('盗梦空间');
+</script>
+
+</html>

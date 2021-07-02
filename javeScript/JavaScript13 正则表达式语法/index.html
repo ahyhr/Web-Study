@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			//量词	通过量词设置一个内容正好出现的内容
+					//只对前面的一个内容起作用
+					//{3}   正好出现3次
+					//{1,3} 正好出现1-3次
+					//{2,}  正好出现2次以上
+					//b+	至少出现一个b 相当于b{1,}
+					//b*	0或多个b 相当于b{0,} (有没有都行)
+					//b?	0或1个b 相当于b{0,1}
+			var reg = /a{3}/;		//连续出现a 3次
+			
+			var reg = /ab{3}/;		//连续出现b 3次 （不包含a）
+			
+			var reg = /(ab){3}/;	//连续出现ab 3次 
+			
+			var reg = /ab{1,3}c/;	//连续出现b  1-3次 
+			
+			var reg = /ab{3,}c/;	//连续出现b  3次以上
+			
+			var reg = /ab+c/;		//至少出现一个b
+			
+			var reg = /ab*c/;		//0或多个b 相当于b{0,} (有没有都行)
+			
+			var reg = /ab?c/;		//0或1个b 相当于b{0,1}
+			
+			
+			
+			//检测是否以a开头
+			//^a	表示以a开头
+			
+			var reg = /^abc/;	//表示以a开头
+			
+			//c$	表示以c结尾
+			var reg = /abc$/;	//表示以c结尾
+			
+			
+			//检测是否含有.
+			//.表示任意字符
+			//需要使用转义符\
+			var reg = /\./;
+			var ref = new RegExp("\\.");	//构造函数中需要两个\\
+			
+			
+			
+			/*
+				\w	任意字母，数字下划线		[A-Z 0-9]
+				\W	除了字母，数字	[^A-Z 0-9]
+				\d	任意数字			[0-9]
+				\D	除了数字			[^0-9]
+				\s	空格
+				\S	除了空格
+				\b	单词边界
+				\B	除了单词边界
+			*/
+			
+			reg = /child\b/;	//相当于一个独立的单词
+			console.log(reg.test("hello child es"));
+			
+			
+			//获取一个用户输入
+			//去除多余空格  保留中间空格
+			// var str = prompt("输入用户名:");
+			
+			//^\s*	开头空格
+			//\s*$	结尾空格
+			// str = str.replace(/^\s*|\s*$/g,"");
+			// console.log(str);
+			
+			
+			
+			
+			
+			//检测一个手机号
+			/*
+				手机号规则
+				18756893546（11位）
+				1.以1开头
+				2.第二位3-9任意数字
+				3.三位以后任意数字9个
+			*/
+			var numReg = /^1[3-9][0-9]{9}$/;
+			
+			var num = "13756893546";
+			console.log(numReg.test(num));
+			
+			
+			
+			//电子邮件格式
+			/*
+				hello		.nihao		@		abc		.com	.cn
+				任意字母下划线	.任意字母下划线	@	任意字母数字		.任意字母2-5位	.任意字母2-5
+				\w{3,}		(\.\w)*		@[A-z0-9]+		(\.[A-z]{2,5}){1,2}		
+			*/
+			var emailReg =/^\w{3,}(\.\w)*@[A-z0-9]+(\.[a-z]{2,5}){1,2}$/i;
+			var email = "564505105@qq.com";
+			console.log(emailReg.test(email));
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model结合checkbox使用</title>
+</head>
+<body>
+  <!-- checkbox   单选 -->
+  <div class="box">
+    <label for="agree">
+      <input type="checkbox" id="agree" v-model="isActive">同意用户协议
+    </label>
+    <br>
+    <button :disabled="!isActive">下一步</button>
+    <br>
+     <!-- checkbox   多选 -->
+  <input type="checkbox" value="唱" v-model="hobbys">唱
+  <input type="checkbox" value="跳" v-model="hobbys">跳
+  <input type="checkbox" value="rap" v-model="hobbys">rap
+  <input type="checkbox" value="蓝球" v-model="hobbys">蓝球
+  <h3>你的爱好是{{hobbys}}</h3>
+  </div>
+
+ 
+
+  <script src="./js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:".box",
+      data:{
+        // 单选
+        isActive:false,
+        hobbys:[]
+      }
+    })
+  </script>
+</body>
+</html>

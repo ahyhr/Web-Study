@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+    <script>
+        //使用构造函数创建
+        function phone (brand,price){
+            this.brand = brand;
+            this.price = price;
+        }
+        phone.prototype.callName = function(){
+            console.log('我是'+this.brand+'手机');
+        };
+
+        const xiaomi = new phone('小米',2999);
+        console.log(xiaomi.brand);
+        xiaomi.callName();
+
+
+        //使用class类创建
+        class Shouji{
+            //construcotor 定义构造函数初始化
+            constructor(brand,price){
+                this.brand = brand;
+                this.price = price;
+            }
+            //static 静态成员   实例对象不能用
+            static name = '静态手机';
+            static fn = function(){
+                console.log('我是手机类静态方法');
+            }
+
+            call (){
+                console.log('我是'+this.brand+'手机');
+            }
+            sayPrice(){
+                console.log('售价'+this.price);
+            }
+        }
+        const huawei = new shouji('华为',5999);
+        console.log(huawei.brand);
+        huawei.call();
+        huawei.sayPrice();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

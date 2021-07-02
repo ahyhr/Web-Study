@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+    <title>金山打字通logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="120" height="120" rx="20"></rect>
+        <linearGradient x1="64.8183594%" y1="45.6420898%" x2="36.0297852%" y2="94.0393066%" id="linearGradient-3">
+            <stop stop-color="#FB7F03" offset="0%"></stop>
+            <stop stop-color="#EF4A0E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="63.9526367%" y1="24.3994141%" x2="38.2358398%" y2="60.3942871%" id="linearGradient-4">
+            <stop stop-color="#FF9681" offset="0%"></stop>
+            <stop stop-color="#D1461F" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="61.8154297%" y1="93.8964844%" x2="37.0104557%" y2="20.0807198%" id="linearGradient-5">
+            <stop stop-color="#FFC628" offset="0%"></stop>
+            <stop stop-color="#FFA307" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="40.1271555%" y1="2.84518968%" x2="50%" y2="100%" id="linearGradient-6">
+            <stop stop-color="#ED9512" offset="0%"></stop>
+            <stop stop-color="#E46123" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="33.4970703%" y1="5.076873%" x2="65.8737793%" y2="96.488131%" id="linearGradient-7">
+            <stop stop-color="#5598F7" offset="0%"></stop>
+            <stop stop-color="#3574E3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="40.0544434%" y1="2.12965745%" x2="50%" y2="100%" id="linearGradient-8">
+            <stop stop-color="#5181CC" offset="0%"></stop>
+            <stop stop-color="#284A9D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="37.854248%" y1="92.4853516%" x2="62.9140625%" y2="46.6748047%" id="linearGradient-9">
+            <stop stop-color="#54A220" offset="0%"></stop>
+            <stop stop-color="#37950E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="40.1271555%" y1="2.84518968%" x2="50%" y2="100%" id="linearGradient-10">
+            <stop stop-color="#328215" offset="0%"></stop>
+            <stop stop-color="#1E620B" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="40.1428223%" y1="76.965332%" x2="104.440308%" y2="37.3413086%" id="linearGradient-11">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#4889EF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="40.1428223%" y1="76.965332%" x2="104.440308%" y2="37.3413086%" id="linearGradient-12">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#F86E07" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="40.1428223%" y1="76.965332%" x2="104.440308%" y2="37.3413086%" id="linearGradient-13">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#F8A507" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="40.1428223%" y1="76.965332%" x2="104.440308%" y2="37.3413086%" id="linearGradient-14">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#52A11F" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="金山打字通logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <polygon id="Rectangle-Copy-2" fill="url(#linearGradient-3)" mask="url(#mask-2)" transform="translate(40.000000, 49.000000) rotate(-90.000000) translate(-40.000000, -49.000000) " points="28 29 52 45.875 52 69 28 69"></polygon>
+            <path d="M29,68 L51,68 L51,46.3943253 L29,30.9255753 L29,68 Z M28,30.2224503 L28,29.5193253 L28.4248232,29.2987038 L29,29.703125 L29,30.9255753 L28,30.2224503 Z M28,29 L52,45.875 L52,69 L28,69 L28,29 Z" id="Rectangle-Copy-14" fill="url(#linearGradient-4)" fill-rule="nonzero" mask="url(#mask-2)" transform="translate(40.000000, 49.000000) rotate(-90.000000) translate(-40.000000, -49.000000) "></path>
+            <polygon id="Rectangle-Copy-3" fill="url(#linearGradient-5)" mask="url(#mask-2)" transform="translate(48.000000, 80.000000) rotate(-180.000000) translate(-48.000000, -80.000000) " points="36 60 60 76.875 60 100 36 100"></polygon>
+            <path d="M37,99 L59,99 L59,77.3943253 L37,61.9255753 L37,99 Z M36,61.2224503 L36,60.5193253 L36.4248232,60.2987038 L37,60.703125 L37,61.9255753 L36,61.2224503 Z M36,60 L60,76.875 L60,100 L36,100 L36,60 Z" id="Rectangle-Copy-17" fill="url(#linearGradient-6)" fill-rule="nonzero" mask="url(#mask-2)" transform="translate(48.000000, 80.000000) rotate(-180.000000) translate(-48.000000, -80.000000) "></path>
+            <polygon id="Rectangle" fill="url(#linearGradient-7)" mask="url(#mask-2)" points="59 21 83 37.875 83 61 59 61"></polygon>
+            <path d="M60,60 L82,60 L82,38.3943253 L60,22.9255753 L60,60 Z M59,21 L83,37.875 L83,61 L59,61 L59,21 Z" id="Rectangle-Copy-15" fill="url(#linearGradient-8)" fill-rule="nonzero" mask="url(#mask-2)"></path>
+            <polygon id="Rectangle-Copy-4" fill="url(#linearGradient-9)" mask="url(#mask-2)" transform="translate(79.000000, 72.000000) rotate(-270.000000) translate(-79.000000, -72.000000) " points="67 52 91 68.875 91 92 67 92"></polygon>
+            <path d="M68,91 L90,91 L90,69.3943253 L68,53.9255753 L68,91 Z M67,52 L91,68.875 L91,92 L67,92 L67,52 Z" id="Rectangle-Copy-16" fill="url(#linearGradient-10)" fill-rule="nonzero" mask="url(#mask-2)" transform="translate(79.000000, 72.000000) rotate(-270.000000) translate(-79.000000, -72.000000) "></path>
+            <polygon id="Rectangle" fill="url(#linearGradient-11)" mask="url(#mask-2)" points="43 29.9995117 59 21 59 37 43 37"></polygon>
+            <polygon id="Rectangle-Copy-6" fill="url(#linearGradient-12)" mask="url(#mask-2)" transform="translate(28.000000, 69.000000) rotate(-90.000000) translate(-28.000000, -69.000000) " points="20 69.9995117 36 61 36 77 20 77"></polygon>
+            <polygon id="Rectangle-Copy-7" fill="url(#linearGradient-13)" mask="url(#mask-2)" transform="translate(68.000000, 92.000000) rotate(-180.000000) translate(-68.000000, -92.000000) " points="60 92.9995117 76 84 76 100 60 100"></polygon>
+            <polygon id="Rectangle-Copy-9" fill="url(#linearGradient-14)" mask="url(#mask-2)" transform="translate(91.000000, 52.000000) rotate(-270.000000) translate(-91.000000, -52.000000) " points="83 52.9995117 99 44 99 60 83 60"></polygon>
+        </g>
+    </g>
+</svg>

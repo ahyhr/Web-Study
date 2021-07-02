@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- 引入jQuery库 -->
+		<!-- 本地引入 -->
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!-- 远程引入 减轻自己服务器压力	BootCDN-->
+		<!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script> -->
+		
+		<script type="text/javascript">
+			//文档加载的监听		window.onload
+			//核心函数（$/jQuery）
+			$(function(){
+				//获取but
+				var $but = $("#but");
+				//绑定点击事件
+				$but.click(function(){
+					//获取输入框value
+					var va = $("#name").val();
+					alert(va);
+				});
+				
+			});
+			
+			/*
+			1.使用jQUery函数: $/jQuery
+			2.使用jQUery对象: 执行$()返回的对象-$but
+			*/
+		   
+		</script>
+	</head>
+	<body>
+		<input type="text" name="" id="name" value="" />
+		<button type="button" id="but">jquery</button>
+	</body>
+</html>

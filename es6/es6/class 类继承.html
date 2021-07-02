@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class 类继承</title>
+    <script>
+        //es5 组合继承
+        function phone (brand,price){
+            this.brand = brand;
+            this.price = price;
+        }
+        phone.prototype.sayName = function(){
+            console.log('我是'+this.brand+'手机');
+        };
+
+        function shouji (brand,price,color,size){
+            //call（）继承phone构造函数
+            phone.call(this,brand,price);
+            this.color = color;
+            this.size = size;
+        }
+        //继承phone 方法 原型链继承
+        shouji.prototype = new phone();
+        shouji.prototype.constructor = shouji;
+
+        shouji.prototype.sayPrice = function(){
+            console.log('售价'+this.price);
+        };
+        const xiaomi = new shouji('小米',4999,'黑色','5.5寸');
+        console.log(xiaomi);
+        xiaomi.sayName();
+        xiaomi.sayPrice();
+
+
+        //es6 类继承
+        class People{
+            //构造方法
+            constructor(name,gender){
+                this.name = name;
+                this.gender = gender;
+            }
+            sayName(){
+                console.log('我叫'+this.name);
+            }
+        }
+        //extends 继承方法
+        class Student extends People{
+            constructor(name,gender,age,height){
+                //super 继承构造
+                super(name,gender);//people.call(this,name,gender)
+                this.age = age;
+                this.height = height;
+            }
+            sayAge(){
+                console.log('我今年'+this.age+'岁');
+            }
+            sayHeight(){
+                console.log('身高'+this.height);
+            }
+            //可以对父类型方法进行重写
+            sayName(){
+                console.log('我叫'+this.name);
+            }
+        }
+
+        const stu = new Student('小王','男',24,'178cm');
+        console.log(stu);
+        console.log(stu.name);
+        stu.sayAge();
+        stu.sayName()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

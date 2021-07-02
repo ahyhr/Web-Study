@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: antiquewhite;
+			}
+			.box2{
+				width: 200px;
+				background-color: aquamarine;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box = document.querySelector(".box");
+				var but = document.getElementById("but");
+				
+				but.onclick = function(){
+					toggleClass(box,"box2");
+				};
+				
+				
+				
+				
+				//添加或删除class属性
+				function toggleClass(obj , str){
+					if (hasCalss(obj,str)) {
+						return removeClass(obj,str);
+					} else{
+						return addClass(obj,str);
+					}
+				};
+				
+				//添加指定的class属性
+				function addClass(obj , str){
+					if(!hasCalss(obj,str)){
+						obj.className += " " + str;
+					}
+				};
+				
+				//删除指定的class属性
+				function removeClass(obj , str){
+					var reg = new RegExp("\\b"+str+"\\b");
+					obj.className = obj.className.replace(reg,"");
+				};
+				
+				//判断是否含有该class属性
+				function hasCalss(obj , str){
+					var reg = new RegExp("\\b"+str+"\\b");
+					return reg.test(obj.className);
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<button type="button" id="but">按钮</button>
+		<div class="box">
+			
+		</div>
+	</body>
+</html>

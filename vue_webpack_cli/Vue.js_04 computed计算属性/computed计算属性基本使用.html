@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="box">
+    <!-- <h2>{{fName +' '+lName }}</h2>
+    <h2>{{fName}} {{lName}}</h2>
+    <h2>{{getFullName()}}</h2> -->
+
+    <!-- 方便阅读 -->
+    <h2>{{fullName}}</h2>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.box',
+    data: {
+      fName: 'John',
+      lName: 'Wilson'
+    },
+    //计算属性  相比methods方法有缓存 性能会更好(不会每次调用都执行，当内部数据改变时才会更新)
+    computed: {     
+      //使用属性名称
+      fullName() {
+        return this.fName + ' ' + this.lName;
+      }
+    },
+    methods: {
+      getFullName() {
+        return this.fName + ' ' + this.lName;
+      }
+    }
+  });
+</script>
+
+</html>

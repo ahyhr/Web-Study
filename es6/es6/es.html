@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            let box = document.querySelector(".box");
+            const box2i = document.querySelector(".box2").querySelectorAll("i");
+            box.onclick = function(){
+               setTimeout(() => {
+                this.style.backgroundColor = "pink";
+               }, 2000);  
+            };
+
+           for (let i = 0; i < box2i.length; i++) {
+                box2i[i].onclick = function(){
+                   setTimeout(function(){
+                        box2i[i].style.backgroundColor = "pink";
+                   },1000);
+            };
+               
+           }
+
+        };
+    </script>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: bisque;
+        }
+        .box2{
+            width: 300px;
+            height: 200px;
+            margin: 120px 0;
+        }
+        .box2 i{
+            width: 50px;
+            height: 30px;
+            border: 3px solid greenyellow;
+            display:inline-block;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box2">
+        <i>1</i>
+        <i>2</i>
+        <i>3</i>
+    </div>
+</body>
+</html>

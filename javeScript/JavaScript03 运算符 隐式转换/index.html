@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	<script type="text/javascript">
+		/*
+		运算符
+			非Numbe类型会先转换为number，再运算  (除字符串+加法)
+			隐式转换			var c ="123";		转unmber
+							c = c - 0;	*1	/1
+							
+							var c =+"123";   +号
+			任何值和字符串相加都转换为字符串做拼接  (只有+加法)
+				隐式转换		var c =123;		转字符串
+							c = c + "";
+			任何值和NaN计算都为NaN
+			
+		+
+		-
+		*
+		/
+		%
+		
+		布尔值隐式转换
+		var c = 10；
+		c =！！c；
+		
+		*&&与运算
+			都为false，返回false
+			有一个值为false，返回false（不会看第二个值）
+			都为true，返回true  (返回后边的true)
+		*||或运算
+			都为true，返回true	(返回第一个的true)
+			有一个值为true，返回true	（不会看第二个值）
+		 	都为false，返回false
+			
+		*/
+	   // var c =+"123";
+	   // console.log("c ="+c+typeof c);
+	   
+	   var n1=10 ,n2=20;
+	   var n =n1++;
+	   console.log('n='+n);
+	   console.log('n1='+n1);
+	   //10  11
+	 n = ++n1;
+	 console.log('n='+n);
+	 console.log('n1='+n1);
+	   //12 12
+	   n = n2--;
+	   console.log('n='+n);
+	   console.log('n2='+n2);
+	   //20 19
+	   n = --n2;
+	   console.log('n='+n);
+	   console.log('n2='+n2);
+	   
+	</script>	
+	
+	</head>
+	<body>
+		
+	</body>
+</html>

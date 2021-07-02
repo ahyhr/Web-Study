@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			/*
+			Date对象
+				使用Date对象来表示一个时间
+			*/
+		   
+		   //创建一个时间对象
+		   //会封装为当前代码的时间
+		   var date1 = new Date();
+		   console.log(date1);
+		   
+		   
+		   //创建一个指定时间对象
+		   //顺序为		月/日/年(空格）时/分/秒
+		   var date2 = new Date("12/05/2019 12:50:41");
+		   console.log(date2);
+		   
+		   //getDate()	获取日
+		   var getdate = date2.getDate();
+		   console.log(getdate);
+		   
+		   //getDay()	获取周几
+				/*	返回0-6
+					0为周日
+					1为周一
+					.
+					.
+					6为周六
+				*/
+		   var getday = date2.getDay();
+		   console.log(getday);
+		   
+		   //getMonth()	获取月份
+		   				/*	返回0-11
+		   					0为一月
+		   					1为二月
+		   					.
+		   					.
+		   					11为十二月
+		   				*/
+		   
+		   var getmonth = date2.getMonth();
+		   console.log(getmonth+1);	//可以写+1
+		   
+		   //getFullYear()	获取年份
+		   var getgetfullyear = date2.getFullYear();
+		   console.log(getgetfullyear);
+		   
+		   
+		   //date2.getHours();			获取时
+		   //date2.getMinutes();		获取分
+		   //date2.getSeconds();		获取秒
+		   //date2.getMilliseconds();	获取毫秒
+		   
+		   
+		   //getTime();		获取时间戳
+					/*
+						指从格林威治标准时间19701月1日，0时0分0秒
+						到当前日期所花费的毫秒数（1秒 = 1000毫秒）
+						计算机底层在保存时间是使用时间戳
+					*/
+		   var gettime = date2.getTime();
+		   console.log(gettime);
+		   
+		   
+		   
+		   //Date.now();	代码执行时的时间戳
+		   //测试代码执行性能
+		   var start = Date.now();
+		   
+		   for (var i = 0; i < 100; i++) {
+		   	console.log(i);
+		   }
+		   
+		   var end = Date.now();
+		   console.log(end-start);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

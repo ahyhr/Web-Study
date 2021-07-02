@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>symbol 迭代器iterator</title>
+    <script>
+        //声明一个数组
+        const xiyou = ['唐僧','孙悟空','猪八戒','沙和尚'];
+
+        //for of 遍历   保存的是指    for in 保存的数索引
+        for (let v of xiyou) {
+            console.log(v);
+        }
+
+
+        //应用:自定义遍历数据
+        const school = {
+            name:'一班',
+            stus:[
+                '小明',
+                '销户',
+                '销售'
+            ],
+            //使用for of 自定义遍历
+            [Symbol.iterator](){
+                let index = 0;
+                return{
+                    next:() =>{
+                        if (index < school.stus.length) {
+                            const result = {value:this.stus[index],done:false};
+                            index++;
+                            return result;
+                        }else{
+                            return {value:undefined,done:true};
+                        }
+                    }
+                }
+            }
+        };
+        for (const it of school) {
+            console.log(it);
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

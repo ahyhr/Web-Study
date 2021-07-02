@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			/*
+			基本数据类型
+			String 字符串
+			Number 数值
+			Boolean 布尔值
+			Null 空值
+			Undefined 未定义
+			
+			*引用数据类型
+			Object 对象
+			*/
+			/*
+			\转译字符
+			\"  表示"
+			\'  表示'
+			/n	表示换行
+			/t	制表符（空格）
+			\\ 表示\	
+			*/
+			
+			var str ='我说："今天天气真不错！"';
+			var str2 ="我说：\"今天天气真不错！\"";
+			alert(str2);
+			
+			// typeof	检测变量类型
+			 // var a ="123";
+			 // console.log(typeof a);
+			
+			//Number.MAX_VALUE	数字的最大值
+			
+			//Infinity	正无穷	↘
+			//-Infinity	负无穷	  →→返回Number类型 (typeof检测)
+			//NaN	不是一个数字	↗
+			
+			// var b =0.1 + 0.2;
+			// console.log(b);
+			
+			/*
+			强制类型转换
+			
+			*字符串
+			c = c.toString();
+			c = String(c);
+			
+			取整数123
+			var c ="123px"
+			c = parseInt(c);
+			
+			取小数12.3
+			var c ="12.3px"
+			c = parseFloat(c);
+			
+			*Number
+			c = Number(c); 
+			 非数字转换为NaN	空串转换为0
+			 bool转数字 true为1  false为0
+			 
+			* Boolean
+			 c = Boolean(c);
+			 -数字----> 布尔
+				-除了0和NaN，其余都是true
+			-字符串----> 布尔
+				-除了空串，都是true
+			-null和undefind都会转换为false
+			-Object对象也为true
+			*/
+		   
+			//var c =123;
+			// c = c.toString();
+			//c = String(c);
+			
+			// var c ="123";
+			// c = Number(c);
+			
+			var c ="123px"
+			c = parseInt(c);
+			Boolean()
+			
+			console.log(typeof c);
+			console.log(c);
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

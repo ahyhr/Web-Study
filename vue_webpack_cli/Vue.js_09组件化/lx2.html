@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="app">
+    <cpn :pnum1="num1" :pnum2="num2" @changenum1="changenum1" @changenum2="changenum2"></cpn>
+  </div>
+
+  <template id="cpnC">
+    <div>
+      <h2>props:{{pnum1}}</h2>
+      <h2>data:{{dnum1}}</h2>
+      <input type="text" :value="dnum1" @input="dnum1Input">
+      <h2>props:{{pnum2}}</h2>
+      <h2>data:{{dnum2}}</h2>
+      <input type="text" :value="dnum2" @input="dnum2Input">
+    </div>
+  </template>
+  <script src="./js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'.app',
+      data:{
+        message:'你好',
+        num1:0,
+        num2:0
+      },
+      methods: {
+        changenum1(val){
+          this.num1 = parseInt(val);
+        },
+        changenum2(val){
+          this.num2 = parseInt(val);
+        }
+      },
+      components:{
+        cpn:{
+          template:'#cpnC',
+          props:{
+            pnum1:Number,
+            pnum2:Number
+          },
+          data() {
+            return {
+              dnum1:this.pnum1,
+              dnum2:this.pnum2
+            }
+          },
+          methods: {
+            dnum1Input(event){
+              this.dnum1 = event.target.value;
+              this.$emit('changenum1',this.dnum1);
+            },
+            dnum2Input(event){
+              this.dnum2 = event.target.value;
+              this.$emit('changenum2',this.dnum2);
+            }
+          },
+        }
+      }
+    })
+  </script>
+</body>
+</html>

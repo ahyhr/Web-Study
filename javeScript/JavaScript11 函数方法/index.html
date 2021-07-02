@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			
+			//call() 和 apply()
+				//都需要函数对象来调用
+				//可以将一个对象指定为一个参数
+			function fun(a,b){
+				console.log("a="+a);
+				console.log("b="+b);
+				 alert(this.name);
+			}
+			var obj ={name:"obj"};
+			var obj2 ={name:"obj2"};
+		
+			//call（）可以直接传递参数
+			fun.call(obj,1,2);	//指定为obj
+			
+			//apply（）需要封装到数组统一传递
+			fun.apply(obj2,[2,3]);//指定为obj2
+			
+			
+			
+			
+			//arguments
+					//是每次调用函数时传递的隐藏数组
+					//传递的实参保存在arguments中   1 2 4
+					//形参不影响
+					//arguments【0】第一个实参	1
+					//arguments【2】第一个实参	2
+					
+					//arguments.callee
+						//就是当前正在指向的函数的对象
+					
+					
+			function argument(){
+				console.log(arguments.length);
+			}
+			argument(1,2,4);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

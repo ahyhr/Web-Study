@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			
+			var people = new Object();//创建对象
+			
+			//属性名不强制要求
+			//使用特殊属性名  
+			people["123"] = 123;//读取也采用这种方式
+			
+			people.name = "张三";    //创建对象属性
+			people.sex = "男";
+			people.age = 20;
+			
+			delete people.name;  //删除属性
+			
+			console.log(people["123"]);
+			
+			
+			//使用 [ ] 这种方式去操作属性，更叫灵活
+			// 在 [ ] 中传递一个变量
+			var a = new Object();
+			a["123"] = 456;
+			a["name"] = "张长长";
+			a["age"] = 18;
+			
+			var n = "name";
+			console.log(a[n]);
+			
+			// in 运算符
+			//  检查一个对象中是否含义指定的属性 
+			//		有返回true  没有返回fales
+			console.log("name" in a);
+			
+			
+			//使用字面量 创建
+			var obj1 ={
+				name:"张四",
+				age:25,
+				gender:"男"
+				};
+				
+				//特殊字符加 ""
+			var obj2 ={
+			"@#$":"张四",
+			"***":25,
+			gender:"男"
+			};
+			
+			console.log(obj2);
+			
+			
+			
+			//工厂的方式创建
+			function createPerson(name,age,gender){
+				var obj = new Object();
+				obj.name = name;
+				obj.age = age;
+				obj.gender = gender;
+				obj.sayname= function(){
+					console.log(this.name);
+				}
+				return obj;
+			}
+			var person1 =createPerson("小王",18,"男");
+			var person2 =createPerson("小李",28,"男");
+			var person3 =createPerson("小莓",21,"女");
+			console.log(person1);
+			console.log(person2);
+			console.log(person3);
+			person1.sayname();
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

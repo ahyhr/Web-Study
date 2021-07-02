@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class get和set</title>
+    <script>
+        //get 和 set
+        class Phone{
+            //被读取时执行代码 再返回结果
+                //-get 动态计算返回结果
+                get price(){
+                    console.log('价格被读取了');
+                    return 5500;
+                }
+                //-set 添加控制 判断
+                set price(newval){
+                    console.log('价格被修改了');
+                }
+        }
+        const xiaomi = new Phone();
+        console.log(xiaomi.price);
+        console.log(xiaomi.price=6600)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

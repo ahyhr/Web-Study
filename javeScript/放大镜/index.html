@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.small{width: 278px;height: 353px;
+			border:1px black solid;
+			margin: 50px;
+			position: relative;}
+			.mark{width: 100px;height: 100px;
+			background-color: lightgoldenrodyellow;
+			opacity: 0.4;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;}
+			.big{width: 300px;height: 300px;
+			border:1px black solid;
+			position: absolute;
+			left: 500px;
+			top: 50px;
+			overflow: hidden;
+			display: none;
+			}
+			.big img{width:834px;height: 1059px;
+			position: absolute;
+			left: 0;
+			top: 0;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var osmall = document.querySelector(".small");
+				var obig = document.querySelector(".big");
+				var bigImg =obig.getElementsByTagName("img")[0];
+				var mark = document.querySelector(".mark");
+				//鼠标划入
+				osmall.onmouseover = function(){
+					mark.style.display = "block";
+					obig.style.display = "block";
+				};
+				//鼠标移开
+				osmall.onmouseout = function(){
+					mark.style.display = "none";
+					obig.style.display = "none";
+				};
+				
+				osmall.onmousemove = function(event){
+					var l = event.clientX - osmall.offsetLeft -50;
+					var t = event.clientY - osmall.offsetTop -50;
+					if(l<=0){
+						l = 0;
+					}
+					if(l>=178){
+						l = 178;
+					}
+					if(t<=0){
+						t = 0;
+					}
+					if(t>=253){
+						t = 253;
+					}
+					mark.style.left = l + "px";
+					mark.style.top = t + "px";
+					
+					bigImg.style.left = l*-3 +"px";
+					bigImg.style.top = t*-3 +"px";
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div class="small">
+			<img src="img/Snipaste_2020-06-13_17-23-46.png" >
+			<div class="mark"></div>
+		</div>
+		<div class="big">
+			<img src="img/Snipaste_2020-06-13_17-23-46.png" >
+		</div>
+	</body>
+</html>

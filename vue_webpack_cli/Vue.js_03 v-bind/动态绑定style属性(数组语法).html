@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态绑定style属性(数组语法)</title>
+</head>
+<style>
+  .{
+    border: 1px solid red;
+  }
+</style>
+<body>
+  <!-- 使用数组绑定style -->
+  <div id="box">
+    <h2 :style="[class1,class2]">{{val}}</h2>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#box',
+    data:{
+      val:'hello',
+      class1:{color:'red',fontSize:'50px'},
+      class2:{border: '1px solid red'}
+      
+    },
+    methods:{
+
+    }
+
+  })
+</script>
+</html>

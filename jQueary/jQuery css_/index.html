@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $box = $(".box");
+				var istrue = true;
+				$("button:eq(0)").click(function(){
+				//设置css样式
+					$box.css({
+						width:200,
+						height:200,
+						backgroundColor: "rosybrown"
+					});
+					
+				//设置位置
+					//相等于页面左上角的位置
+					var offset = $box.offset();
+					console.log(offset.left);// top
+					
+					//可写入参数改变位置
+					$box.offset({top:50,
+								left:50
+								});
+					
+					//相对于父元素的位置
+					var position = $box.position();
+					console.log(position.top);
+				});
+				
+				//scrollTop()	滚动条值
+				setInterval(function(){
+					//ie为html上			兼容ie
+					//var res = $("body").scrollTop() + $("html").scrollTop();
+					var res = $(document.documentElement).scrollTop() + $(document.body).scrollTop();
+					console.log(res)
+				},2000)
+				
+				$("button:eq(1)").click(function(){
+					//scrollTop()	滚动条值
+					$("html,body").scrollTop(0);
+					
+				});
+				
+				/*
+				1.内容尺寸				   height(): height				   width(): width				2．内部尺寸				   innerHeight(): height+padding				   innerwidth(): width+padding				3.外部尺寸				   outerHeight(false/true): height+padding+border如果是true，加上margin				   outerwidth(false/true): width+padding+border如果是true，加上margin
+				*/	
+			});
+		</script>
+		<style type="text/css">
+			body{
+				height: 1000px;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: aquamarine;
+			}
+			.red{
+				background-color: rosybrown;
+			}
+			button:nth-of-type(2){
+				position: fixed;
+				bottom: 0;
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button">按钮1</button>
+		<button type="button">按钮2</button>
+		<div class="box">
+			
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="app">
+    <h2>{{con}}</h2>
+    <cpn @subcon="butClick" @addcon="butClick"></cpn>
+  </div>
+
+  <template id="cpnC">
+    <div>
+      <button @click="sub">-</button>
+      <button @click="add">+</button>
+    </div>
+  </template>
+  <script src="./js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '.app',
+      data: {
+        message: '你好',
+        con: 0
+      },
+      methods: {
+        butClick(cnum) {
+          this.con = cnum;
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpnC',
+          data() {
+            return {
+              cnum: 0
+            }
+          },
+          methods: {
+            sub() {
+              this.cnum--;
+              this.$emit('subcon', this.cnum);
+            },
+            add() {
+              this.cnum++;
+              this.$emit('addcon', this.cnum);
+            }
+          },
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>

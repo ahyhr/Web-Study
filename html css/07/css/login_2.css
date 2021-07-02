@@ -1,0 +1,176 @@
+.box{background-color: #eee;
+width: 500px;
+height: 500px;}
+
+.login_2{
+	width:260px;
+	margin: 50px auto;
+	background-color: white;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	box-shadow: 0 0 3px #ddd;
+	height: 340px;
+}
+
+.login_2  .tab_2{
+	text-align: center;
+	padding: 30px 0px;
+}
+
+.login_2 .tab_2 a{
+	display: inline-block;
+	color: #999;
+	padding: 5px 6px;
+	
+}
+
+.login_2 .tab_2 a:hover{
+	color:orangered;
+	border-bottom: 1px solid orangered;
+}
+
+.login_2 .tab_2 a.active_2{
+	color: orangered;
+	font-weight: 600;
+	border-bottom: 1px solid orangered;
+}
+
+.login_2 form{
+	padding: 10px 30px;
+}
+.login_2 form label{
+	display: block;
+}
+
+.login_2 form label input{
+	height: 35px;
+	width: 100%;
+	box-sizing: border-box;
+	outline:0;
+	border: 1px solid #ddd;
+	
+}
+
+.login_2 form label input[type="text"]{
+	background: url(../img/user1.png) no-repeat left;
+	background-size:14px;
+	background-position: 5px;
+	font-size: 10px;
+	background-color: whitesmoke;
+	padding-left: 25px;
+	border-bottom: none;
+	border-radius:3px 3px 0px 0px ;
+}
+
+.login_2 form label input[type="password"]{
+	background:url(../img/password.png) no-repeat left;
+	background-size:14px;
+	background-position: 5px;
+	font-size: 10px;
+	background-color: whitesmoke;
+	padding-left: 25px;
+	border-radius:0px 0px 3px 3px ;
+}
+
+.login_2 form label input[type="text"]:focus{
+	background:url(../img/user2.png) no-repeat left;
+	background-size:14px;
+	background-position: 5px;
+	background-color: whitesmoke;
+}
+
+.login_2 form label input[type="password"]:focus{
+	background:url(../img/mimakai.png) no-repeat left;
+	background-size:14px;
+	background-position: 5px;
+	background-color: whitesmoke;
+}
+
+.login_2 form label input[type="checkbox"]{
+	width: auto;
+	vertical-align: middle;
+	
+}
+.login_2 form label span{
+	font-size: 11px;
+}
+
+.login_2 form label a{
+	font-size: 11px;
+	padding-left: 65px;
+	}
+
+.login_2 form label a:hover{
+	color: orangered;
+}
+
+.login_2 form button{
+	background-color: rgb(90, 152, 222);
+	width: 100%;
+	border: 0;
+	color: white;
+	padding: 6px;
+	box-sizing: border-box;
+	border-radius: 20px;
+	cursor: pointer;
+	outline: 0;	
+	font-size: 12px;
+}
+
+.login_2 form button:hover{
+	background-color: rgb(90, 152, 222,0.8);
+}
+
+.login_2 .other{margin: 15px;}
+
+.login_2 .other .other_tab{
+	text-align: center;
+}
+
+.login_2 .other .other_tab span{
+	color: #ddd;
+	font-size: 10px;
+}
+.login_2 .other .other_tab hr{
+	width: 40px;
+	border: 0.5px solid #DDDDDD;
+}
+
+.login_2 .other .other_tab .hr1{
+	position: relative;
+	left: 25px;
+	top: 15px;
+}
+.login_2 .other .other_tab .hr2{
+	position: relative;
+	right: 25px;
+	top: 15px;
+}
+
+.login_2 .other .others{
+	width: 120px;
+	margin: 8px auto;
+	text-align: center;
+}
+
+.login_2 .other .others a{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-color: #000000;
+}
+
+.login_2 .other .others a.wb{
+	background: url(../img/sina.png) no-repeat;
+	background-size: 20px;
+}
+
+.login_2 .other .others a.wx{
+	background: url(../img/weixin.png) no-repeat;
+	background-size: 20px;
+}
+
+.login_2 .other .others a.qq{
+	background: url(../img/qq.png) no-repeat;
+	background-size: 20px;
+}

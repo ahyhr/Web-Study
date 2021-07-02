@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态绑定class属性</title>
+  <style>
+    .active{
+      color: orange;
+    }
+    .line{
+      border: 1px solid orange;
+    }
+  </style>
+</head>
+<body>
+  <!-- 动态绑定class对象语法 -->
+  <div class="box">
+    <!-- 使用对象的键 值 进行管理启用   可以和普通class共存-->
+    <h1 class="tutong" :class='{active:isActive,line:isLine}'>:class='{active:isActive,line:isLine}'</h1>
+    <!-- 也可以将class放入对象方法中 ()调用-->
+    <h1 :class='getClass()'>:class='getClass()'</h1>
+
+    <button @click='butClick'>active</button>
+    <button @click='isLine=!isLine'>line</button>
+  </div>
+
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'.box',
+    data:{
+      isActive:true,  //定义class属性的状态
+      isLine:false
+    },
+    methods: {
+      butClick:function(){
+        this.isActive=!this.isActive;
+      },
+      getClass:function(){
+        return {active:this.isActive,line:this.isLine}
+      }
+    }
+  });
+</script>
+</html>

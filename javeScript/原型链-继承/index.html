@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			//父类型
+			function Supper(){
+				this.supProp = 'Supper property';
+			}
+			Supper.prototype.showSupperProp = function(){
+				console.log(this.supProp);
+			};
+			
+			//子类型
+			function Sub(){
+				this.supProp = 'Sub property';
+			}
+			Sub.prototype = new Supper();
+			Sub.prototype.constructor = Sub;
+			
+			Sub.prototype.showSubProp = function(){
+				console.log(this.supProp);
+			};
+			
+			var sub = new Sub();
+			sub.showSupperProp();
+			console.log(sub.__proto__.constructor);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

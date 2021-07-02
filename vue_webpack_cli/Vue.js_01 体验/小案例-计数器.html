@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小案例-计数器</title>
+  <style>
+    button {
+      width: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h2>当前计数:{{count}}</h2>
+    <!-- v-on:click 添加响应事件 -->
+    <button v-on:click="addCount">+</button>
+    <!-- @click 语法糖 -->
+    <button @click='subtractCount'>-</button>
+  </div>
+
+</body>
+
+
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.box',
+    data: {
+      count: 0
+    },
+    //methods 为定义的方法
+    methods: {
+      //定义增减方法
+      addCount() {
+        this.count++;
+      },
+      subtractCount() {
+        if (this.count <= 0) return;
+        this.count--;
+      }
+    }
+  });
+</script>
+
+</html>

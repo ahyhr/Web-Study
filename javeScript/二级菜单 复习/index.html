@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/startMove.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/toggleClass.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				margin: 20px auto;
+				width: 150px;
+				background-color: antiquewhite;
+				border-radius: 10px;
+				line-height: 30px;
+			}
+			
+			.box div{
+				overflow: hidden;
+			}
+			.box .menuSpan{
+				display: block;
+				width: 100%;
+				height: 30px;
+				background-color: #646464;
+				color: white;
+				box-sizing: border-box;
+				padding-left: 5px;
+				overflow: hidden;
+				cursor: pointer;
+			}
+			
+			.box a{
+				display: block;
+				width: 100%;
+				border-bottom: 1px black solid;
+				height: 30px;
+				text-decoration: none;
+				color: darkgray;
+				box-sizing: border-box;
+				padding-left: 5px;
+			}
+			.collapsed{
+				height: 30px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				//获取span标签
+				var menuSpans = document.querySelectorAll(".menuSpan");
+				//获取第一个打开的div
+				var openDiv = menuSpans[0].parentNode;
+				
+				var isok = true;
+				
+				for (var i = 0; i < menuSpans.length; i++) {
+					//添加单击响应函数
+					menuSpans[i].onclick = function(){
+						
+						//获取当前span的父亲div
+						 var parentDiv = this.parentNode;
+						if(isok){
+							isok = false;
+							var begin =parentDiv.offsetHeight;
+							 
+							
+							toggleClass(parentDiv,"collapsed");
+							 
+							 var end =parentDiv.offsetHeight;
+							
+							parentDiv.style.height = begin + "px";
+							
+							startMove(parentDiv,{height:end},function(){
+								isok = true;
+								parentDiv.style.height = "";
+								
+							});
+						}
+						
+						
+						
+						 if(openDiv != parentDiv && !hasCalss(openDiv,"collapsed")){
+							
+						
+								 var begin = openDiv.offsetHeight;
+								  
+								  toggleClass(openDiv,"collapsed");
+								  
+								  var end =openDiv.offsetHeight;
+								 
+								 openDiv.style.height = begin + "px";
+								 
+								 startMove(openDiv,{height:end},function(){
+								 	openDiv.style.height = "";
+									
+								 });
+								
+						 }
+						 
+						 //修改opendiv为当前的打开div
+						  openDiv = parentDiv;
+							 
+						 
+						 
+					};
+					
+				}
+				
+				
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<div>
+				<span class="menuSpan">在线工具</span>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+			</div>
+			
+			<div class="collapsed">
+				<span class="menuSpan">在线工具</span>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+			</div>
+			
+			<div class="collapsed">
+				<span class="menuSpan">在线工具</span>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+			</div>
+			<div class="collapsed">
+				<span class="menuSpan">在线工具</span>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+				<a href="#">图像优化</a>
+				<a href="#" style="border-bottom: none;">图像优化</a>
+			</div>
+		</div>
+	</body>
+</html>

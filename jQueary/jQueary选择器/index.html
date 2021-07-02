@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			1.基本选择器
+				- #id : id选择器
+				- element : 元素选择器
+				- class : 属性选择器
+				- element : 元素选择器
+				-	* ∶ 任意标签
+				- selector1selector2selectorN :取多个选择器的交集(相交选择器)
+				- selector1selector2selectorN :取多个选择器的交集(相交选择器)
+			*/
+
+			/*
+		   2.层次选择器:查找子元素，后代元素，兄弟元素的选择器
+				- ancestor descendant
+				  在给定的祖先元素下匹配所有的后代元素 -ul下所有的span
+				
+				- parent>chiLd
+				  在给定的父元素下匹配所有的子元素		-ul下所有的子元素span
+				
+				- prev+next							
+				  匹配所有紧接在prev元素后的next元素	-下一个元素
+				  
+				- prev~siblings
+				  匹配prev元素之后的所有siblings元素
+					选中uL下的cLass为box的元素后面的所有兄弟元素
+					$('ul .box~*').css( 'background', 'yellow' )
+		   */
+
+
+			/*
+			//过滤选择器
+			
+			-． 选择第一个div
+					$('div:first' ).css( ' background ' , 'red ' )
+			
+			-． 选择最后一个cLass为jbox的元素
+					('.box:Last' ).css( ' background ' ，'red ' )
+			
+			-． 选择所有cLass属性不为box的div
+				  $( 'div:not(.box) ' ).css( 'background ', 'red')//没有class属性也可以
+			
+			-． []4．选择第二个和第三个li元素
+					$( 'li:gt():Lt(2)' ).css( ' background ' ， 'red ' )
+					$('li:lt(2):gt(O)' ).css( ' background', 'red' )
+			
+			-． 选择内容为BBBBB的Li
+					$('li:contains("BBBBB")' ).css( 'background ' , 'red ' )
+			
+			-． 选择隐藏的Li
+					consoLe.Log($( 'li:hidden ' ).Length，$( 'li:hidden ' )[0])
+			
+			-． 选择有titLe属性的Li元素
+					$('li[title] ' ).css( ' background ' , 'red ' )
+			
+			-． 选择所有属性titLe为heLLo的Li元素
+					$('li[title="hel1o"]' ).css( 'background', 'red' )
+			*/
+		   
+		   /*
+				//筛选查找
+					-在已经匹配出的元素集合中根据选择器查找孩子/父母/兄弟标签					-1. children():子标签中找					-2. find() :后代标签中找					-3. parent() :父标签					-4. prevALL() :前面所有的兄弟标签					-5. nextALL():后面所有的兄弟标签					-6. siblings() :前后所有的兄弟标签
+		   
+					
+					var $ul = $('ul')					1. uL标签的第2个span子标签					$uL.children( 'span:eq(1)').css( 'background ', 'red ' )					2.ul标签的第2个span后代标签					$ul.find( 'span:eq(1)' ).css( 'background ', 'red ' )					3.ulL标签的父标签					$uL.parent().parent().css( 'background', 'red')
+					l4. id为cc的Li标签的前面的所有li标签					var $li = $( ' #cc')					$Li.prevALL('Li').css( ' lackground ' ， 'red ' )					5. id为cc的Li标签的所有兄弟Li标签					$Li.siblings('li' ).css( 'background', 'red')
+		   
+		   */
+		   
+		   
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

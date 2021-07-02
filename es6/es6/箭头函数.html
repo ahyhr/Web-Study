@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+    <script>
+        // =>
+        // let fn = function(){
+
+        // };
+
+        //声明
+        //this是静态的 ，始终指向声明时所在作用域下的this
+        let fn = (a,b) => {
+            return a+b;
+        };
+        console.log(fn(2,3));
+
+        //不能作为构造函数实例化对象
+        let Person = (name,age) => {
+            this.name = name;
+            this. age = age;
+        }
+        // let me = new Person("y",21);
+
+        //不能使用arguments 变量
+
+        //箭头函数简写
+            //省略小括号,形参有且只有一个
+            let add = n => {
+                return n + n;
+            };
+            console.log(10);
+            //省略大括号,当代码体只有一行的时候
+            //reture也要省略,语句的执行结果就是返回值
+            let pow = n => n*n;
+            console.log(pow(5));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

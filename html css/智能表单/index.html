@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{background-color: antiquewhite;}
+			.step1{border: none;}
+			form{
+				width: 600px;
+				background-color:burlywood;
+				margin: 0 auto;
+				padding: 10px;
+				border-radius: 10px;
+			}
+			form section{
+				border: 3px solid slategray;
+				border-radius: 10px;
+				margin: 5px 0;
+				background-color: antiquewhite;
+			}
+			form section p{
+				border: 2px white solid;
+				border-radius: 10px;
+				margin: 5px;
+				padding: 10px;
+			}
+			span{display: inline-block;
+			width: 150px;}
+			
+			input{
+				height: 30px;
+				width: 300px;
+			}
+			
+			.butt{width: 120px;
+			height: 40px;
+			display: block;
+			margin: 0 auto;
+			background-color:slateblue;
+			border-radius: 50px;
+			border: none;
+			cursor:pointer;}
+			.butt:focus{
+				outline: none;
+				background-color: #708090;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" method="">
+			<section>
+				<p class="step1">Step1:Details</p>
+				<p>
+					<span>Name</span>
+					<input type="text" placeholder=" First and last name"/>
+				</p>
+				<p><span>Email</span>
+				<input type="email" placeholder="example@domain.com"/>
+				</p>
+				<p>
+					<span>Phone</span>
+					<input type="text" placeholder=" eg.+4756455655"/>
+				</p>
+				<p>
+					<span>facebook page</span>
+					<input type="text"/>
+				</p>
+			</section>
+			<section>
+				<p class="step1">Step2:Delivery address</p>
+				<p>
+					<span style="float: left;">Address</span>
+					<!-- <input type="text" style="height: 100px; clear: both;" /> -->
+					<textarea rows="10" cols="40" style="resize: none;">
+						
+					</textarea>
+				</p>
+				<p><span>Post code</span>
+				<input type="email"/>
+				</p>
+			</section>
+			<section>
+				<p class="step1">Step:Card details</p>
+				<p>
+					<span>Card type</span>
+					<input type="radio" style="width: 20px; height: 16px; margin: 0 10px;"/>debit
+					<input type="radio" style="width: 20px; height: 16px; margin: 0 10px;"/>credit
+					<input type="radio" style="width: 20px; height: 16px;  margin: 0 10px;"/>VISA
+				</p>
+				<p><span>Card number</span>
+				<input type="email" />
+				</p>
+				<p>
+					<span>Card pwd</span>
+					<input type="text" placeholder=" eg.+4756455655"/>
+				</p>
+				<p>
+					<span>Name on card</span>
+					<input type="text"/>
+				</p>
+			</section>
+			<input class="butt" type="button" name="" id="" value="提交" />
+		</form>
+	</body>
+</html>

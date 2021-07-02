@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数值扩展</title>
+    <script>
+        //Number.EPSILON 表示的最小精度
+        console.log(0.1+0.2);
+        function equal(a,b){
+            if((a-b)<Number.EPSILON){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        console.log(equal(0.1+0.2,0.3));
+
+        //Number.isFinite()   检测是否为有限数
+        
+        //Number.isNaN()    检测是否为NaN
+
+        //Number.parseInt()   字符串转整数
+
+        //Number.isInteger()    判断是否为整数
+
+        //Math.trunc()    将小数部分去除
+
+        //Math.sign()     判断是 正数(1) 负数(-1) 还是 0(0)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
