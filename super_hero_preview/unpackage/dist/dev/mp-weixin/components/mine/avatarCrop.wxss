@@ -1,0 +1,341 @@
+
+.cropper-config.data-v-033b404c {
+	padding: 20rpx 40rpx;
+}
+.cropper-content.data-v-033b404c {
+	min-height: 750rpx;
+	width: 100%;
+}
+.uni-corpper.data-v-033b404c {
+	position: relative;
+	overflow: hidden;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	box-sizing: border-box;
+}
+.uni-corpper-content.data-v-033b404c {
+	position: relative;
+}
+.uni-corpper-content image.data-v-033b404c {
+	display: block;
+	width: 100%;
+	min-width: 0 !important;
+	max-width: none !important;
+	height: 100%;
+	min-height: 0 !important;
+	max-height: none !important;
+	image-orientation: 0deg !important;
+	margin: 0 auto;
+}
+
+/* 移动图片效果 */
+.uni-cropper-drag-box.data-v-033b404c {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	cursor: move;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 1;
+}
+
+/* 内部的信息 */
+.uni-corpper-crop-box.data-v-033b404c {
+	position: absolute;
+	background: rgba(255, 255, 255, 0.3);
+	z-index: 2;
+}
+.uni-corpper-crop-box .uni-cropper-view-box.data-v-033b404c {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	outline: 1rpx solid #69f;
+	outline-color: rgba(102, 153, 255, .75)
+}
+
+/* 横向虚线 */
+.uni-cropper-dashed-h.data-v-033b404c {
+	position: absolute;
+	top: 33.33333333%;
+	left: 0;
+	width: 100%;
+	height: 33.33333333%;
+	border-top: 1rpx dashed rgba(255, 255, 255, 0.5);
+	border-bottom: 1rpx dashed rgba(255, 255, 255, 0.5);
+}
+
+/* 纵向虚线 */
+.uni-cropper-dashed-v.data-v-033b404c {
+	position: absolute;
+	left: 33.33333333%;
+	top: 0;
+	width: 33.33333333%;
+	height: 100%;
+	border-left: 1rpx dashed rgba(255, 255, 255, 0.5);
+	border-right: 1rpx dashed rgba(255, 255, 255, 0.5);
+}
+
+/* 四个方向的线  为了之后的拖动事件*/
+.uni-cropper-line-t.data-v-033b404c {
+	position: absolute;
+	display: block;
+	width: 100%;
+	background-color: #69f;
+	top: 0;
+	left: 0;
+	height: 1rpx;
+	opacity: 0.1;
+	cursor: n-resize;
+}
+.uni-cropper-line-t.data-v-033b404c::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 0rpx;
+	width: 100%;
+	-webkit-transform: translate3d(0, -50%, 0);
+	transform: translate3d(0, -50%, 0);
+	bottom: 0;
+	height: 41rpx;
+	background: transparent;
+	z-index: 11;
+}
+.uni-cropper-line-r.data-v-033b404c {
+	position: absolute;
+	display: block;
+	background-color: #69f;
+	top: 0;
+	right: 0rpx;
+	width: 1rpx;
+	opacity: 0.1;
+	height: 100%;
+	cursor: e-resize;
+}
+.uni-cropper-line-r.data-v-033b404c::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 41rpx;
+	-webkit-transform: translate3d(-50%, 0, 0);
+	transform: translate3d(-50%, 0, 0);
+	bottom: 0;
+	height: 100%;
+	background: transparent;
+	z-index: 11;
+}
+.uni-cropper-line-b.data-v-033b404c {
+	position: absolute;
+	display: block;
+	width: 100%;
+	background-color: #69f;
+	bottom: 0;
+	left: 0;
+	height: 1rpx;
+	opacity: 0.1;
+	cursor: s-resize;
+}
+.uni-cropper-line-b.data-v-033b404c::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 0rpx;
+	width: 100%;
+	-webkit-transform: translate3d(0, -50%, 0);
+	transform: translate3d(0, -50%, 0);
+	bottom: 0;
+	height: 41rpx;
+	background: transparent;
+	z-index: 11;
+}
+.uni-cropper-line-l.data-v-033b404c {
+	position: absolute;
+	display: block;
+	background-color: #69f;
+	top: 0;
+	left: 0;
+	width: 1rpx;
+	opacity: 0.1;
+	height: 100%;
+	cursor: w-resize;
+}
+.uni-cropper-line-l.data-v-033b404c::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 41rpx;
+	-webkit-transform: translate3d(-50%, 0, 0);
+	transform: translate3d(-50%, 0, 0);
+	bottom: 0;
+	height: 100%;
+	background: transparent;
+	z-index: 11;
+}
+.uni-cropper-point.data-v-033b404c {
+	width: 5rpx;
+	height: 5rpx;
+	background-color: #69f;
+	opacity: .75;
+	position: absolute;
+	z-index: 3;
+}
+.point-t.data-v-033b404c {
+	top: -3rpx;
+	left: 50%;
+	margin-left: -3rpx;
+	cursor: n-resize;
+}
+.point-tr.data-v-033b404c {
+	top: -3rpx;
+	left: 100%;
+	margin-left: -3rpx;
+	cursor: n-resize;
+}
+.point-r.data-v-033b404c {
+	top: 50%;
+	left: 100%;
+	margin-left: -3rpx;
+	margin-top: -3rpx;
+	cursor: n-resize;
+}
+.point-rb.data-v-033b404c {
+	left: 100%;
+	top: 100%;
+	-webkit-transform: translate3d(-50%, -50%, 0);
+	transform: translate3d(-50%, -50%, 0);
+	cursor: n-resize;
+	width: 36rpx;
+	height: 36rpx;
+	background-color: #69f;
+	position: absolute;
+	z-index: 1112;
+	opacity: 1;
+}
+.point-b.data-v-033b404c {
+	left: 50%;
+	top: 100%;
+	margin-left: -3rpx;
+	margin-top: -3rpx;
+	cursor: n-resize;
+}
+.point-bl.data-v-033b404c {
+	left: 0%;
+	top: 100%;
+	margin-left: -3rpx;
+	margin-top: -3rpx;
+	cursor: n-resize;
+}
+.point-l.data-v-033b404c {
+	left: 0%;
+	top: 50%;
+	margin-left: -3rpx;
+	margin-top: -3rpx;
+	cursor: n-resize;
+}
+.point-lt.data-v-033b404c {
+	left: 0%;
+	top: 0%;
+	margin-left: -3rpx;
+	margin-top: -3rpx;
+	cursor: n-resize;
+}
+
+/* 裁剪框预览内容 */
+.uni-cropper-viewer.data-v-033b404c {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.uni-cropper-viewer image.data-v-033b404c {
+	position: absolute;
+	z-index: 2;
+}
+
+/* 以下是我的补充css */
+.corpperWrapper.data-v-033b404c{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	height: 85%;
+}
+
+/* 页面铺满屏幕 */
+.page-fill.data-v-033b404c {
+	width:100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: black;
+}
+
+/* 底部操作 start */
+.footer-opertor.data-v-033b404c {
+	position: fixed;
+
+	bottom: 0;
+
+
+
+
+	
+	border-top: #515050 solid 1px;
+	width: 100%;
+	
+	display: -webkit-box;
+	
+	display: -webkit-flex;
+	
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	
+	padding: 30rpx;
+}
+.opertor-words.data-v-033b404c {
+	color: #e8e5e5;
+	font-size: 16px;
+	width: 200rpx;
+}
+.notice.data-v-033b404c{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	        justify-content: flex-end;
+}
+.notice_words.data-v-033b404c{
+	color: gray;
+	font-size: 13px;
+	margin-top: 30rpx;
+	width: 600rpx;
+}
+.canel.data-v-033b404c{
+	position: absolute;
+	top: 30rpx;
+	right: 30rpx;
+	color: #808080;
+	font-size: 20px;
+}
+

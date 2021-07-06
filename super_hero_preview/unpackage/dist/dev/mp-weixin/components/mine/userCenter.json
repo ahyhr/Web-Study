@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "user-avatar": "/components/mine/avatarCrop",
+    "user-name": "/components/mine/userName",
+    "user-birthday": "/components/mine/userBirthday",
+    "user-sex": "/components/mine/userSex"
+  }
+}

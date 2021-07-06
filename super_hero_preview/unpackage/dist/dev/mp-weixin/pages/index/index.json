@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "电影预告",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tag": "/components/index/Tag",
+    "trailer-star": "/components/common/trailerStar"
+  }
+}

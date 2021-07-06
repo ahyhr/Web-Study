@@ -1,0 +1,99 @@
+{
+	// 
+	"usingComponents":{
+		"error_toast":""
+	},
+	"component":true,
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "电影预告",
+				"app-plus":{
+					"titleNView":false // 禁用原生导航栏
+				},
+				"enablePullDownRefresh":true //开启该页面下拉刷新
+			}
+		}
+	    ,{
+            "path" : "pages/serch/serch",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText":"电影预告搜索",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/mine",
+            "style" :                                                                                    
+            {
+				"app-plus":{
+					"titleNView":false // 禁用原生导航栏
+				},
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor": "#ffd655",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/detail/detail",
+            "style" :                                                                                    
+            {
+				"app-plus":{
+					"titleNView":{
+						"type":"transparent",
+						"buttons":[
+							{"type":"share"}
+						]
+					}
+				},
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "超级英雄电影预告",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"color":"#bfbfbf",
+		"selectedColor":"#515151",
+		"borderStyle":"black",
+		"backgroundColor":"#FFFFFF",
+		"list":[
+			{
+				"pagePath":"pages/index/index",
+				"text":"首页",
+				"iconPath":"static/tabBar/index1.png",
+				"selectedIconPath":"./static/tabBar/index2.png"
+			},{
+				"pagePath":"pages/serch/serch",
+				"text":"搜索",
+				"iconPath":"static/tabBar/search1.png",
+				"selectedIconPath":"static/tabBar/search2.png"
+			},{
+				"pagePath":"pages/mine/mine",
+				"text":"我的",
+				"iconPath":"static/tabBar/mine1.png",
+				"selectedIconPath":"static/tabBar/mine2.png"
+			}
+		]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "pages/mine/mine", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}
