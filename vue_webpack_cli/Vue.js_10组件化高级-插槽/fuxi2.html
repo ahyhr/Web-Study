@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn>
+      <template v-slot="slot">
+        <p>{{slot.cweb.join('-')}}</p>
+      </template>
+    </cpn>
+  </div>
+
+  <template id="cpnC">
+    <div>
+      <slot :cweb="web">
+        <ul>
+          <li v-for="item in web">{{item}}</li>
+        </ul>
+      </slot>
+    </div>
+  </template>
+  <script src="./js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+
+      },
+      components:{
+        cpn:{
+          template:'#cpnC',
+          data(){
+            return{
+              web:['html','css','js','jq','nodejs','mongodb','ajax','vue']
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

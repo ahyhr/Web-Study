@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#img{opacity:0.3;
+			filter:alpha(opacity=30);
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oimg = document.getElementById("img");
+				
+				oimg.onmouseover = function(){
+					startMove(100);
+				};
+				
+				oimg.onmouseout = function(){
+					startMove(30);
+				};
+				
+				var timer = null;
+				var alpha = 30;
+				function startMove(iTarget){
+					clearInterval(timer);
+					var speed = 6;
+					speed = iTarget > alpha ? speed : -speed;
+					 timer = setInterval(function(){
+						if(alpha==iTarget){
+							clearInterval(timer);
+						}else{
+							alpha += speed;
+							if(alpha>=iTarget && speed>0 || alpha<=iTarget && speed<0 ){
+								alpha=iTarget;
+							}
+							oimg.style.opacity = alpha / 100;
+							oimg.style.filter = "alpha(opacity="+alpha+")";
+							// oimg.style.filter = 'alpha(opacity=${alpha})';
+						}
+						document.title = alpha;
+					},30);
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<img id="img" src="img/Snipaste_2020-06-13_17-23-46.png" >
+	</body>
+</html>

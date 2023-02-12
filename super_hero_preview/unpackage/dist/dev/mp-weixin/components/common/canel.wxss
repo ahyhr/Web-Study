@@ -1,0 +1,10 @@
+
+.canel.data-v-de9216e4{
+	position: absolute;
+	top: 30rpx;
+	right: 30rpx;
+	color: #808080;
+	font-size: 20px;
+	z-index: 9;
+}
+

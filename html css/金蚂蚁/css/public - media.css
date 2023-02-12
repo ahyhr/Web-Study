@@ -1,0 +1,66 @@
+@media only screen and (min-width: 320px) {
+	html {
+		font-size: 32px;
+	}
+}
+
+@media only screen and (min-width: 360px) {
+	html {
+		font-size: 36px;
+	}
+}
+
+@media only screen and (min-width: 375px) {
+	html {
+		font-size: 37.5px;
+	}
+}
+
+@media only screen and (min-width: 411px) {
+	html {
+		font-size: 41.1px;
+	}
+}
+
+@media only screen and (min-width: 414px) {
+	html {
+		font-size: 41.4px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	html {
+		font-size: 76.8px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	html {
+		font-size: 102.4px;
+	}
+}
+
+
+/* 底部footer */
+.footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	display: flex;
+	background-color: #F3F3F3;
+	padding: 0.133333rem 0;
+}
+
+.footer a {
+	display: inline-block;
+	font-size: 0.373333rem;
+	color: #568DCD;
+	text-decoration: none;
+	width: 33%;
+}
+
+.footer a img {
+	width: 0.64rem;
+	height: 0.64rem;
+}

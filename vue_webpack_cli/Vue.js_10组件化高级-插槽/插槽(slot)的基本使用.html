@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>插槽(slot)的基本使用</title>
+</head>
+<body>
+  <div class="app">
+    <cpn></cpn>
+    <!-- 可以替换插槽中的内容 -->
+    <cpn><h3>插槽</h3></cpn>
+    <cpn><h3>可替换</h3></cpn>
+  </div>
+
+  <template id="cpnC">
+    <div>
+      <h2>slot插槽</h2>
+      <p>cccccc</p>
+      <!-- <slot> 创建插槽 -->
+      <slot><button>插槽</button></slot>
+    </div>
+  </template>
+  <script src="./js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'.app',
+      components:{
+        cpn:{
+          template:'#cpnC'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

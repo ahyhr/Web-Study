@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基本使用</title>
+</head>
+
+<body>
+  <div class="box">
+    <!-- v-bind   动态绑定属性  比如 href src 属性 -->
+    <!-- :  语法糖 -->
+    <img v-bind:src="url" alt="">
+    <a :href="aHref">百度一下</a>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.box',
+    data: {
+      url: `https://timgsa.baidu.com/timg?
+      image&quality=80&size=b9999_10000&sec=1605085902877&di=584225318036d3d82276d3d14dc9f1f6&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F30%2F29%2F01300000201438121627296084016.jpg`,
+      aHref: 'http://www.baidu.com'
+    }
+  })
+</script>
+
+</html>

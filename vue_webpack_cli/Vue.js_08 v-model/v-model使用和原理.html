@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model使用和原理</title>
+</head>
+<body>
+  <div class="app">
+    <!-- v-model 双向绑定 将输入框value绑定给message-->   
+    <input type="text" name="" id="" v-model="message">
+    <button @click="butClick">clear</button>
+    <h2>{{message}}</h2>
+    
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+ const app = new Vue({
+   el:'.app',
+   data:{
+     message:''
+   },
+   methods: {
+     butClick(){
+       this.message = ''
+     }
+   },
+ })
+</script>
+</html>

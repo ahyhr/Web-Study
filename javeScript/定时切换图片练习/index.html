@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.box1{width: 500px;
+			margin: 0 auto;}
+			.box1 img{border: 1px solid black;
+			padding: 2px;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var count = document.getElementById("count");
+				var img = document.getElementById("img");
+				var but1 = document.getElementById("but1");
+				var but2 = document.getElementById("but2");
+				var imgStrs = ["img/01.jpg","img/02.jpg","img/03.jpg","img/04.jpg","img/05.jpg"];
+				var index = 0;// 	0			1			2			3			4			
+				var timer;
+				
+				but1.onclick = function(){
+					//先停止上一个定时器
+					clearInterval(timer);
+					//开启定时器
+					timer = setInterval(function(){
+						index++;
+						if(index >= imgStrs.length){
+							index = 0;
+						}
+						img.src = imgStrs[index];
+						count.innerHTML = index+1;
+						//index = index % imgStrs.length;
+					},1000);
+				};
+				
+				but2.onclick = function(){
+					//关闭定时器
+					clearInterval(timer);
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		
+		<div class="box1">
+			<h2 id="count">1</h2>
+			<img id="img" src="img/01.jpg" >
+			<button type="button" id="but1">开始</button>
+			<button type="button" id="but2">停止</button>
+		</div>
+		
+	</body>
+</html>

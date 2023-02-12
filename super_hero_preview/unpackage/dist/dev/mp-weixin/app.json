@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/serch/serch",
+    "pages/mine/mine",
+    "pages/detail/detail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "超级英雄电影预告",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#515151",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabBar/index1.png",
+        "selectedIconPath": "./static/tabBar/index2.png"
+      },
+      {
+        "pagePath": "pages/serch/serch",
+        "text": "搜索",
+        "iconPath": "static/tabBar/search1.png",
+        "selectedIconPath": "static/tabBar/search2.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "static/tabBar/mine1.png",
+        "selectedIconPath": "static/tabBar/mine2.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

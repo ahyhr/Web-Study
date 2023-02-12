@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: antiquewhite;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				opacity: 0.5;
+				filter:alpha(opacity=50);
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box = document.querySelector(".box");
+				
+				box.onmouseover = function(){
+						startMove(box,{width:200,height:200},function(){
+							startMove(this,{top:100});
+						});	
+				};
+				
+				box.onmouseout = function(){
+						startMove(box,{top:0},function(){
+							startMove(this,{width:100,height:100});
+						});
+				};
+				
+				
+				function startMove(obj , cssObj ,func){
+					clearInterval(obj.timer);
+					
+					obj.timer = setInterval(function(){
+						
+						var isEnd = true;
+						
+						for(str in cssObj){
+							var dis = cssObj[str];
+							var iCur;
+							
+							if (str == "opacity") {
+								iCur = parseInt(parseFloat(getStyle(obj,"opacity"))*100);
+							} else{
+								iCur = parseInt(getStyle(obj,str));
+							}
+							
+							var speed = (dis - iCur) / 8;
+							speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+							
+								if (str == "opacity") {
+									obj.style.opacity = (iCur + speed) / 100;
+									obj.style.filter = "alpha(opacity="+ (iCur+speed) +")";
+								} else{
+									obj.style[str] = iCur + speed + "px";
+								}
+							
+							if(iCur != dis){
+								var isEnd = false;
+							}
+							
+							if(isEnd){
+								clearInterval(obj.timer);
+								if(func){
+									func.call(obj);
+								}
+							}
+						}
+					},20);
+				};
+				
+				function getStyle(obj , str){
+					if (window.getComputedStyle) {
+						return getComputedStyle(obj,null)[str];
+					} else{
+						return obj.currentStyle[str];
+					}
+				};	
+			};
+						
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>子组件处理,父组件展示</title>
+</head>
+<body>
+  <!-- 父组件模板 -->
+  <div class="app">
+    <h2>{{con}}</h2>
+    <!-- 接收子组件事件 绑定到同一函数 -->
+    <cpn @numsub="butClick" @numadd="butClick"></cpn>
+  </div>
+
+  <!-- 子组件模板 -->
+  <template id="cpnC">
+    <div>
+      <button @click="sub">-</button>
+      <button @click="add">+</button>
+    </div>
+  </template>
+
+  <script src="./js/vue.js"></script>
+  <script>
+    //子组件
+    const cpn = {
+      template:'#cpnC',
+      data() {
+        return {
+          num:0
+        }
+      },
+      methods: {
+        sub(){
+          //处理数据,发射数据
+          this.num--;
+          this.$emit('numsub',this.num);
+        },
+        add(){
+          this.num++;
+          this.$emit('numadd',this.num);
+        }
+      },
+    }
+
+    const app = new Vue({
+      el:'.app',
+      data:{
+        con:0
+      },
+      components:{
+        'cpn':cpn
+      },
+      methods:{
+        //处理展示接收的数据
+        butClick(num){
+          this.con = num;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

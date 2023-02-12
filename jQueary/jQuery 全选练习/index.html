@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $checkedAllBox = $("#checkedAllBox");
+				var $items = $(":checkbox[name = items]");
+				
+				//全选
+				$("#checkedAllBtn").click(function(){
+					$items.prop("checked",true);
+					$checkedAllBox.prop("checked",true);
+				});
+				//全不选
+				$("#checkedNoBtn").click(function(){
+					$items.prop("checked",false);
+					$checkedAllBox.prop("checked",false);
+				});
+				//反选
+				$("#checkedRevBtn").click(function(){
+					$items.each(function(){
+						this.checked = !this.checked;
+					});
+					//$items.not(":checked").length==0		没有未选中的
+					$checkedAllBox.prop("checked",$items.not(":checked").length==0);
+				});
+				//提交
+				$("#sebdBtn").click(function(){
+					$items.filter(":checked").each(function(){
+						alert(this.value);
+					});
+				});
+				//全选/全不选
+				$checkedAllBox.click(function(){
+					$items.prop("checked",this.checked);
+				});
+				
+				$items.click(function(){
+					$checkedAllBox.prop("checked",$items.not(":checked").length==0);
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<form action="" method="post">
+			你的爱好是?
+			<input type="checkbox" name="" id="checkedAllBox" value="" />全选/全不选
+			<br />
+			<input type="checkbox" name="items" value="足球" />足球
+			<input type="checkbox" name="items" value="蓝球" />蓝球
+			<input type="checkbox" name="items" value="羽毛球" />羽毛球
+			<input type="checkbox" name="items" value="乒乓球" />乒乓球
+			<br />
+			<input type="button" id="checkedAllBtn" value="全 选" />
+			<input type="button" id="checkedNoBtn" value="全不选" />
+			<input type="button" id="checkedRevBtn" value="反 选" />
+			<input type="button" id="sebdBtn" value="提交" />
+		</form>
+	</body>
+</html>

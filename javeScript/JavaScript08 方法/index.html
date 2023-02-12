@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			//方法
+			
+			var obj = new Object();
+			obj.name = "张三";
+			obj.age = 18;
+			
+			//对象的属性为函数
+			obj.sayName = function(){
+				console.log(obj.name);
+			}
+			obj.sayName();  //调用对象的 方法		(本质和函数一样，名称不一样)
+			
+			
+			
+			var obj2 =
+			{
+				name:"小王",
+				age:18,
+				sayAge:function(){
+					console.log(obj2.age);
+				}
+				
+			};
+			obj2.sayAge();
+			
+			
+			
+			//枚举对象中的属性
+			for(var a in obj){
+				console.log(obj[a]);
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

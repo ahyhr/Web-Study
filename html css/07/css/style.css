@@ -1,0 +1,42 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	overflow-x: hidden;	
+}
+ul,ol,li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #666;
+	font-size: 12px;
+}
+
+a:hover {
+	text-decoration: none;	
+}
+
+img {
+	vertical-align: middle;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.clearAfter::after {
+	content: "";
+	display: block;
+	clear: both;
+}

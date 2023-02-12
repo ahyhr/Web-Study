@@ -1,0 +1,10 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "我的",
+  "navigationBarBackgroundColor": "#ffd655",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "register-login": "/components/mine/registerLogin",
+    "user-center": "/components/mine/userCenter"
+  }
+}

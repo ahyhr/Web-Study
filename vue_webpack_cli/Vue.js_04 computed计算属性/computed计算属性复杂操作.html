@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>computed计算属性复杂操作</title>
+</head>
+<body>
+  <div class="box">
+    <h2>总价:{{getAllPrice()}}元</h2>
+    <!-- 使用计算属性更直观 -->
+    <h2>总价:{{allPrice}}元</h2>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'.box',
+    data:{
+      books:[
+        {bookName:'你当像鸟飞往你的山',price:59},
+        {bookName:'活着',price:26.9},
+        {bookName:'皮囊',price:39.8},
+        {bookName:'一生自在',price:37.8}
+      ]
+    },
+    computed: {
+      allPrice:function(){
+        let res = 0;
+      for (const book of this.books) {
+        res += book.price;
+      }
+       return res;
+      }
+    },
+    methods: {
+      getAllPrice:function(){
+        let res = 0;
+        for (let i = 0; i < this.books.length; i++) {
+          res += this.books[i].price;
+        }
+        return res;
+      }
+    },
+  });
+</script>
+</html>

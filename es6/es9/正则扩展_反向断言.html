@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则扩展_反向断言</title>
+    <script>
+        let str = 'js123456版权所有555保留所有权利';
+
+        //正向断言   保字浅的 555
+        const reg = /(?<ff>\d+(?=保))/;
+        const result = reg.exec(str);
+        
+        console.log(result);
+        console.log(result.groups.ff);
+
+        //反向断言   有字后的 555
+        const reg2 = /(?<fff>(?<=有)\d+)/;
+        const result2 = reg2.exec(str);
+
+        console.log(result2);
+        console.log(result2.groups.fff);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

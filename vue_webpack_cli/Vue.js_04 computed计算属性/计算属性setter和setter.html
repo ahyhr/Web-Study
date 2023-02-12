@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算属性setter和setter</title>
+</head>
+<body>
+  <div class="box">
+    <h2>{{fullName}}</h2>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'.box',
+    data:{
+      fName:'Kobe',
+      lName:'Bryant'
+    },
+    computed: {
+      fullName:{
+        //set 设置值时调用  一般不使用set
+        set:function(newValue){
+          const arr = newValue.split(' ');
+          this.fName = arr[0];
+          this.lName = arr[1];
+        },
+        //get 读取时调用
+        get:function(){
+          return this.fName + ' ' + this.lName;
+        }
+      }
+    },//只使用get时可以写以下 简写方法
+    // fullName(){
+    //   return this.fName + ' ' + this.lName;
+    // }
+  })
+</script>
+</html>

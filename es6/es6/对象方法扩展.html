@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象方法扩展</title>
+    <script>
+        //Object.is     判断两个值是否完全相等
+        console.log(Object.is(NaN,NaN));//===
+        
+        //Object.assign()     对象的合并
+        const obj = {
+            name:'zz',
+            gender:'女'
+        };
+        const obj2 = {
+            age:19
+        }
+        const res = Object.assign(obj,obj2);
+        console.log(res);
+        
+        //Object.setPrototypeOf()   设置原型对象
+        //Object.getPrototypeOf()     获取原型对象
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简化对象写法</title>
+    <script>
+        let name = "yhr";
+        let fun = function(){
+            console.log("你好"+name);
+        };
+
+        const obj = {
+            name, //name:name
+            fun,   //fun:fun
+            
+            //简化方法写法
+            funjx(){
+                console.log("简化方法写法");
+            }
+        }
+        console.log(obj.name);
+        obj.fun();
+        obj.funjx();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

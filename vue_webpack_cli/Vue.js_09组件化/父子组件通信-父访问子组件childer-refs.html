@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="app">
+    <cpn></cpn>
+    <!-- refs 需要添加ref属性 -->
+    <cpn ref="aaa"></cpn>
+    <cpn></cpn>
+    <button @click="butClick">按钮</button>
+  </div>
+
+  <template id="cpnC">
+    <div>
+      
+    </div>
+  </template>
+  <script src="./js/vue.js"></script>
+  <script>
+    const cpn = {
+      template:'#cpnC',
+      data() {
+        return {
+          name:'yhr',
+          age:21
+        }
+      },
+      methods: {
+        showName(){
+          console.log('我是'+this.name);
+        }
+      },
+    }
+
+    const app = new Vue({
+      el:'.app',
+      data:{
+        message:'hello'
+      },
+      methods: {
+        butClick(){
+          //1.this.$children 方法使用索引
+          // this.$children[0].showName();
+          // for (const it of this.$children) {
+          //   it.showName()
+          // }
+
+          //2.$refs 访问子组件
+            this.$refs.aaa.showName();
+            console.log(this.$refs.aaa.age);
+            
+        }
+      },
+      components:{
+        cpn
+      },
+      
+    })
+  </script>
+</body>
+</html>

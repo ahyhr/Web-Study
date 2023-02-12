@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#box1{width: 100px;height: 100px;
+			background-color: aquamarine;
+			position: absolute;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				/*
+					键盘事件
+					onkeydown	按下按键
+					一直按会一直触发
+					onkey		松开按键
+					一般绑定给可以获取焦点的对象或document
+					
+					在输入框中，键盘输入为默认行为
+					Reture Flase 取消输入
+				*/
+				document.onkeydown = function(event) {
+					//keyCode按键编码
+					console.log(event.keyCode);
+				};
+
+				var inp = document.getElementById("inp");
+				//小键盘数字编码		大键盘数字编码	
+				inp.onkeydown = function(event) {
+					if (event.keyCode >= 48 && event.keyCode <= 57 ||
+						event.keyCode >= 96 && event.keyCode <= 105) {
+						//不能输入
+						return false;
+					}
+					
+					// if (/[^A-z]/.test(event.key)) {
+					// 	return false;
+					// }
+				};
+				
+				var speed = 10;
+				var box1 = document.getElementById("box1");
+				var dir = 0;
+				
+				setInterval(function(){
+					// 左	37
+					// 上	38
+					// 右	39
+					// 下	40
+					switch (dir){
+						case 37:
+							box1.style.left = box1.offsetLeft - speed + "px";
+							break;
+						case 38:
+							box1.style.top = box1.offsetTop - speed + "px";
+							break;
+						case 39:
+							box1.style.left = box1.offsetLeft + speed + "px";
+							break;
+						case 40:
+						box1.style.top = box1.offsetTop + speed + "px";
+							break;
+					}
+				},20);
+				
+				
+				document.onkeydown = function(event){
+					
+					dir = event.keyCode;
+					if(event.shiftKey){
+						speed = 50;
+					}else{
+						speed = 10;
+					}	
+				};
+				document.onkeyup = function(){
+					dir = 0;
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		<input type="text" name="" id="inp" value="" />
+		<div id="box1">
+			
+		</div>
+	</body>
+</html>

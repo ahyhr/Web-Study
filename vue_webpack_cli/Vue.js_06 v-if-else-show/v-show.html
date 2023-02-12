@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-show</title>
+
+</head>
+
+<body>
+  <!-- 一次切换使用 v-if 
+       频繁切换使用 v-show -->
+  <div class="box">
+    <!-- v-if 是不在dom树中，不渲染 -->
+    <h2 v-if="xianshi">v-if</h2>
+    <!-- v-show 是添加 display：none 控制显示 -->
+    <h2 v-show="xianshi">v-show</h2>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.box',
+    data:{
+      xianshi:true
+    }
+  })
+</script>
+
+
+</html>

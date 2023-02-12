@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.abox{
+				width: 820px;
+				height: 200px;
+				margin: 50px auto;
+				border: 1px solid black;
+				border-radius: 10px;
+				position: relative;
+				overflow: hidden;
+			}
+			.abox .aul{
+				width: 4100px;		/*	820*5 */
+				list-style: none;
+				display: flex;
+				position: relative;
+			}
+			.abox .aul img{
+				border-radius: 10px;
+			}
+			.abox .yuandian{
+				height: 20px;
+				position: absolute;
+				display: flex;
+				left: 50%;
+				top: 85%;
+				transform: translateX(-50%);
+			}
+			.abox .yuandian i{
+				width: 15px;
+				height: 15px;
+				background-color: antiquewhite;
+				border-radius: 10px;
+				margin: 0 5px;
+			}
+			.abox .prev{
+				border-left: 20px solid rgba(200,200,200,0);
+				border-right: 20px solid whitesmoke;
+				border-top: 20px solid rgba(200,200,200,0);
+				border-bottom: 20px solid rgba(200,200,200,0);
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				display: none;
+			}
+			.abox .next{
+				border-left: 20px solid whitesmoke;
+				border-right: 20px solid rgba(200,200,200,0);
+				border-top: 20px solid rgba(200,200,200,0);
+				border-bottom: 20px solid rgba(200,200,200,0);
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+				display: none;
+			}
+			.on{
+				background-color: aliceblue !important;
+			}
+		</style>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//获取box
+				var $abox = $(".abox");
+				//获取ul
+				var $aul = $(".aul");
+				var imgs = $aul.children();
+				//圆点
+				var $yuandian = $(".yuandian>i");
+				//图片宽度
+				var imgWidth = 820;
+				//当前下标
+				var index = 0;
+				//当前翻页状态
+				var moveing = false;
+				//当前移入状态
+				var oning = false;
+				var $prev =$(".prev");
+				var $next = $(".next");
+				
+				
+				
+				// 上一页
+				$prev.click(function(){
+					flipOver(false);
+				});
+				//下一页
+				$next.click(function(){
+					flipOver(true);
+				});
+				
+				//自动翻页
+				var timer = setInterval(function(){
+					flipOver(true);
+				},2000);
+				
+				//移入停止翻页，移出继续
+				//移入显示按钮
+				$abox.hover(function(){
+					clearInterval(timer);
+					//控制多次移入
+					if(oning){
+						return
+					}
+					oning=true;
+						$prev.fadeIn(500,function(){oning:false});
+						$next.fadeIn(500);
+				},function(){
+					timer = setInterval(function(){
+						flipOver(true);
+					},2000);
+						$prev.fadeOut(500,function(){oning = false;});
+						$next.fadeOut(500);	
+				});
+				
+				//点击圆点切换图片
+				$yuandian.click(function(){
+					//获取当前点击的下标
+					var targrtIndex = $(this).index();
+					//如果选中为自己不执行
+					if(targrtIndex != index){
+						flipOver(targrtIndex);
+					}
+				});
+				
+				
+				//翻页
+				function flipOver(next){
+					//如果正在翻页返回
+					if(moveing){
+						return;
+					}
+					//执行这行说明翻页
+					moveing = true;
+					
+					//当前left
+					var currentLeft = Math.round($aul.position().left);
+					//偏移量计算向左向右正负
+					var offect;
+					//判断传入的值
+					if (typeof next === "boolean") {
+						//左右翻页使用
+						offect = next ? -imgWidth : imgWidth; 
+					} else{
+						//圆点翻页使用
+						offect = -(next-index)*imgWidth;
+					}
+					
+					//计算目标处left
+					var targetLeft = Math.round(currentLeft + offect);
+					
+					// console.log("目标"+targetLeft)
+					
+						var timer = setInterval(function(){
+							//定义缓冲速度
+						var speed = (targetLeft - currentLeft)/5;
+						speed = speed >0 ? Math.ceil(speed) : Math.floor(speed);
+						//到达目标
+						if(currentLeft == targetLeft){
+							//翻页结束
+							moveing = false;
+							
+							clearInterval(timer);
+							//到达最后一张	调回第一张
+							if(currentLeft == -(imgs.length-1) *imgWidth ){
+								$aul.css("left",-820);
+							}else if(currentLeft == 0){
+								//到达第一一张	调回最后张
+								$aul.css("left",-(imgs.length-2)*imgWidth);
+							}
+								//更新圆点
+								updatePoints(next);
+						}else{
+							//移动
+							currentLeft += speed;
+							// console.log(currentLeft)
+							$aul.css("left",currentLeft);
+						}
+					},20);
+				};
+				
+				//更新圆点
+				function updatePoints(next){
+					//定义目标下标
+					var targrtIndex ; 
+					if (typeof next === "boolean") {
+						if (next) {
+							//如果传入下一页，目标下标+1
+							targrtIndex = index+1;
+							if(targrtIndex == imgs.length-2){
+								targrtIndex = 0;
+							}
+						} else{
+							////如果传入下一页，目标下标-1
+							targrtIndex = index-1;
+							if(targrtIndex == -1){
+								targrtIndex = 2;
+							}
+						}
+					} else{
+						//通过圆点选择时，等于当前选择的值
+						targrtIndex = next;
+					}
+					//移除当前样式
+					$yuandian.eq(index).removeClass("on");
+					//添加给下一个样式
+					$yuandian.eq(targrtIndex).addClass("on");	
+					//更新下标
+					index = targrtIndex;
+				}
+			});
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div class="abox">
+			<ul class="aul" style="left: -820px;">
+				<li><a href="#"><img src="img/tb-3.jpg" ></a></li>
+				<li><a href="#"><img src="img/tb-1.jpg" ></a></li>
+				<li><a href="#"><img src="img/tb-2.jpg" ></a></li>
+				<li><a href="#"><img src="img/tb-3.jpg" ></a></li>
+				<li><a href="#"><img src="img/tb-1.jpg" ></a></li>
+			</ul>
+			<div class="yuandian">
+				<i class="on"></i>
+				<i></i>
+				<i></i>
+			</div>
+			<div class="prev"></div>
+			<div class="next"></div>
+		</div>
+	</body>
+</html>

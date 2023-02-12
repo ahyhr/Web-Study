@@ -1,0 +1,17 @@
+.sandBox {
+	min-height: 100vh;
+
+	.layout {
+		height: 100vh;
+		.header {
+			padding: 0;
+			background: white;
+		}
+		.content {
+			margin: 24px 16px;
+			padding: 24;
+			min-height: 280px;
+			background: white;
+		}
+	}
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>父子组件通信-子传父$emit</title>
+</head>
+<body>
+  <!-- 父组件模板 -->
+  <div class="app">
+    <!-- v-on 监听子组件事件 -->
+    <cpn @itemclick="cpnClick"></cpn>
+  </div>
+
+  <!-- 子组件模板 -->
+ <template id="cpnC">
+   <div>
+     <button v-for="item in categories" @click="butClick(item)">{{item.name}}</button>
+   </div>
+ </template>
+ 
+  <script src="./js/vue.js"></script>
+  <script>
+    //子组件
+    const cpn = {
+      template:'#cpnC',
+      data() {
+        return {
+          categories:[
+            {id:'a1',name:'热门推荐'},
+            {id:'a2',name:'手机数码'},
+            {id:'a3',name:'家用电器'},
+            {id:'a4',name:'电脑办公'},
+          ]
+        }
+      },
+      methods:{
+        butClick(item){
+          //自定义事件  通过 $emit() 发射事件
+          this.$emit('itemclick', item);
+        }
+      }
+    }
+
+    //父组件
+    const app = new Vue({
+      el:'.app',
+      data:{
+        message:'hello'
+      },
+      components:{
+        'cpn':cpn
+      },
+      methods:{
+        cpnClick(item){
+          console.log(item.id);
+        }
+      }
+    })
+  </script>
+</body>
+</html>

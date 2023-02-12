@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 500px;height: 400px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			.box img{border:1px black solid;
+			padding: 2px;
+			opacity: 1;
+			transition: 1s;}
+			
+			.box button{margin: 10px;
+			width: 100px;
+			height: 30px;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<p id="text"></p>
+			<img src="img/01.jpg" >
+			
+			<button id="prev" type="button"><上一张</button>
+			<button id="next" type="button">下一张></button>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			//获取p标签的 idtext
+			var text = document.getElementById("text");
+			//获取img数组	的第一个元素
+			var img = document.getElementsByTagName("img")[0];
+			
+			//获取	上一页按钮
+			var prev =document.getElementById("prev");
+			//获取	下一页按钮
+			var next =document.getElementById("next");
+			
+			//创建一个数组 储存图片
+			var imgArr = ["img/01.jpg","img/02.jpg","img/03.jpg","img/04.jpg","img/05.jpg"]
+			//创建一个图片数组索引
+			var index =0;
+			
+			//p标签写上内容
+			text.innerHTML = "一共有"+imgArr.length+"张，当前是第"+(index+1)+"张";
+			
+			//prev	单击事件
+			prev.onclick = function(){
+				//图片数组索引自减
+				index--;
+				//如果小于0回到5
+				if(index<0){
+					index = imgArr.length-1;
+				}
+				//图片等于数组索引
+			
+				img.src = imgArr[index];
+				
+				//更新文字
+				text.innerHTML = "一共有"+imgArr.length+"张，当前是第"+(index+1)+"张";
+			};
+			
+			//next	单击事件
+			next.onclick = function(){
+				//图片数组索引自增
+				index++;
+				//如果索引大于5归0
+				if(index>imgArr.length-1){
+					index = 0;
+				}
+				img.src = imgArr[index];
+				text.innerHTML = "一共有"+imgArr.length+"张，当前是第"+(index+1)+"张";
+			};
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

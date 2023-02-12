@@ -1,0 +1,51 @@
+/* index 样式 */
+.box{width: 100%;
+height: 100%;}
+
+.box .header{background-color:#3a7bc6;}
+
+.box .header .top{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0.125rem 0.625rem;
+}
+
+.box .header .top .jmy{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.box .header .top .jmy img{
+	width: 0.73rem;
+	height: 0.58rem;
+}
+.box .header .top .jmy span{
+font-size: 0.35rem;
+color: white;}
+
+.box .header .userinfo{
+	padding: 0.125rem 0.625rem;
+	display: flex;
+	justify-content: space-between;
+}
+.box .header .userinfo .user img{
+	width: 1.5rem;
+}
+.box .header .userinfo .info{
+	width: 5rem;
+	height: 3.125rem;
+	border: white solid;
+}
+.box .header .userinfo .info h4{
+	font-size:0.3rem;
+	color: white;
+	font-weight: 100;
+	border: #0077AA solid;
+}
+.box .header .userinfo .info span{
+	display: block;
+	background-color:powderblue;
+	font-size:0.27rem;
+	color: white;
+}

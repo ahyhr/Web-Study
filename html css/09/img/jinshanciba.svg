@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+    <title>金山词霸logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#29B4F6" offset="0%"></stop>
+            <stop stop-color="#0693EA" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="金山词霸logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <rect id="Mask" fill="url(#linearGradient-1)" x="0" y="0" width="120" height="120" rx="20"></rect>
+            <g id="Group-12" transform="translate(16.000000, 17.000000)">
+                <rect id="Rectangle" fill="#F59C05" x="0" y="15" width="9" height="72"></rect>
+                <polygon id="Rectangle-Copy-18" fill="#FFF38B" points="19 0 28 0 9 15 -2.38031816e-13 15"></polygon>
+                <polygon id="Rectangle" fill="#FDD605" points="9 15 28 7.10542736e-14 28 61 9 87"></polygon>
+                <rect id="Rectangle" fill="#E8290F" x="9" y="78" width="64" height="9"></rect>
+                <polygon id="Rectangle-Copy-19" fill="#F64C36" points="28 60 88 60 73 78 9 78"></polygon>
+                <polygon id="Rectangle" fill="#FFB6B3" points="73 78 88 60 88 69 73 87"></polygon>
+                <path d="M66.7840345,46.6237623 L80.9288673,60.7685951 C82.4909645,62.3306923 82.4909645,64.8633522 80.9288673,66.4254494 C79.3667702,67.9875465 76.8341103,67.9875465 75.2720131,66.4254494 L61.0502723,52.2037086 C56.8027727,55.2240096 51.6087887,57 46,57 C31.6405965,57 20,45.3594035 20,31 C20,16.6405965 31.6405965,5 46,5 C60.3594035,5 72,16.6405965 72,31 C72,36.8638245 70.0588265,42.2742636 66.7840345,46.6237623 Z M46,48 C55.3888407,48 63,40.3888407 63,31 C63,21.6111593 55.3888407,14 46,14 C36.6111593,14 29,21.6111593 29,31 C29,40.3888407 36.6111593,48 46,48 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

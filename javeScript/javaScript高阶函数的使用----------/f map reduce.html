@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = () => {
+      //高阶函数的使用
+
+      let arr = [20,40,60,144,153,220,50,44];
+
+      //fillter 函数
+      /*
+        参数：n为每次遍历的数据
+
+        函数内部：return 值为true -添加到新数组中
+                reture 值为false -过滤该值
+      */
+      let resultArr = arr.filter(function(n){
+        return n<100;
+      });
+      console.log(resultArr);
+
+
+      //map 函数
+      /*
+        将遍历的数据n,进行操作
+      */
+      let resultArr2 = resultArr.map(n=>{
+        return n*2;
+      });
+      console.log(resultArr2);
+
+
+      //reduce 对数组中的数据进行汇总
+        /*
+          参数：preValue 上次返回的结果
+                n 遍历的数据
+                0 初始默认值
+
+                preValue(0) + n(20)
+                preValue(20) + n(80)
+                preValue(100) + n(120)
+                ...
+        */
+      let resultArr3 = resultArr2.reduce((preValue,n)=>{
+        return preValue + n;                            
+      },0);
+      console.log(resultArr3);
+
+
+
+      //链式调用
+      let res = arr.filter(function(n){
+        return n<100;
+      }).map(function(n){
+        return n * 2;
+      }).reduce(function(preValue,n){
+        return preValue + n;
+      },0);
+      console.log('链式' + res);
+
+      //简写 （箭头函数和省略）
+      let res2 = arr.filter(n=> n<100).map(n=> n*2).reduce((pre,n)=> pre+n);
+      console.log('简写'+res2);
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

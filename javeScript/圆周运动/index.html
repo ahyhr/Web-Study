@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		 <style type="text/css">
+		 	.box{
+				width: 20px;height: 20px;
+				background-color: bisque;
+				position: absolute;
+				}
+			img{
+				position: absolute;
+				top: 0;
+				left: 50%;
+				}
+			.node{
+				width: 5px;
+				height: 5px;
+				background-color: black;
+				position: absolute;
+				
+			}
+		 </style>
+		 <script type="text/javascript">
+		 	window.onload = function(){
+				var box = document.querySelector(".box");
+				var x = 400;//位置
+				var y = 400;//位置
+				var r = 100;//半径
+				// 1弧度 = Math.PI / 180;
+				var i = 0; //代表转过弧度
+				setInterval(function(){
+					i++;
+					var radian = i * Math.PI / 180;
+					var a = Math.sin(radian) * r;
+					var b = Math.cos(radian) * r;
+					box.style.left = x + a + "px";
+					box.style.top = y - b + "px";
+					
+					//用来显示轨迹
+				var node = document.createElement("div");
+				node.className = "node";
+				node.style.left = box.offsetLeft + "px";
+				node.style.top = box.offsetTop + "px";
+				document.body.appendChild(node);
+				
+				
+				},30);
+			};
+		 </script>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+		<img src="img/QQ截图20200909142356.jpg" >
+	</body>
+</html>

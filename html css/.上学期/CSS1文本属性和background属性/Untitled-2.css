@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+h2{color:#00F;text-align:center;}
+h3{text-align:center;color:#09F;text-decoration:underline;}
+.hcolor1{color:#09C}
+.hcolor2{color:#F00}
+.p1{text-indent:2em;line-height:1.5;font-size:15px}
+
+.p2h3{color:#F99;text-align:center;text-decoration:underline;}
+.p2h4{color:#F00;font-size:12px;text-align:center;}
+.p2p1{color:#09F;font-size:13px;text-align:center;letter-spacing:20px}
+.p2p2{font-style:italic;color:#0C0;font-weight:500;font-size:15px;}
+.p2p3{text-decoration:line-through;color:#F99;font-size:14px;}
+

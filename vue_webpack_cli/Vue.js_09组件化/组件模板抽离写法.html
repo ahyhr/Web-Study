@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件模板抽离写法</title>
+</head>
+<body>
+  <div class="app">
+    <cpn></cpn>
+    <cpn2></cpn2>
+  </div>
+
+  <!--1.使用script type="text/x-template"标签抽离  -->
+  <script type="text/x-template" id="cpnC2">
+    <div>
+      <h2>使用script type="text/x-template"标签抽离</h2>
+    </div>
+  </script>
+
+  <!-- 2.使用<template>标签 -->
+  <template id="cpnC1">
+    <div>
+      <h2>使用template标签抽离</h2>
+    </div>
+  </template>
+
+
+  <script src="./js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:".app",
+      data:{
+        message:'你好'
+      },
+      components:{
+        'cpn':{//使用id关联
+          template:'#cpnC1'
+        },
+        'cpn2':{
+          template:'#cpnC2'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

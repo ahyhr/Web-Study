@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-on 参数问题</title>
+</head>
+<body>
+  <div class="box">
+    <!-- 当方法没有传递参数时，可以省略 () -->
+    <button @click = 'but01'>没有参数</button>
+    <!-- 当方法有参数不传参时，会默认返回event对象 -->
+    <button @click = 'but02'>有参不传</button>
+    <!-- 使用 $event 获取event对象 -->
+    <button @click = 'but03(123,$event)'>传参</button>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'.box',
+    data:{
+
+    },
+    methods:{
+      but01(){
+        console.log('按钮1');
+      },
+      but02(abc,event){
+        console.log(abc ,event);
+      },
+      but03(a,event){
+        console.log(a,event.x);
+      }
+    }
+  })
+</script>
+</html>

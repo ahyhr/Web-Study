@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-if -else</title>
+</head>
+<body>
+  <div class="box">
+    <h2 v-if="num >= 90">优秀</h2>
+    <h2 v-else-if="num >= 80">良好</h2>
+    <h2 v-else-if="num >= 60">及格</h2>
+    <h2 v-else>不及格</h2>
+
+    <!-- 当条件多时，采用计算函数的处理方式 -->
+    <h1>{{cj}}</h1>
+  </div>
+
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'.box',
+    data:{
+      num:80
+    },
+    computed: {
+      cj(){
+        let res;
+        if (this.num>=90) {
+          res = '优秀';
+        } else if(this.num>=80){
+          res = '良好';
+        }else if(this.num>=60){
+          res = '及格';
+        }else{
+          res = '不及格';
+        }
+        return res;
+      }
+    },
+  })
+</script>
+</html>

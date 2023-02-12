@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			.box{
+				width: 800px;
+				height: 200px;
+				border: 1px solid black;
+				display: flex;
+			}
+			.box1{
+				margin: 20px;
+			}
+			.box1 .yr{
+				width: 100px;
+				height: 30px;
+				background-color:honeydew;
+				border-radius: 10px;
+				border: 1px solid powderblue;
+				text-align: center;
+				line-height: 30px;
+			}
+			.box1 .yr .nr{
+				list-style: none;
+				width: 150px;
+				height: 80px;
+				border: 1px solid seagreen;
+				border-radius: 10px;
+				position: relative;
+				top: 20px;
+				left: 20px;
+				display: none;
+			}
+			.box1 .yr .nr li{
+				height: 20px;
+				width: 100%;
+				border-radius: 10px;
+			}
+			.box1 .yr .nr li:hover{
+				background-color: #F0FFF0;
+			}
+			.box1 .yr .nr::after{
+				position: absolute;
+				top:-10px;
+				left: 30px;
+				content: '';
+				width: 0;
+				height: 0;
+				border-left: 8px solid transparent;
+				border-right: 8px solid transparent;
+				border-bottom: 10px solid seagreen;	
+			}
+		</style>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				//.stop() 清除动画
+				var $yr = $(".yr");
+				
+				$yr.hover(function(){
+					var $nr = $(this).children(".nr");
+					$nr.stop().fadeIn(500);
+				},function(){
+					var $nr = $(this).children(".nr");
+					$nr.stop().fadeOut(500);
+				});
+						
+			});
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1">
+				<div class="yr">
+					移入1
+					<ul class="nr">
+						<li>内容1</li>
+						<li>内容2</li>
+						<li>内容3</li>
+						<li>内容4</li>
+					</ul>
+				</div>
+			</div>
+			<div class="box1">
+				<div class="yr">
+					移入2
+					<ul class="nr">
+						<li>内容1</li>
+						<li>内容2</li>
+						<li>内容3</li>
+						<li>内容4</li>
+					</ul>
+				</div>
+			</div>
+			<div class="box1">
+				<div class="yr">
+					移入3
+					<ul class="nr">
+						<li>内容1</li>
+						<li>内容2</li>
+						<li>内容3</li>
+						<li>内容4</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .cpn{
+      width: 320px;
+      height: 200px;
+      background-color: blanchedalmond;
+    }
+    .cpn button{
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <cpn class="cpn">
+      <button slot="center">中</button>
+    </cpn>
+  </div>
+  <template id="cpnC">
+    <div>
+      <slot name="left"><button>left</button></slot>
+      <slot name="center"><button>center</button></slot>
+      <slot name="right"><button>right</button></slot>
+    </div>
+  </template>
+  <script src="./js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'.app',
+      components:{
+        cpn:{
+          template:'#cpnC'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

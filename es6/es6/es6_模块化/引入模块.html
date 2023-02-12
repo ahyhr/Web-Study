@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块化</title>
+    <!-- 引入模块 -->
+    <script type="module">
+        //1.通用导入方式  引入模块
+        import * as m1 from './js/mod01.js';
+        import * as m2 from './js/mod02.js';
+        import * as m3 from './js/mod03.js';
+
+        //2.解构赋值导入  重名需使用 as更改别名
+        // import {name, sayName} from './mod01.js';
+        // sayName();
+
+        //import {money, sayMoney} from './mod01.js';
+
+        //import {default as m3} from './mod01.js';
+        //console.log(m3.name);
+
+        //3.简便形式    针对默认暴露
+        // import m3 from './mod01.js';
+        // m3.fn();
+
+        console.log(m1);
+        m1.sayName();
+
+        console.log(m2.money);
+        m2.sayMoney();
+
+        //默认暴露需要使用 default
+        console.log(m3);
+        console.log(m3.default.name);
+        m3.default.fn();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

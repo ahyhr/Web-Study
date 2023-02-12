@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8106212",
+      "name": "course",
+      "font_class": "course",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
+      "icon_id": "8106213",
+      "name": "bluetooth_link",
+      "font_class": "bluetooth_link",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "8106214",
+      "name": "addto",
+      "font_class": "addto",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "12666625",
+      "name": "预约",
+      "font_class": "yuyue",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "12666913",
+      "name": "生产制作",
+      "font_class": "shengchanzhizuo",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    }
+  ]
+}

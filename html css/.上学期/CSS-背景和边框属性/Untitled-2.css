@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+body{background-image:url(images/eg_bg_04.gif)}
+p{background-image:url(images/22.jpg);
+height:50px;
+font-weight:200px;
+text-align:left;
+line-height:50px;
+font-size:14px;}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			function Fun(){
+			}
+			
+			//给原型对象添加属性（方法）-- 实例对象可以访问
+			//prototype 显式原型
+			Fun.prototype.text = function(){
+				console.log("text");
+			}
+			Fun.prototype.name = function(){
+				console.log("张三");
+			}
+			
+			//实例对象		中有隐式原型__proto__
+			var fun = new Fun();
+			fun.text();
+			fun.name();
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

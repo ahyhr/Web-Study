@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set 集合</title>
+    <script>
+        //创建  会自动去重
+        let s = new Set([1,1,2,2,2,3,4,5,5]);
+        console.log(s);
+        //元素数量 .size()
+        console.log(s.size);
+        //添加 .add()
+        s.add(6);
+        console.log(s);
+        //删除 .delete()
+        s.delete(6);
+        console.log(s);
+        //检测 ,has()
+        console.log(s.has(5));
+        //清空
+        // s.clear();
+        console.log(s);
+
+        //遍历
+        for (const v of s) {
+            console.log(v);
+        }
+
+
+
+        //实践
+        let arr = [1,2,3,4,4,5,5,6,6,7];
+
+        //1.数组去重
+        let result = [...new Set(arr)]
+        console.log('数组去重 '+result);
+
+        //2.交集
+        let arr2 = [2,3,3,4,4,7];
+        // let result2 = [...new Set(arr)].filter(item=>{
+        //     let a2 = new Set(arr2);
+        //     if (a2.has(item)) {
+        //         return true;
+        //     }else{
+        //         return false;
+        //     }
+        // });
+        let result2 = [...new Set(arr)].filter(item=> new Set(arr2).has(item));
+        console.log('交集 '+result2);
+
+        //并集
+        let result3 = [...new Set([...arr,...arr2])];
+        console.log(result3);
+        
+        //差集
+        let result4 = [...new Set(arr)].filter(item=> !(new Set(arr2).has(item)));
+        console.log('差集 '+result4);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

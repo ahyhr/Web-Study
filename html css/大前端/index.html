@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/OpenSearch.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			body{background-color:whitesmoke;
+			height: 100%;}
+			ul li{list-style: none;}
+			a{text-decoration: none;
+			color: black;}
+			i{font-style: normal;}
+			.f_l{float: left;}
+			.f_r{float: right;}
+			.clear{clear: both;}
+			.header{
+				width: 100%;
+				height: 60px;
+				background-color:white;
+				position: fixed;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				z-index: 2;
+				border-bottom:1px silver solid;
+			}
+			.header_zw{
+				width: 100%;
+				height: 60px;
+			}
+			.header .nav{width: 1200px;
+			height: 35px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			}
+			.header .nav .hd_nav_l{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+			}
+			.header .nav .hd_nav_l a img{
+				margin-top: 5px;
+				margin-right: 15px;
+			}
+			.header .nav .hd_nav_l .hd_nav_l_text{
+				display: inline-block;
+				width: 100px;
+				height: 35px; 
+				border-left:silver solid;
+				padding: 0 5px;
+			}
+			.header .nav .hd_nav_l .hd_nav_l_text p{
+				font-size: 13.5px;
+				text-align: center;
+				color:silver;
+			}
+			.header .nav .hd_nav_r{
+				position: relative;
+				height: 35px;
+			}
+			
+			.header .nav .hd_nav_r ul li{
+				display: inline-block;
+				padding: 0 15px;
+				font-size: 18px;
+			}
+			.header .nav .hd_nav_r ul li:hover>a{
+				color: lightskyblue;
+			}
+			.header .nav .hd_nav_r .nav_active{
+				color: lightskyblue;
+			}
+			.header .nav .hd_nav_r .qdkf_li{
+				background-color: white;
+				width: 120px;
+				position:absolute;
+				left: 60px;
+				border:1px silver solid;
+				display:none;
+			}
+			.header .nav .hd_nav_r .qdkf_li:after{
+				position: absolute;
+				top:-10px;
+				left: 50px;
+				content: '';
+				width: 0;
+				height: 0;
+				border-left: 8px solid transparent;
+				border-right: 8px solid transparent;
+				border-bottom: 10px solid #fff;		
+			}
+			.header .nav .hd_nav_r .qdkf_li:before{
+				position: absolute;
+				top:-11px;
+				left: 49px;
+				content: '';
+				width: 0;
+				height: 0;
+				border-left: 9px solid transparent;
+				border-right: 9px solid transparent;
+				border-bottom: 11px solid silver;
+			}
+			.header .nav .hd_nav_r .qdkf_li li{
+				text-align: center;
+				display:block;
+				padding: 5px 0;
+				margin: 5px 0;
+				font-size: 15px;
+			}
+			.header .nav .hd_nav_r .qdkf_li li:hover{
+				background-color: #eeeeee;
+				color: lightskyblue;
+			}
+			.header .nav .hd_nav_r .nav_02:hover .qdkf_li{
+				display: block;
+			}
+			.header .nav .hd_nav_r .nav_06{
+				display: inline-block;
+				width: 50px;
+				padding: 5px 0;
+				text-align: center;
+				font-size: 15px;
+				border:1px black solid;
+				background-color:silver;
+				
+			}
+			.header .nav .hd_nav_r .nav_06:hover{
+				color: white;
+				cursor: pointer;
+			}
+			#nav_search{
+				position: fixed;
+				width: 100%;
+				height:0px;
+				background-color:white;
+				opacity: 0.8;
+				transition: 0.2s;
+				z-index: 1;
+			}
+			#nav_search .search_box{
+				position: absolute;
+				top:52%;
+				left: 50%;
+				margin-left: -350px;
+				width: 700px;
+				height: 50px;
+				background-color: antiquewhite;
+				display: flex;
+				justify-content: space-between;
+			}
+			#nav_search .search{
+				width: 600px;
+				height: 50px;
+				box-sizing: border-box;
+				border: 1px lightskyblue solid;
+				font-size: 20px;
+				padding: 0 10px;
+			}
+			#nav_search .search:focus{outline: none;}
+			#nav_search .search_tetx{
+				width: 100px;
+				height: 50px;
+				background-color:lightskyblue ;
+				text-align: center;
+				line-height: 50px;
+				font-size: 20px;
+			}
+			#nav_search .search_tetx:hover{
+				background-color:#7cbfe5;
+				cursor: pointer;
+			}
+			.main{
+				width: 1200px;
+				height: 100%;
+				margin: 20px auto;
+				display: flex;
+				justify-content: space-between;
+			}
+			.main .main_l{
+				width: 820px;
+				height: 100%;
+			}
+			.main .main_l .banner{
+				position: relative;
+				width: 100%;
+				height: 200px;
+				border-radius: 5px;
+				border: 1px silver solid;
+			}
+			.main .main_l .banner img{
+				border-radius: 5px;
+			}
+			.main .main_l .banner .banner_but{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				background-color: white;
+				display: none;
+			}
+			.main .main_l .banner .but_l{
+				top: 80px;
+				left: 0;
+			}
+			.main .main_l .banner .but_r{
+				top: 80px;
+				right: 0;
+			}
+			.main .main_l .banner:hover .banner_but{
+				display: block;
+			}
+			.main .main_l .banner_text{
+				width: 100%;
+				height: 140px;
+				overflow:hidden;
+				background-color: white;
+				border: 1px silver solid;
+				border-radius: 5px;
+				margin: 20px 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.main .main_l .banner_text .banner_text_box{
+				width: 780px;
+				height: 100px;
+			}
+			.main .main_l .banner_text .banner_text_box a{
+				font-size: 18px;
+				font-weight: 600;
+			}
+			.main .main_l .banner_text .banner_text_box .red{
+				color: red;
+				margin-right: 10px;
+			}
+			.main .main_l .banner_text .banner_text_box a:hover{
+				color: lightskyblue;
+			}
+			.main .main_l .banner_text .banner_text_box p{
+				margin-top: 10px;
+				font-size: 14px;
+				height: 300px;
+				font-weight: 200;
+				line-height:20px;
+			}
+			.main .main_l .main_content_title{
+				width: 100%;
+				font-size: 16px;
+				font-weight: 600;
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 10px;
+			}
+			.main .main_l .main_content_title a{
+				font-size: 16px;
+				font-weight: 200;
+				color:#afafaf;
+			}
+			.main .main_l .main_content_title a:hover{
+				color: lightskyblue;
+			}
+			.main .main_l .main_content .main_content_list{
+				width: 100%;
+				justify-content: space-between;
+				border: 1px silver solid;
+				border-radius: 5px;
+				background-color: white;
+			}
+			.main .main_l .main_content .main_content_list li{
+				width: 100%;
+				box-sizing: border-box;
+				border-bottom: 1px silver solid;
+				padding: 20px;
+				display: flex;
+			}
+			.main .main_l .main_content .main_content_list .list_10{
+				border-bottom: none;
+			}
+			.main .main_l .main_content .main_content_list .list_box_l{
+				width: 180px;
+				height: 123px;
+				background-color: aquamarine;
+				
+			}
+			.main .main_l .main_content .main_content_list .list_box_l img{
+				width: 180px;
+				height: 123px;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r{
+				height: 123px;
+				width: 100%;
+				margin-left: 20px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				overflow: hidden;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .list_box_r_had{
+				width: 100%;
+				height: 23px;
+				line-height: 23px;
+				display:flex;
+				align-items: center;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .list_box_r_had .list_qdzx{
+				position: relative;
+				width: 60px;
+				height: 23px;
+				background-color: lightskyblue;
+				font-size: 12px;
+				line-height: 23px;
+				color: white;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .list_box_r_had .list_qdzx:after{
+				position: absolute;
+				right:-5px;
+				top:6px;
+				content: '';
+				width: 0;
+				height: 0;
+				border-left: 5px solid #87cefa;
+				border-bottom: 5px solid transparent;
+				border-top:5px solid transparent;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .list_box_r_had .list_qdzx span{
+				margin-left: 5px;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .list_box_r_had .list_qdzx:hover{
+				background-color: #7CBFE5;
+				cursor: pointer;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .list_box_r_had a{
+				font-size: 18px;
+				font-weight: 600;
+				margin: 0px 5px 0px 10px;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .list_box_r_had a:hover{
+				color: lightskyblue;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .list_box_r_had .list_zd{
+				width: 30px;
+				height: 20px;
+				background-color: red;
+				line-height: 20px;
+				color: white;
+				font-size: 12px;
+				border-radius: 3px;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .list_box_r_had .list_zd span{
+				margin-left: 2.5px;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .list_box_r_had2{	
+			}
+			.main .main_l .main_content .main_content_list .list_box_r p{
+				display: inline-block;
+				font-size: 13px;
+				font-weight: 200;
+				margin-right: 40px;
+				line-height: 20px;
+				color:#999999;
+			}
+			.main .main_l .main_content .main_content_list .list_box_r .zan{
+				margin: 0;
+			}
+			.main .main_l .main_footer{
+				width: 100%;
+				height: 60px;
+			}
+			.main .main_l .main_footer .main_footer_box{
+				width:50%;
+				height: 35px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-between;
+				margin-top: 15px;
+			}
+			.main .main_l .main_footer .main_footer_box li{
+				display: inline-block;
+				width: 35px;
+				min-width: 35px;
+				height: 35px;
+				background-color: #d5d5d5;
+				text-align: center;
+				line-height: 35px;
+				border-radius: 2px;
+				margin: 0 5px;
+			}
+			.main .main_l .main_footer .main_footer_box li:hover{
+				background-color: #dadada;
+				cursor: pointer;
+			}
+			.main .main_l .main_footer .main_footer_box .active{
+				background-color: lightskyblue;
+			}
+			.main .main_l .main_footer .main_footer_box .active:hover{
+				background-color: lightskyblue;
+			}
+			.main .main_l .main_footer .main_footer_box .slh{
+				background: none;
+			}
+			.main .main_l .main_footer .main_footer_box .xyy{
+				width: 70px;
+			}
+			.main .main_l .main_footer .main_footer_box span{
+				line-height: 35px;
+				color:#999999;
+			}
+			
+			.footer1{
+				width: 100%;
+				height: 250px;
+				background-color: #2f2f2f;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.footer1 .footer1_box{
+				color: #c8c8c8;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.footer1 .footer1_box .footer_but{
+				width: 120px;
+				height: 45px;
+				border: 1px silver solid;
+				border-radius: 5px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color:#c8c8c8;
+				font-size: 20px;
+				margin-top: 20px;
+			}
+			.footer1 .footer1_box .footer_but:hover{
+				background-color: silver;
+				color:#2f2f2f;
+			}
+			
+			.main .main_r{
+					width: 360px;
+					height: 100%;
+			}
+			.main .main_r .main_r_content{
+				width: 100%;
+				height:100%;
+				background-color: white;
+				padding:0px 15px 15px 15px;
+				box-sizing: border-box;
+				border-radius: 5px;
+				border: 1px silver solid;
+				margin-bottom: 15px;
+			}
+			.main .main_r .main_r_content:hover{
+				border-color:cornflowerblue ;
+			}
+			.main .main_r .main_r_content .main_r_content_box{
+				width: 100%;
+				height: 100%;
+				display:flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			.main .main_r .main_r_content .main_r_content_box .main_r_content_box_had{
+				width: 100px;
+				height: 30px;
+				background-color:cornflowerblue;
+			}
+			.main .main_r .main_r_content .main_r_content_box .main_r_content_box_had i{
+				line-height: 30px;
+				font-size: 15px;
+				color: white;
+				margin-left: 20px;
+			}
+			.main .main_r .main_r_content .main_r_content_box h3{
+				color: cornflowerblue;
+				margin: 10px 0;
+			}
+			.main .main_r .main_r_content .main_r_content_box p{
+				font-weight: 200;
+				font-size: 15px;
+				text-align: justify;
+				color: #999999;
+			}
+			
+			.main .main_r .main_r_content2 .main_r_content_box h3{
+				color: red;
+			}
+			.main .main_r .main_r_content2:hover{
+				border-color: red;
+			}
+			.main .main_r .main_r_content .main_r_content_box .main_r_content_box_had2{
+				background-color: red;
+			}
+			.main .main_r .main_r_content3{
+				width: 100%;
+				border:1px silver solid;
+				border-radius: 5px;
+				background-color:white;
+				margin-bottom: 20px;
+			}
+			.main .main_r .main_r_content3 h3{
+				display: block;
+				padding: 5px 15px;
+				font-size: 16px;
+				font-weight: bold;
+				border-bottom: 1px silver solid;
+				background-color: #F7F7F7;
+				border-radius: 5px 5px 0px 0px;
+			}
+			.main .main_r .main_r_content3 ul{
+			
+			}
+			.main .main_r .main_r_content3 ul li{
+				display:flex;
+				width: 100%;
+				flex-direction: column;
+				justify-content: space-between;
+				padding: 5px 15px;
+				box-sizing: border-box;
+				font-size: 14px;
+				border-bottom: 1px silver solid;
+				
+			}
+			.main .main_r .main_r_content3 ul li a{
+				color: #999999;
+			}
+			.main .main_r .main_r_content3 ul li a:hover{
+				color: lightskyblue;
+			}
+			.main .main_r .main_r_content3 span{
+				font-size: 12px;
+				margin: 5px 0;
+				color: #999999;
+				font-weight:100;
+			}
+			.main .main_r .main_r_content3 .list_4{
+				border-bottom: none;
+			}
+			.main .main_r .main_r_content4{
+				width: 100%;
+				border:1px silver solid;
+				border-radius: 5px;
+				background-color: white;
+			}
+			.main .main_r .main_r_content4 h3{
+				display: block;
+				padding: 5px 15px;
+				font-size: 16px;
+				font-weight: bold;
+				border-bottom: 1px silver solid;
+				background-color: #F7F7F7;
+				border-radius: 5px 5px 0px 0px;
+			}
+			.main .main_r .main_r_content4 .main_r_content4_tags{
+				padding: 15px;
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+			}
+			.main .main_r .main_r_content4 a{
+				width: 107px;
+				height: 30px;
+				background-color:#f5f5f5;
+				font-size: 12px;
+				overflow: hidden;
+				line-height: 30px;
+				box-sizing: border-box;
+				padding-left: 10px;
+				color: #a5a5a5;
+				margin-bottom: 4px;
+			}
+			.main .main_r .main_r_content4 a:hover{
+				background-color: lightskyblue;
+				color: white;
+			}
+			
+			
+			
+			.footer2{
+				width: 100%;
+				height: 100px;
+				background-color: white;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.footer2 .footer2_box{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				color: #bebebe;
+				font-size: 12px;
+				line-height: 20px;
+			}
+			
+			.sidebar{
+				width: 40px;
+				position:fixed;
+				bottom:15px;
+				right:15px;
+			}
+			.sidebar ul li{
+				display: block;
+				width: 40px;
+				height: 40px;
+				background-color: #d4d4d4;
+				margin-bottom: 2px;
+			}
+			.sidebar ul li i{
+				display: block;
+				width: 50px;
+				height: 20px;
+				position:relative;
+				top: 25%;
+				left: -60px;
+				background-color: #000000;
+				color: white;
+				font-size: 12px;
+				line-height: 20px;
+				box-sizing: border-box;
+				padding-left: 2px;
+				display: none;
+			}
+			.sidebar ul li i:after{
+				content: '';
+				width: 0;
+				height: 0;
+				position: absolute;
+				top: 50%;
+				margin-top: -5px;
+				right:-5px;
+				border-top: 5px transparent solid;
+				border-left: 5px black solid;
+				border-bottom:5px transparent solid;
+			}
+			.sidebar ul li:hover{
+				background-color: #000000;
+			}
+			.sidebar ul li:hover i{
+				display: block;
+				
+			}
+			.sidebar .wx{
+				background-color:black;
+				top:-43px;
+				left:-110px;
+				height: 125px;
+				width: 100px;
+				box-sizing: border-box;
+				padding-left: 25px;
+				padding-top: 5px;
+			}
+			.sidebar .wx:before{
+				position: absolute;
+				bottom:12px;
+				left: 50%;
+				margin-left: -40px;
+				content: '';
+				width: 80px;
+				height: 80px;
+				background-color:whitesmoke;
+			}
+			/* 媒体查询 */
+			@media only screen and (max-width:1200px){
+				.main{width: 1200px;}
+			}
+			@media only screen and (max-width:850px){
+				.main{flex-direction:column;}
+				.main_r{width: 830px;
+				display: block;}
+				.main .main_r .main_r_content{
+					display: none;
+				}
+				.main .main_r .main_r_content3{
+					display: none;
+				}
+				.main .main_r .main_r_content4{
+					width: 830px;
+				}
+				.header{
+					width: 830px;
+				}
+				.header .nav .hd_nav_l img{
+					position:absolute;
+					top: 12%;
+					left: 42%;
+				}
+				.header .nav .hd_nav_l .hd_nav_l_text{
+					display: none;
+				}
+				.header .nav .hd_nav_r ul li{
+					display: none;
+				}
+				.header .nav .hd_nav_r .nav_06{
+					margin-right: 40px;
+				}
+				.footer1{width: 830px;}
+				.footer2{width: 830px;}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="nav">
+				<div class="hd_nav_l">
+					<a href="#"><img src="img/logo.png" ></a>
+					<div class="hd_nav_l_text">
+						<p>关注前端开发</p>
+						<p>关注用户体验</p>
+					</div>
+				</div>
+				<div class="hd_nav_r">
+					<ul>
+						<li class="nav_01 "><a href="#" class="nav_active">首页</a></li>
+						<li class="nav_02">
+							<a href="#">前端开发</a>
+								<ul class="qdkf_li">
+									<a href="#"><li>HTML/CSS</li></a>
+									<a href="#"><li>JaveScript</li></a>
+									<a href="#"><li>技巧资源</li></a>	
+								</ul>
+						</li>
+						<li class="nav_03"><a href="#" >设计</a></li>
+						<li class="nav_04"><a href="#" >前网址导航</a></li>
+						<li class="nav_05"><a href="#" >WordPress主题</a></li>
+						<li class="nav_06" onclick="OpenCloseSearchDiv()">
+							搜索
+						</li>
+					</ul>
+				</div>
+			</div>
+		
+		</div>
+		
+		<div id="nav_search">
+			<div class="search_box">
+				<input class="search" type="search" name="" id="" value="输入关键字" />
+				<div class="search_tetx">
+					搜索
+				</div>
+			</div>
+		</div>
+
+		<div class="header_zw"></div>
+
+		<div class="main">
+			<div class="main_l">
+				<div class="banner">
+					<a href="#"><img src="img/tb-1.jpg" ></a>
+					<div class="banner_but but_l">	
+					</div>
+					<div class="banner_but but_r">	
+					</div>
+				</div>
+				<div class="banner_text">
+					<div class="banner_text_box">
+						<a href="#" class="red">[前端开发招聘]</a>
+						<a href="#">东莞微餐时代招聘前端开发(7K-18K)</a>
+						<p>微餐时代信息科技有限公司，总部位于深圳南山前海，研发中心位于东莞松山湖，
+						是国内领先的基于云端技术的SaaS餐饮管理软件服务公司。
+						凭借管理者对餐饮行业实体经营的丰富经验，依托IT及互联网技术，打造出集餐饮行业品牌管理体系、
+						服务体系、销售推广体...
+						</p>
+					</div>
+				</div>
+				<div class="main_content">
+					<div class="main_content_title">
+						最新发布
+						<a href="#">37000+用户的实力之选</a>
+					</div>
+					<ul class="main_content_list">
+						<li>
+								<div class="list_box_l">
+									<a href="#">
+										<img src="img/tu1.jpg" >
+									</a>
+								</div>
+								<div class="list_box_r">
+									<div class="list_box_r_had">
+										<div class="list_qdzx">
+											<span>前端资讯</span>
+										</div>
+										<a href="#">战狼级干货【从入门到精通前端系列视频教程】免费赠送</a>
+										<div class="list_zd">
+											<span>置顶</span>
+										</div>
+									</div>
+									<div class="list_box_r_had2">
+										<p>2019-10-19</p>
+										<p>号子</p>
+										<p>阅读(62972)</p>
+										<p class="f_r zan">赞(600)</p>
+										<div class="clear"></div>
+									</div>
+									<p class="zan">每次遇到这样的问题，我都感觉非常的可笑，所谓前途其实本质上是由你的实力决定的，
+									我面试过很多前端人员，对于那些一瓶子不满，半瓶子晃悠的人，
+									我是不会录用的，这就是无能者的前途。
+									对于那些有真功夫的前端开发人员，我一般给他们的薪资...</p>
+								</div>
+						</li>
+						<li>
+								<div class="list_box_l">
+									<a href="#">
+										<img src="img/ssl.png" >
+									</a>
+								</div>
+								<div class="list_box_r">
+									<div class="list_box_r_had">
+										<div class="list_qdzx">
+											<span>前端资讯</span>
+										</div>
+										<a href="#">买SSL证书找必盛云– PositiveSSL证书59元起</a>
+									</div>
+									<div class="list_box_r_had2">
+										<p>2019-10-19</p>
+										<p>号子</p>
+										<p>阅读(62972)</p>
+										<p class="f_r zan">赞(600)</p>
+										<div class="clear"></div>
+									</div>
+									<p class="zan">每次遇到这样的问题，我都感觉非常的可笑，所谓前途其实本质上是由你的实力决定的，
+									我面试过很多前端人员，对于那些一瓶子不满，半瓶子晃悠的人，
+									我是不会录用的，这就是无能者的前途。
+									对于那些有真功夫的前端开发人员，我一般给他们的薪资...</p>
+								</div>
+						</li>
+						<li>
+								<div class="list_box_l">
+									<a href="#">
+										<img src="img/ssl.png" >
+									</a>
+								</div>
+								<div class="list_box_r">
+									<div class="list_box_r_had">
+										<div class="list_qdzx">
+											<span>前端资讯</span>
+										</div>
+										<a href="#">买SSL证书找必盛云– PositiveSSL证书59元起</a>
+									</div>
+									<div class="list_box_r_had2">
+										<p>2019-10-19</p>
+										<p>号子</p>
+										<p>阅读(62972)</p>
+										<p class="f_r zan">赞(600)</p>
+										<div class="clear"></div>
+									</div>
+									<p class="zan">每次遇到这样的问题，我都感觉非常的可笑，所谓前途其实本质上是由你的实力决定的，
+									我面试过很多前端人员，对于那些一瓶子不满，半瓶子晃悠的人，
+									我是不会录用的，这就是无能者的前途。
+									对于那些有真功夫的前端开发人员，我一般给他们的薪资...</p>
+								</div>
+						</li>
+						<li>
+								<div class="list_box_l">
+									<a href="#">
+										<img src="img/ssl.png" >
+									</a>
+								</div>
+								<div class="list_box_r">
+									<div class="list_box_r_had">
+										<div class="list_qdzx">
+											<span>前端资讯</span>
+										</div>
+										<a href="#">买SSL证书找必盛云– PositiveSSL证书59元起</a>
+									</div>
+									<div class="list_box_r_had2">
+										<p>2019-10-19</p>
+										<p>号子</p>
+										<p>阅读(62972)</p>
+										<p class="f_r zan">赞(600)</p>
+										<div class="clear"></div>
+									</div>
+									<p class="zan">每次遇到这样的问题，我都感觉非常的可笑，所谓前途其实本质上是由你的实力决定的，
+									我面试过很多前端人员，对于那些一瓶子不满，半瓶子晃悠的人，
+									我是不会录用的，这就是无能者的前途。
+									对于那些有真功夫的前端开发人员，我一般给他们的薪资...</p>
+								</div>
+						</li>
+						<li>
+								<div class="list_box_l">
+									<a href="#">
+										<img src="img/ssl.png" >
+									</a>
+								</div>
+								<div class="list_box_r">
+									<div class="list_box_r_had">
+										<div class="list_qdzx">
+											<span>前端资讯</span>
+										</div>
+										<a href="#">买SSL证书找必盛云– PositiveSSL证书59元起</a>
+									</div>
+									<div class="list_box_r_had2">
+										<p>2019-10-19</p>
+										<p>号子</p>
+										<p>阅读(62972)</p>
+										<p class="f_r zan">赞(600)</p>
+										<div class="clear"></div>
+									</div>
+									<p class="zan">每次遇到这样的问题，我都感觉非常的可笑，所谓前途其实本质上是由你的实力决定的，
+									我面试过很多前端人员，对于那些一瓶子不满，半瓶子晃悠的人，
+									我是不会录用的，这就是无能者的前途。
+									对于那些有真功夫的前端开发人员，我一般给他们的薪资...</p>
+								</div>
+						</li>
+						<li>
+								<div class="list_box_l">
+									<a href="#">
+										<img src="img/ssl.png" >
+									</a>
+								</div>
+								<div class="list_box_r">
+									<div class="list_box_r_had">
+										<div class="list_qdzx">
+											<span>前端资讯</span>
+										</div>
+										<a href="#">买SSL证书找必盛云– PositiveSSL证书59元起</a>
+									</div>
+									<div class="list_box_r_had2">
+										<p>2019-10-19</p>
+										<p>号子</p>
+										<p>阅读(62972)</p>
+										<p class="f_r zan">赞(600)</p>
+										<div class="clear"></div>
+									</div>
+									<p class="zan">每次遇到这样的问题，我都感觉非常的可笑，所谓前途其实本质上是由你的实力决定的，
+									我面试过很多前端人员，对于那些一瓶子不满，半瓶子晃悠的人，
+									我是不会录用的，这就是无能者的前途。
+									对于那些有真功夫的前端开发人员，我一般给他们的薪资...</p>
+								</div>
+						</li>
+						<li>
+								<div class="list_box_l">
+									<a href="#">
+										<img src="img/ssl.png" >
+									</a>
+								</div>
+								<div class="list_box_r">
+									<div class="list_box_r_had">
+										<div class="list_qdzx">
+											<span>前端资讯</span>
+										</div>
+										<a href="#">买SSL证书找必盛云– PositiveSSL证书59元起</a>
+									</div>
+									<div class="list_box_r_had2">
+										<p>2019-10-19</p>
+										<p>号子</p>
+										<p>阅读(62972)</p>
+										<p class="f_r zan">赞(600)</p>
+										<div class="clear"></div>
+									</div>
+									<p class="zan">每次遇到这样的问题，我都感觉非常的可笑，所谓前途其实本质上是由你的实力决定的，
+									我面试过很多前端人员，对于那些一瓶子不满，半瓶子晃悠的人，
+									我是不会录用的，这就是无能者的前途。
+									对于那些有真功夫的前端开发人员，我一般给他们的薪资...</p>
+								</div>
+						</li>
+						<li>
+								<div class="list_box_l">
+									<a href="#">
+										<img src="img/ssl.png" >
+									</a>
+								</div>
+								<div class="list_box_r">
+									<div class="list_box_r_had">
+										<div class="list_qdzx">
+											<span>前端资讯</span>
+										</div>
+										<a href="#">买SSL证书找必盛云– PositiveSSL证书59元起</a>
+									</div>
+									<div class="list_box_r_had2">
+										<p>2019-10-19</p>
+										<p>号子</p>
+										<p>阅读(62972)</p>
+										<p class="f_r zan">赞(600)</p>
+										<div class="clear"></div>
+									</div>
+									<p class="zan">每次遇到这样的问题，我都感觉非常的可笑，所谓前途其实本质上是由你的实力决定的，
+									我面试过很多前端人员，对于那些一瓶子不满，半瓶子晃悠的人，
+									我是不会录用的，这就是无能者的前途。
+									对于那些有真功夫的前端开发人员，我一般给他们的薪资...</p>
+								</div>
+						</li>
+						<li class="list_10">
+								<div class="list_box_l">
+									<a href="#">
+										<img src="img/ssl.png" >
+									</a>
+								</div>
+								<div class="list_box_r">
+									<div class="list_box_r_had">
+										<div class="list_qdzx">
+											<span>前端资讯</span>
+										</div>
+										<a href="#">买SSL证书找必盛云– PositiveSSL证书59元起</a>
+									</div>
+									<div class="list_box_r_had2">
+										<p>2019-10-19</p>
+										<p>号子</p>
+										<p>阅读(62972)</p>
+										<p class="f_r zan">赞(600)</p>
+										<div class="clear"></div>
+									</div>
+									<p class="zan">每次遇到这样的问题，我都感觉非常的可笑，所谓前途其实本质上是由你的实力决定的，
+									我面试过很多前端人员，对于那些一瓶子不满，半瓶子晃悠的人，
+									我是不会录用的，这就是无能者的前途。
+									对于那些有真功夫的前端开发人员，我一般给他们的薪资...</p>
+								</div>
+						</li>
+					</ul>
+				</div>
+				<div class="main_footer">
+					<ul class="main_footer_box">
+						<a href="#">
+							<li class="active">
+								<i>1</i>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<i>2</i>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<i>3</i>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<i>4</i>
+							</li>
+						</a>
+						<li class="slh">
+							<span>...</span>
+						</li>
+						<a href="#">
+							<li class="xyy">
+								<i>下一页</i>
+							</li>
+						</a>
+						
+							<span>共60页</span>
+					</ul>
+				</div>
+			</div>
+			<div class="main_r">
+				<a href="#">
+					<div class="main_r_content">
+						<div class="main_r_content_box">
+							<div class="main_r_content_box_had">
+								<i>吐血推荐</i>
+							</div>
+							<h3>DUX主题 新一代推荐</h3>
+							<p>
+								DUX Wordpress主题是大前端当前使用主题，
+								是大前端积累多年Wordpress主题经验设计而成；
+								更加扁平的风格和干净白色的架构会让网站显得内涵而出色...
+							</p>
+						</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="main_r_content main_r_content2">
+						<div class="main_r_content_box">
+							<div class="main_r_content_box_had main_r_content_box_had2">
+								<i>吐血推荐</i>
+							</div>
+							<h3>DUX主题 新一代推荐</h3>
+							<p>
+								推荐云主机，建站更安全
+								大前端推荐站长使用阿里云主机，安全可靠、轻松上云，从此告别主机无售后、
+								主机各种难题。点击领取1000元代金券
+							</p>
+						</div>
+					</div>
+				</a>
+				<div class="main_r_content3">
+					<h3>站长推荐</h3>
+					<ul>
+						<li>
+							<a href="#">战狼级干货【从入门到精通前端系列视频教程】免费赠送</a>
+							<span>2019-10-09</span>
+						</li>
+						<li>
+							<a href="#">HTML5-语义化</a>
+							<span>2019-10-09</span>
+						</li>
+						<li>
+							<a href="#">分享一个生产二维码的插件</a>
+							<span>2019-10-09</span>
+						</li>
+						<li class="list_4">
+							<a href="#">完美快速解决百度分享</a>
+							<span>2019-10-09</span>
+						</li>
+					</ul>
+				</div>
+				<div class="main_r_content4">
+					<h3>热门标签</h3>
+					<div class="main_r_content4_tags">
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+						<a href="#">招聘/求职(111)</a>
+						<a href="#">招聘/求职(110)</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer1">
+			<div class="footer1_box">
+				<h1>themebetter 国内更好的WordPress主题服务商</h1>
+				<a href="#">
+					<div class="footer_but">
+						<span>立即前往</span>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="footer2">
+			<div class="footer2_box">
+				<p>© 2020 大前端   本站DUX主题由 themebetter.com 提供 网站地图</p>
+				<p>沪ICP备12025374号</p>
+			</div>
+		</div>
+		
+		<div class="sidebar">
+			<ul>
+				<a href="#">
+					<li>
+						<i>QQ咨询</i>
+					</li>
+				</a>
+				<a href="#">
+					<li>
+						<i class="wx">关注微信</i>
+					</li>
+				</a>
+				<a href="#">
+					<li>
+						<i>在线咨询</i>
+					</li>
+				</a>
+				<a href="#">
+					<li>
+						<i>返回顶部</i>
+					</li>
+				</a>
+			</ul>
+		</div>
+	</body>
+</html>

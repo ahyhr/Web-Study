@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>babel对模块化代码进行转换</title>
+    <script src="./dist/bundle.js" type="module"> //引入转换好的
+        /*
+            处理浏览器兼容性es6问题 使用babel转换成可兼容代码
+                -1.安装工具 babel-cli babel-preset-env browserify(webpack)
+
+                 2.转换 npx babel js(文件目录) -d dist/js(目标目录) --presets=babel-preset-env
+                        npx babel js -d dist/js --presets=babel-preset-env
+                 3.打包入口文件 npx browserify dist/js/app.js(入口文件路径) -o dist/bundle.js(目标路径)
+                        npx browserify dist/js/app.js -o dist/bundle.js
+                   -如果修改app.js 需要重新转化 打包
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

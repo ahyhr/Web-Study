@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;}
+body{background-color:#efefef;}
+.top{margin:0 auto;
+width:1200px;
+height:88px;}
+.top2{margin:0 auto;
+width:1200px;
+height:100px;}
+.top2-left{float:left;}
+.top2-right{float:right;}
+.var{height:40px;
+background-color:#F93;}
+.var ul{margin:0 auto;
+width:1200px;
+	list-style:none;
+line-height:40px;}
+.var ul li{display:inline;}
+.var ul li a{color:#FFF;
+display:inline-block;
+text-decoration:none;
+padding:0 20px;
+font-weight:900;}
+.var ul li a:hover{background-color:#666;}
+.double-1{width:1200px;
+height:50px;
+border:solid;
+border-width:3px;
+border-color:#666;
+margin:0 auto;
+	border-radius: 10px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+.double-2{width:1186px;
+height:38px;
+border:solid;
+border-width:2px;
+border-color:#666;
+margin:0 auto;
+margin-top:4px;
+background-color:#EBEBEB;
+	border-radius: 10px;
+}
+.double-2 ul{margin:0 auto;
+width:1200px;
+list-style:none;
+line-height:38px;}
+.double-2 ul li{display:inline;}
+.double-2 ul li a{text-decoration:none;
+padding:10px;
+color:#000;
+font-size:13px;}
+.double-2 ul li a:hover{color:brown;}
+.enter{height:362px;
+width:1200px;
+margin:0 auto;}
+.enter-left{height:362px;
+width: 918px;
+float: left;}
+.enter-right{height: 362px;
+width: 280px;
+border-radius: 15px;
+background-color:darkgray;
+float: right;}
+.enter-right-top{height: 50px;
+width: 280px;
+border-bottom: solid;
+border-color:#FF9933;
+text-align: center;
+line-height: 50px;
+font-size: 18px;
+color:#FF9933;}
+.enter-right-dowm{
+	height: 312px;
+	width: 280px;}
+.enter-right-dowm ol{margin-left: 58px;}
+.enter-right-dowm ol li{line-height: 30px;}
+.enter-right-dowm ol li a{text-decoration:none;
+color: black;}
+.enter-right-dowm ol li a:hover{color: red;}
+.img5{width: 1200px;
+height: 140px;
+background-color: darkgrey;
+border-radius: 15px;
+	margin:0 auto;
+margin-top: 20px;
+margin-bottom: 20px;}
+.img5 img{margin-top: 20px;
+margin-left: 13px;}
+.img10{width: 1200px;
+height: 550px;
+border: solid;
+margin: 0 auto;
+border-width: 1px;}
+.img10 img{border-radius: 15px;
+margin:7px 18px;}
+.down{height: 241px;}
+.down img{height: 241;
+width: 100%;}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_ajax请求基本操作</title>
+  <style>
+    #result{
+      width: 200px;
+      height: 100px;
+      border: 1px solid pink;
+    }
+  </style>
+</head>
+<body>
+  <button id="but">请求数据</button>
+  <div id="result">
+    <p></p>
+    <p></p>
+  </div>
+
+  <script>
+    const but = document.getElementById('but');
+    const results = document.getElementById('result').children;
+
+    but.addEventListener('click', function(){
+      //  1.创建对象
+      const xhr = new XMLHttpRequest();
+      //请求超时设置
+      xhr.timeout = 5000;
+      //超时回调
+      xhr.ontimeout = function() {
+        alert('网络连接超时!');
+      }
+      //网络异常回调
+      xhr.onerror = function() {
+        alert('网络连接异常!');
+      }
+
+      //响应体数据类型 (自动转换json)
+      // xhr.responseType = 'json';
+
+      //  2.初始化 设置请求方法和 url                (?t='+Date.now()解决ie会缓存数据问题)
+      xhr.open('Get', 'http://127.0.0.1:8000/server?t='+Date.now());
+      //  3.发送请求
+      xhr.send();
+      //  4.事件绑定 处理返回结果
+      xhr.onreadystatechange = function() {
+        //判断 (服务端返回了所有结果)
+        if(xhr.readyState === 4) {
+          //判断响应状态码 200 404 403 401 500
+          //2xx 成功
+          if(xhr.status >= 200 && xhr.status < 300) {
+            //处理结果
+            //1.响应行
+            console.log(xhr.status);//状态码
+            console.log(xhr.statusText);//状态字符串
+            console.log(xhr.getAllResponseHeaders());//所有响应头
+            console.log(xhr.response);//响应体
+            
+            //手动转换 json
+            let data = JSON.parse(xhr.response)
+            results[0].innerText = data.name;
+            results[1].innerText = data.age;
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

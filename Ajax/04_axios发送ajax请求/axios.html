@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04_axios发送ajax请求</title>
+  <link crossorigin="anonymous" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+</head>
+<body>
+  <h2>axios发送ajax请求</h2>
+  <hr>
+  <button type="button" class="btn btn-info">Get</button>
+  <button type="button" class="btn btn-success">Pose</button>
+  <button type="button" class="btn btn-danger">Ajax</button>
+
+  <script>
+    const button = document.getElementsByTagName('button');
+
+    button[0].addEventListener('click', function(){
+      axios.get('http://127.0.0.1:8000/axios')
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.error(err); 
+      })
+    })
+  </script>
+</body>
+</html>

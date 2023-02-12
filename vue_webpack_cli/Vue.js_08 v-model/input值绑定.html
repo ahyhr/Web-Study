@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>input值绑定</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 通过 v-bind 方式动态绑定绑定 -->
+    <label v-for="item in bobbys" :key="index" :for="item">
+      <input type="checkbox" v-model="hobby" :value="item" :id="item">{{item}}
+    </label>
+    <h2>我的爱好是:{{hobby}}</h2>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      bobbys:['唱','跳','rap','蓝球'],
+      hobby:[]
+    }
+  })
+</script>
+</html>

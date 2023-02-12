@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue初体验</title>
+    <script src="./js/vue.js"></script>
+    <script>
+        window.onload = () => {
+            
+            let app = new Vue({
+                el: '.box',     //用于需要挂载的元素
+                data: {         //定义数据
+                    name: '123'
+                }
+            });
+
+        };
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 使用 {{name}} 放入 -->
+        <h1>我的名字是{{name}}</h1>     
+        <h4>{{name}}</h4>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- 兼容ie7以下 可以引入js文件处理 -->
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				/*
+				JSON
+					用于和别的语言做数据的交换
+				
+				JSON分类：
+					1.对象{}
+					2.数组[]
+					
+				JSON中允许的值：
+					1.字符串
+					2.数值
+					3.布尔值
+					4.null
+					5.对象
+					6.数组
+				*/
+			   
+			   var obj = '{"name":"张三","age":18,"gender":"男"}';
+			   var arr = '[1,2,3,"hello",true]';
+			   
+			   /*JSON ----> js对象
+					JSON.parse()
+						-将 JSON字符串 转换为 js对象
+			   */
+			    var o = JSON.parse(obj);
+				console.log(o.name);
+				
+				
+				var obj2 = {name:"李四",age:20,gender:"男"};
+				
+				/*js对象 ----> JSON
+					JSON.stringify()
+						-将 js对象 转换为 JSON字符串
+				*/
+				
+				 var o2 = JSON.stringify(obj2);
+				console.log(o2);
+			};
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

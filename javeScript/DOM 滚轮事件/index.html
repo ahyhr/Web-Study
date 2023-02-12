@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color: chocolate;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var box1 = document.getElementById("box1");
+				//滚轮滚动事件
+				// box1.onwheel = function(event){
+				// 	console.log(event.wheelDelta);
+				// };
+				
+				// onWhe(box1, function(event) {
+				// 	//wheelDelta	滚轮滚动方向
+				// 	//谷歌	上滚150	下滚-150
+				// 	//ie	上滚120	下滚-120
+
+				// 	//event.detail	火狐使用
+				// 	//火狐	上滚-3	下滚3
+
+				// 	if (event.wheelDelta > 0) {
+				// 		alert("向上滚");
+				// 	} else {
+				// 		alert("向下滚");
+				// 	}
+				//});
+				
+					//获取事件字符串	
+					var wheelStr = whellStr(box1);
+					bind(box1,wheelStr,function(event){
+						event = event || window.event;
+						//向上滚	向下滚
+						if (event.wheelDelta > 0 ||event.detail <0) {
+						 		//高度减少
+								if(box1.clientHeight >= 25){
+								box1.style.height = box1.clientHeight - 10 + "px";
+								}
+						 	} else {
+								//高度增加
+								box1.style.height = box1.clientHeight + 10 + "px";
+						 	}
+							
+							//取消滚轮的默认行为
+							//使用addEventListener()	 不能使用 return false
+							//需要使用 event.preventDefault();
+							//ie8不支持
+							event.preventDefault();
+							// return false;
+					});
+			};
+
+			function bind(obj, eventStr, callback) {
+
+				if (obj.addEventListener) {
+					//其他浏览器
+					obj.addEventListener(eventStr, callback, false);
+				} else {
+					//ie8以下浏览器
+					//							使用匿名函数
+					obj.attachEvent("on" + eventStr, function(event) {
+						//修改this为obj
+						callback.call(obj);
+					});
+				}
+			};
+
+			function whellStr(obj) {
+				//如果有addEventListener 和 obj.onwheel 	返回wheel
+				if (obj.addEventListener && obj.onwheel) {
+					//普通浏览器onwheel
+					return "wheel";
+				} else {
+					//ie8浏览器onmousewheel
+					return "mousewheel";
+				}
+			};
+		</script>
+	</head>
+	<body style="height: 1000px;">
+		<div id="box1">
+
+		</div>
+	</body>
+</html>

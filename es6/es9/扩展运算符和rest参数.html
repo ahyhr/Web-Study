@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符和rest参数</title>
+    <script>
+        //es9 引入对 对象 的rest参数和扩展运算符
+
+        function cennect({host,port,...user}){
+            console.log(host);
+            console.log(port);
+            console.log(user);
+        }
+        
+        cennect({
+            host:'127.0.0.1',
+            port: 3306,
+            username:'root',
+            userword:'root'
+        });
+        
+        const skillQ = {
+            Q:'天音波',
+            Q2:'回音击'
+        };
+        const skillW = {
+            W:'金钟罩',
+            W2:'铁布衫'
+        }
+
+        const skill = {...skillQ,...skillW};
+        console.log(skill);
+
+        const skill2 = Object.assign(skillQ,skillW);
+        console.log(skill2);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

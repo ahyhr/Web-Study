@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0 ,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			
+			.box1,.box2,.box3,.box4,.box5,.box6{width: 100px;height: 100px;
+			border: 1px solid black;
+			border-radius: 10px;
+			display: grid;
+			grid-template-columns: repeat(3,1fr);
+			grid-template-rows: repeat(3,1fr);
+			grid-template-areas:
+			"a1 a2 a3"
+			"a4 a5 a6"
+			"a7 a8 a9";
+			}
+			
+			.dian{width: 25px;height: 25px;
+			border-radius: 50%;
+			background-color: black;
+			place-self: center;
+			}
+			.box1 div:nth-child(1){
+				grid-area: a5;
+			}
+			.box2 div:nth-child(1){
+				grid-area: a1;}
+			.box2 div:nth-child(2){
+				grid-area: a9;
+			}
+			.box3 div:nth-child(1){}
+			.box3 div:nth-child(2){
+				grid-column: 2/3;
+				grid-row: 2/3;
+			}
+			.box3 div:nth-child(3){
+				grid-column: 3/4;
+				grid-row: 3/4;
+			}
+			.box4 div:nth-child(2){
+				grid-column: 1/2;
+				grid-row: 3/4;
+			}
+			.box4 div:nth-child(3){
+				grid-column: 3/4;
+				grid-row: 3/4;
+			}
+			.box4 div:nth-child(4){
+				grid-column: 3/4;
+				grid-row: 1/2;
+			}
+			.box5 div:nth-child(2){
+				grid-column: 1/2;
+				grid-row: 3/4;
+			}
+			.box5 div:nth-child(3){
+				grid-column: 3/4;
+				grid-row: 3/4;
+			}
+			.box5 div:nth-child(4){
+				grid-column: 3/4;
+				grid-row: 1/2;
+			}
+			.box5 div:nth-child(5){
+				grid-column: 2/3;
+				grid-row: 2/3;
+			}
+			.box6 div:nth-child(2){
+				grid-column: 1/2;
+				grid-row: 3/4;
+			}
+			.box6 div:nth-child(3){
+				grid-column: 3/4;
+				grid-row: 3/4;
+			}
+			.box6 div:nth-child(4){
+				grid-column: 3/4;
+				grid-row: 1/2;
+			}
+			.box6 div:nth-child(5){
+				grid-column: 1/2;
+				grid-row: 2/3;
+			}
+			.box6 div:nth-child(6){
+				grid-column: 3/4;
+				grid-row: 2/3;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="dian"></div>
+		</div>
+		<div class="box2">
+			<div class="dian"></div>
+			<div class="dian"></div>
+		</div>
+		<div class="box3">
+			<div class="dian"></div>
+			<div class="dian"></div>
+			<div class="dian"></div>
+		</div>
+		<div class="box4">
+			<div class="dian"></div>
+			<div class="dian"></div>
+			<div class="dian"></div>
+			<div class="dian"></div>
+		</div>
+		<div class="box5">
+			<div class="dian"></div>
+			<div class="dian"></div>
+			<div class="dian"></div>
+			<div class="dian"></div>
+			<div class="dian"></div>
+		</div>
+		<div class="box6">
+			<div class="dian"></div>
+			<div class="dian"></div>
+			<div class="dian"></div>
+			<div class="dian"></div>
+			<div class="dian"></div>
+			<div class="dian"></div>
+		</div>
+	</body>
+</html>

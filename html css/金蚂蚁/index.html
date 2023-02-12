@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>金蚂蚁-课后作业</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="font_alibaba/iconfont.css"/>
+	</head>
+	<body>		
+		<div class="box">
+			<div class="header">
+				<div class="top">
+					<div class="iconfont icon-x">
+					</div>
+					<div class="jmy">
+						<img src="img/Ant.png" >
+						<span>金蚂蚁</span>
+					</div>
+					<div class="iconfont icon-dot1">
+					</div>
+				</div>
+				<div class="userinfo">
+					<div class="user">
+						<img src="img/portrait.png" >
+					</div>
+					<div class="info">
+						<h4>会飞的鱼</h4>
+						<span>13313331333</span>
+					</div>
+					<div class="sl168">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+				
+		<!-- rem 适配方案 选定 并设置完成 -->
+		<script>
+			//  设计稿宽度为750PX , 750 / 100 == 7.5 , 得出下面使用的 7.5  .
+			//  这样，设计图中的元素 ，原始尺寸直接除以100 即可得出正确的REM值。例如 盒子100x100 像素，
+			// 针对rem 单位  1x1 rem
+		    window.onresize = getRem;
+		    function getRem(){
+				
+		        document.documentElement.style.fontSize = document.documentElement.offsetWidth / 7.5 +'px';
+				
+		    }
+		    getRem();
+		</script>
+	</body>
+</html>

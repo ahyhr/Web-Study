@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var count = document.getElementById("count");
+				
+				/*
+				setInterval()	定时调用
+				参数：
+					1.回调函数
+					2.每次调用的时间，单位毫秒(1秒=1000毫秒)
+					返回值为nunber
+				*/
+			   var num = 1;
+			   var time1 = setInterval(function(){
+				   //每隔1000毫秒，num自增
+				   count.innerHTML = num++;
+				   
+				  if(num == 11){
+					  //clearInterval(time1) 停止时间
+				  	 clearInterval(time1);
+				  }	
+							
+			   },500);
+			   
+			};
+		</script>
+	</head>
+	<body>
+		<h2 id="count">0</h2>
+	</body>
+</html>

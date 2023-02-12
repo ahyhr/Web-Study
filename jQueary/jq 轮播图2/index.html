@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.abox{
+				width: 820px;
+				height: 200px;
+				margin: 50px auto;
+				border: 1px solid black;
+				border-radius: 10px;
+				position: relative;
+				overflow: hidden;
+			}
+			.abox .aul{
+				width: 4100px;		/*	820*5 */
+				list-style: none;
+				display: flex;
+				position: relative;
+			}
+			.abox .aul img{
+				border-radius: 10px;
+			}
+			.abox .yuandian{
+				height: 20px;
+				position: absolute;
+				display: flex;
+				left: 50%;
+				top: 85%;
+				transform: translateX(-50%);
+			}
+			.abox .yuandian i{
+				width: 15px;
+				height: 15px;
+				background-color: antiquewhite;
+				border-radius: 10px;
+				margin: 0 5px;
+			}
+			.abox .prev , .next{
+				border-left: 20px solid rgba(200,200,200,0);
+				border-right: 20px solid whitesmoke;
+				border-top: 20px solid rgba(200,200,200,0);
+				border-bottom: 20px solid rgba(200,200,200,0);
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				display: none;
+			}
+			.abox .next{
+				border-left: 20px solid whitesmoke;
+				border-right: 20px solid rgba(200,200,200,0);
+				border-top: 20px solid rgba(200,200,200,0);
+				border-bottom: 20px solid rgba(200,200,200,0);
+				right: 0;
+			}
+			.on{
+				background-color: aliceblue !important;
+			}	
+		</style>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $abox = $(".abox");
+				var $aul = $(".aul");
+				var $imgs = $aul.children();
+				var $yuandian = $(".yuandian>i");
+				var $prev = $(".prev");
+				var $next = $(".next");
+				var imgWidth = 820;
+				
+				
+				$prev.click(function(){
+					flipOver(false);
+				});
+				
+				$next.click(function(){
+					flipOver(true);
+				});
+				
+				//点击圆点切换
+				$yuandian.click(function(){
+					var targetIndex = $(this).index();
+					if(index != targetIndex){
+						flipOver(targetIndex);
+					}
+				});
+				
+				var isOpen = false;
+				$abox.hover(function(){
+					clearInterval(timer);
+						//.stop() 清除上一个未结束的动画
+						$prev.stop().fadeIn(500);
+						$next.stop().fadeIn(500);
+						
+				},function(){
+					$prev.stop().fadeOut(500);
+					$next.stop().fadeOut(500);
+					 timer = setInterval(function(){
+						flipOver(true);
+					},2000);
+				});
+				
+				//自动翻页
+				var timer = setInterval(function(){
+					flipOver(true);
+				},2000);
+						
+				
+				var moving = false;
+				//翻页
+				function flipOver(next){
+					if(moving){
+						return
+					}
+					moving = true;
+					//当前位置
+					var currentLeft = Math.round($aul.position().left);
+					//偏移
+					var offect;
+					if (typeof next === "boolean") {
+						offect = next ? -imgWidth : imgWidth;
+					} else{
+						offect = (index-next)*imgWidth;
+					}
+					
+					$aul.animate({left:String(currentLeft+offect)},function(){
+						$aul.stop();
+						moving = false;
+						
+						var currentLeft = Math.round($(this).position().left);
+						if(currentLeft == -($imgs.length-1)*imgWidth){
+							$aul.css("left",-820);
+						}else if(currentLeft== 0){
+							$aul.css("left",-($imgs.length-2)*imgWidth)
+						}
+						
+						updatePoints(next);
+					})
+					
+				}
+				
+				var index = 0;
+				//更新圆点
+				function updatePoints(next){
+					var targetIndex;
+					if(typeof next === "boolean"){
+						if (next) {
+							targetIndex = index + 1;
+							if(targetIndex >= $imgs.length-2){
+								targetIndex = 0
+							}
+						} else{
+							targetIndex = index - 1;
+							if(targetIndex < 0){
+								targetIndex = $imgs.length-3;
+							}
+						}
+					}else{
+						targetIndex = next;
+					}
+					$yuandian.eq(index).removeClass("on");
+					$yuandian.eq(targetIndex).addClass("on");
+					index = targetIndex;
+				}
+				
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div class="abox">
+			<ul class="aul" style="left: -820px;">
+				<li><a href="#"><img src="img/tb-3.jpg" ></a></li>
+				<li><a href="#"><img src="img/tb-1.jpg" ></a></li>
+				<li><a href="#"><img src="img/tb-2.jpg" ></a></li>
+				<li><a href="#"><img src="img/tb-3.jpg" ></a></li>
+				<li><a href="#"><img src="img/tb-1.jpg" ></a></li>
+			</ul>
+			<div class="yuandian">
+				<i class="on"></i>
+				<i></i>
+				<i></i>
+			</div>
+			<div class="prev"></div>
+			<div class="next"></div>
+		</div>
+	</body>
+</html>

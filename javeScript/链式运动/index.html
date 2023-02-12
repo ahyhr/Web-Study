@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box1{
+				width: 100px;
+				height: 100px;
+				background-color: antiquewhite;
+				position: absolute;
+				opacity: 1;
+				filter:alpha(opacity=100)
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.querySelector(".box1");
+				var timer = null;
+				box1.onmouseover = function(){
+					startMove(this,"width",200,function(){
+						startMove(this,"height",200,function(){
+							startMove(this,"opacity",50);
+						});
+					});
+				};
+				
+				box1.onmouseout = function(){
+					startMove(this,"width",100,function(){
+						startMove(this,"height",100,function(){
+							startMove(this,"opacity",100);
+						});
+					});
+				};
+				
+				
+				function startMove(obj ,str, distance ,func){
+					clearInterval(obj.timer);
+					
+					obj.timer = setInterval(function(){
+						//判断透明度
+						if (str == "opacity") {
+							iCur = parseInt(parseFloat(getStyle(obj,"opacity")) * 100);
+						} else{
+							iCur = parseInt(getStyle(obj,str));
+						}
+						
+						//计算缓冲速度
+						var speed = (distance - iCur) / 8;
+						speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+						
+						if (iCur == distance) {
+							clearInterval(obj.timer);
+							if(func){
+								func.call(obj);
+							}
+						} else{
+							//判断透明度
+							if (str == "opacity") {
+								iCur += speed;
+								obj.style[str] = iCur /100;
+								obj.style.filter =" alpha(opacity="+iCur+")";
+							} else{
+								obj.style[str] = iCur + speed + "px";
+							}
+						}
+					},20);
+				};
+				
+				function getStyle(obj , str){
+					if(window.getComputedStyle){
+						return getComputedStyle(obj,null)[str];
+					}else{
+						return obj.currentStyle[str];
+					}
+				}
+				
+			};
+		</script>
+	</head>
+	<body>
+		
+		<div class="box1">
+			
+		</div>
+	</body>
+</html>

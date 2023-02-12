@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>具名插槽的使用</title>
+</head>
+<body>
+  <div class="app">
+    <!--替换相应的内容  -->
+    <cpn>
+      <span slot="left">左</span>
+      <span slot="right">右</span>
+    </cpn>
+
+    <cpn>
+      <span slot="center">中</span>
+    </cpn>
+  </div>
+
+  <template id="cpnC">
+    <div>
+      <!-- 指定名称 -->
+      <slot name="left"><button>左</button></slot>
+      <slot name="center"><button>中</button></slot>
+      <slot name="right"><button>右</button></slot>
+    </div>
+  </template>
+  <script src="./js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'.app',
+      components:{
+        cpn:{
+          template:'#cpnC'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

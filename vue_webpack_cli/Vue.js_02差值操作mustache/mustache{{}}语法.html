@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mustache{{}}语法</title>
+</head>
+
+<body>
+  <div class="box">
+    <h2>
+      {{message}}
+      <span v-pre>{{message}}</span>
+    </h2>
+    <h2>{{farstName}}{{lastName}}
+      <span v-pre>{{farstName}}{{lastName}}</span>
+    </h2>
+    <h2>{{farstName}} {{lastName}}
+      <span v-pre>{{farstName}} {{lastName}}</span>
+    </h2>
+    <h2>{{farstName + lastName}}
+      <span v-pre>{{farstName + lastName}}</span>
+    </h2>
+    <h2>{{farstName +' '+ lastName}}
+      <span v-pre>{{farstName +' '+ lastName}}</span>
+    </h2>
+    <h2>{{num * 2}}
+      <span v-pre>{{num * 2}}</span>
+    </h2>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.box',
+    data: {
+      message: '消息',
+      farstName: 'Tom',
+      lastName: 'Jack',
+      num: 100
+    }
+  })
+</script>
+
+</html>

@@ -1,0 +1,1 @@
+<view class="cover_wrapper data-v-26f31298"><view class="cover data-v-26f31298"><image src="{{src}}" mode="widthFix" data-event-opts="{{[['tap',[['toCover',['$event']]]]]}}" bindtap="__e" class="data-v-26f31298"></image></view></view>

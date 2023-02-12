@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-once指令</title>
+</head>
+
+<body>
+  <div class="box">
+    <!-- v-once 只渲染一次，不会随着数据的改变而改变 -->
+    <h1>{{message}}</h1>
+    <h1 v-once>{{message}}</h1>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.box',
+    data: {
+      message: '消息'
+    }
+  })
+</script>
+
+</html>

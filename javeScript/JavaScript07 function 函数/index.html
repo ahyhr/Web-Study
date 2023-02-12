@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			//创建一个函数对象
+			
+			//以字符串的形式传递个构造函数 (一般不用)
+			var fun = new Function("console.log('这是第一个函数.');");
+			fun();
+			
+			
+			//使用 函数声明 创建一个函数
+			function fun2(){
+				console.log('这是第二个函数..');
+			}
+			fun2();
+			
+			
+			//使用 函数表达式 创建一个函数
+			var fun3 = function(){
+				console.log('这是第三个函数...');
+			}
+			fun3();
+			
+			
+			function sum(a,b){
+				console.log(a+b);
+			}
+			sum(5,6);
+			
+			
+			function sum2(a,b,c){
+				var d =a + b + c;
+				return d;
+			}
+			var res = sum2(1,2,3);
+			console.log(res);
+			
+			//偶数返回true
+			function isOU(a){
+				return a % 2 ==0;
+			}
+			var result = isOU(20);
+			console.log(result);
+			
+			//半径求圆的面积
+			function mianJi(r){
+				return 3.14*r*r;
+			}
+			var result2 = mianJi(4);
+			console.log(result2);
+			
+			
+			//实参 为对象
+			function sayHello(obj){
+				console.log("我是"+obj.name+",我今年"+obj.age+"岁了"+",我是"+obj.gender+"性。")
+			}
+			var obj ={
+				name:"张三",
+				gender:"男",
+				age:18
+			}
+			sayHello(obj);
+			
+			
+			//实参为 函数
+			function consolog(a){
+				console.log(a);
+			}
+			consolog(mianJi(4));
+			
+			
+			//匿名函数
+			//需要用()
+			(function(){
+				console.log("我是一个匿名函数");
+			}) ();		//（）;立即调用，只会执行一次
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

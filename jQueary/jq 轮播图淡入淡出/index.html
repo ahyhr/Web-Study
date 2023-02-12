@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.abox{
+				width: 820px;
+				height: 200px;
+				margin: 50px auto;
+				border: 1px solid black;
+				border-radius: 10px;
+				position: relative;
+				/* overflow: hidden; */
+			}
+			.abox .aul{
+				width: 820px;		
+				list-style: none;
+				/* display: flex; */
+				position: relative;
+			}
+			.abox .aul li{
+				position: absolute;
+			}
+			.abox .aul img{
+				border-radius: 10px;
+			}
+			.abox .yuandian{
+				height: 20px;
+				position: absolute;
+				display: flex;
+				left: 50%;
+				top: 85%;
+				transform: translateX(-50%);
+			}
+			.abox .yuandian i{
+				width: 15px;
+				height: 15px;
+				background-color: antiquewhite;
+				border-radius: 10px;
+				margin: 0 5px;
+			}
+			.abox .prev , .next{
+				border-left: 20px solid rgba(200,200,200,0);
+				border-right: 20px solid whitesmoke;
+				border-top: 20px solid rgba(200,200,200,0);
+				border-bottom: 20px solid rgba(200,200,200,0);
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				display: none;
+			}
+			.abox .next{
+				border-left: 20px solid whitesmoke;
+				border-right: 20px solid rgba(200,200,200,0);
+				border-top: 20px solid rgba(200,200,200,0);
+				border-bottom: 20px solid rgba(200,200,200,0);
+				right: 0;
+			}
+			.on{
+				background-color: aliceblue !important;
+			}
+		</style>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $abox = $(".abox");
+				var $aul = $(".aul");
+				var $imgs = $aul.children();
+				var $yuandian = $(".yuandian>i");
+				var $prev = $(".prev");
+				var $next = $(".next");
+				var index = 0;
+				
+				
+				$prev.click(function(){
+					flipOver(false);
+				});
+				
+				$next.click(function(){
+					flipOver(true);
+				});
+				
+				//圆点切换
+				$yuandian.click(function(){
+					var tarageIndex = $(this).index();
+					flipOver(tarageIndex);
+				});
+				
+				
+				$abox.hover(function(){
+					clearInterval(timer);
+						//.stop() 清除上一个未结束的动画
+						$prev.stop().fadeIn(500);
+						$next.stop().fadeIn(500);
+						
+				},function(){
+					$prev.stop().fadeOut(500);
+					$next.stop().fadeOut(500);
+					 timer = setInterval(function(){
+						flipOver(true);
+					},2000);
+				});
+				
+				//自动切换
+				 var timer = setInterval(function(){
+					flipOver(true);
+				},2000);
+				
+				
+				
+				//翻页
+				function flipOver(next){
+					var tarageIndex;
+					if (typeof next === "boolean") {
+						tarageIndex = next ? (index + 1) : (index - 1);
+						// if (next) {
+						// 	tarageIndex = index + 1;
+						// } else{
+						// 	tarageIndex = index - 1;
+						// }
+					} else{
+						tarageIndex = next;
+					}
+						
+					if(tarageIndex>$imgs.length-1){
+						tarageIndex=0;
+					}else if(tarageIndex<0){
+						tarageIndex = $imgs.length-1;
+					}	
+					//淡入淡出
+					$imgs.eq(index).stop().fadeOut(1000);//当前
+					$imgs.eq(tarageIndex).stop().fadeIn(1000);//下一个
+					//更新圆点
+					$yuandian.eq(index).removeClass("on");
+					$yuandian.eq(tarageIndex).addClass("on");
+					
+					index = tarageIndex;	
+				}
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div class="abox">
+			<ul class="aul">
+				<li><a href="#"><img src="img/tb-1.jpg" ></a></li>
+				<li style="display: none;"><a href="#"><img src="img/tb-2.jpg" ></a></li>
+				<li style="display: none;"><a href="#"><img src="img/tb-3.jpg" ></a></li>
+				<li style="display: none;"><a href="#"><img src="img/tb-2.jpg" ></a></li>
+				<li style="display: none;"><a href="#"><img src="img/tb-2.jpg" ></a></li>
+			</ul>
+			<div class="yuandian">
+				<i class="on"></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+			</div>
+			<div class="prev"></div>
+			<div class="next"></div>
+		</div>
+	</body>
+</html>

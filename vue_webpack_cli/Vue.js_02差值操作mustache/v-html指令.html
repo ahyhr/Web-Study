@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-html指令</title>
+</head>
+<body>
+  <div class="box">
+    <!-- v-html 解析含有html标签的字符串 -->
+    <h2>{{url}}</h2>
+    <h2 v-html = 'url'></h2>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'.box',
+    data:{
+      url:'<a href="http://www.baidu.com">百度一下</a>'
+    }
+  })
+</script>
+</html>

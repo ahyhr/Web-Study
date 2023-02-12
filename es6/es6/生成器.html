@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器</title>
+    <script>
+        //生成器就是一个特殊的函数
+        //异步编程
+
+        //定义
+        function * generate(arg){
+
+            let a = yield 111;
+            console.log(a);
+            yield 222;
+            yield 333;
+        }
+        //执行获取迭代器对象
+        let iterator = generate("aaa");
+        //调用 iterator.next()    参数为上条语句返回结果
+        iterator.next("aaa");
+        iterator.next("bbb");
+
+
+        //应用:经过1秒打印111 再过2秒打印222
+        function one(){
+           let timer = setInterval(()=>{
+                console.log('111');
+                iterator2.next();
+                clearInterval(timer);
+            },1000);
+        }
+        function tow(){
+            let timer = setInterval(()=>{
+                console.log('222');
+                iterator2.next();
+                clearInterval(timer);
+            },2000);
+        }
+        function three(){
+            let timer = setInterval(()=>{
+                console.log('333');
+                iterator2.next();
+                clearInterval(timer);
+            },3000);
+        }
+        function * go(){
+            yield one();
+            yield tow();
+            yield three();
+        }
+        let iterator2 = go();
+        iterator2.next();
+
+
+        //模拟获取 用户数据 订单数据 商品数据
+        function getUser(){
+            setTimeout(()=>{
+                let date = '用户数据';
+                //调用next方法,并且将数据传入
+                iter.next(date);
+            },1000);
+        }
+        function getOrder(){
+            setTimeout(()=>{
+                let date = '订单数据';
+                iter.next(date);
+            },1000);
+        }
+        function getcommodity(){
+            setTimeout(()=>{
+                let date = '商品数据';
+                iter.next(date);
+            },1000);
+        }
+        function * gen(){
+            let user = yield getUser(); //获取到iter.next(date)返回结果
+            console.log(user);
+            let order = yield getOrder();
+            console.log(order);
+            let commodity= yield getcommodity();
+            console.log(commodity);
+        }
+        let iter = gen();
+        iter.next();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

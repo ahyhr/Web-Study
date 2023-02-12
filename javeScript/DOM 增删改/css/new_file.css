@@ -1,0 +1,38 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+li {
+	list-style: none;
+}
+
+#total {
+	width: 300px;
+	border: 1px solid black;
+	padding: 20px;
+	float: left;
+	margin-left: 10%;
+}
+
+#city {margin-top: 10px;
+font-size: 0px;
+
+}
+
+#city li {
+	font-size: 16px;
+	display:inline-block;
+	border: 1px solid black;
+	background-color: aquamarine;
+	padding: 5px;
+	margin: 5px;
+}
+
+#btnList{
+	float: right;
+	margin-right: 10%;
+}
+#btnList div{
+	margin-bottom: 5px;
+}

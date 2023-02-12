@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.box1{width: 100px;height: 100px;
+			background-color: antiquewhite;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.querySelector(".box1");
+				var but = document.getElementById("inp");
+				
+				but.onclick = function(){
+					
+					//style 属性读取和设置的是内联样式	，样式表中不能读取
+					box1.style.width = "200px";
+					box1.style.height = "200px";
+					box1.style.backgroundColor = "black";
+					
+					
+					//box1.currentStyle.width	获取内联样式
+					//只支持ie浏览器
+					
+					
+					//getComputedStyle(box1,null);	获取内联样式
+					//参数：样式元素		伪元素一般传null
+					//不支持ie8及以下的浏览器
+					// alert(getComputedStyle(box1,null).width);
+					
+					var wid= getStyle(box1,"width");
+					alert(wid);
+					
+					//自定义兼容函数
+					
+					function getStyle(obj , name){
+						//如果浏览器有getComputedStyle方法
+						//getComputedStyle函数找完，会在全局中找	如果没有会报错（程序停止）
+						//window.getComputedStyle	为对象属性	没有会返回undefined
+						//变量没找到会报错		属性没找到返回undefined,不会报错
+						if (window.getComputedStyle) {
+							return getComputedStyle(obj,null)[name];
+						} else{
+							return obj.currentStyle[name];
+						}
+					};
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div class="box1">
+			
+		</div>
+		<button type="button" id="inp">点击</button>
+	</body>
+</html>

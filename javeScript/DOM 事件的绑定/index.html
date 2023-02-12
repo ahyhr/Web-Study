@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var but = document.getElementById("but");
+				
+				//onclick 在绑定多个函数时会覆盖前面的
+				// but.onclick = function(){
+				// 	alert("01");
+				// };
+				// but.onclick = function(){
+				// 	alert("02");
+				// };
+				
+				
+				
+				//addEventListener()	绑定多个响应函数
+				/*参数：1.事件的字符串，不要on
+						2.回调函数，触发时会被调用
+						3.是否捕获阶段触发事件，一般为false
+				不支持ie8以下浏览器
+				*/
+				// but.addEventListener("click",function(){
+				// 	alert("01");
+				// },false);
+				// but.addEventListener("click",function(){
+				// 	alert("02");
+				// },false);
+				// but.addEventListener("click",function(){
+				// 	alert("03");
+				// },false);
+				
+				
+				//but.attachEvent()
+				/*支持ie8,不支持其他浏览器
+				参数：1.事件的字符串，要on
+						2.回调函数，触发时会被调用
+						3.是否捕获阶段触发事件，一般为false
+				顺序从后向前
+				this为window
+				*/
+				// but.attachEvent("onclick",function(){
+				// 	alert("01");
+				// });
+				// but.attachEvent("onclick",function(){
+				// 	alert("02");
+				// });
+				
+				bind(but,"click",function(){
+					alert(this);
+				});
+				
+				
+				//自定义兼容元素绑定函数
+				/*
+				参数：	1.obj	对象
+						2.eventStr 事件字符串
+						3.callback	回调函数
+				*/
+			   function bind(obj , eventStr , callback){
+				 
+				 if (obj.addEventListener) {
+				 	//其他浏览器
+				 	obj.addEventListener(eventStr,callback,false);
+				 } else{
+				 	//ie8以下浏览器
+					//							使用匿名函数
+				 	obj.attachEvent("on"+eventStr,function(){
+						//修改this为obj
+						callback.call(obj);
+					});
+				 }
+			   };
+			};
+		</script>
+	</head>
+	<body>
+		<button type="button" id="but">button</button>
+	</body>
+</html>

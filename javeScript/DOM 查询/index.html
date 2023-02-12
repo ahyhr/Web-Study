@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			//window.onload 	页面加载完成后
+			//js代码写在上面需要使用
+			
+			window.onload = function(){
+				//获取button对象		document.getElementById
+				var but= document.getElementById("but");
+				
+				//修改button文字		innerHTML
+				but.innerHTML = "i am button";
+				
+				//事件		响应事件
+				but.onclick = function(){
+					alert("onclidk点击事件");
+				};
+			};
+			
+		</script>
+		
+	</head>
+	<body>
+		<!-- onclick="" 不推荐写在这里，不方便维护 -->
+		<button id="but">我是一个按钮</button>
+		
+		
+		<!-- <script type="text/javascript">
+			//获取button对象		document.getElementById
+			var but= document.getElementById("but");
+			
+			//修改button文字		innerHTML
+			but.innerHTML = "i am button";
+			
+			//事件		响应事件
+			but.onclick = function(){
+				alert("onclidk点击事件");
+			};
+			
+			
+		</script> -->
+	</body>
+</html>

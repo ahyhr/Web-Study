@@ -1,0 +1,95 @@
+.login {
+	border: 1px solid skyblue;
+	border-radius: 5px;
+	width: 220px;
+	margin: 50px 50px;
+}
+
+.login .tab {
+	border-bottom: 1px solid skyblue;
+	background-color: rgba(90, 152, 222, 0.1);
+	text-align: center;
+}
+
+.login .tab a {
+	display: inline-block;
+	padding: 10px 25px;
+	color: #999;
+}
+
+.login .tab a:hover {
+	color: black;
+}
+
+.login .tab a.active {
+	color: black;
+}
+
+.login form {
+	padding: 20px;
+	height: 150px;
+}
+
+.login form label {
+	display: block;
+	margin: 10px 0px;
+}
+
+.login form label input {
+	height: 30px;
+	width: 100%;
+	border: 1px solid #ddd;
+	outline: 0;
+	padding: 0 5px;
+	font-size: 10px;
+	box-sizing: border-box;
+}
+
+.login form label input:focus {
+	border: 1px solid skyblue;
+}
+
+.login form label input[type="checkbox"] {
+	width: auto;
+	vertical-align: middle;
+}
+
+.login form label span {
+	font-size: 10px;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+.login form button {
+	background-color: rgb(90, 152, 222);
+	width: 100%;
+	border: 0;
+	color: white;
+	padding: 5px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: 0;	
+}
+
+.login form button:hover {
+	background-color: rgb(90, 152, 222, 0.8);
+}
+
+.login .down {
+	padding: 0 20px 20px 20px;
+	text-align: center;
+}
+
+.login .down img {
+	height: 15px;
+	width: 15px;
+}
+
+.login .down .f_ps{
+	text-align: right;
+}
+
+.login .down .f_ps a{
+	color: rgb(90, 152, 222);
+}

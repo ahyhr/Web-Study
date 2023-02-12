@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			
+			.box1{width: 100px;height: 100px;
+			background-color: antiquewhite;
+			/* 需要开启定位 */
+			position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.querySelector(".box1");
+				document.onmousemove = function(event){
+					//兼容ie8
+					event = event || window.event;
+					
+					//clientX 当前可见窗口的坐标
+					//pageX		相对于页面的坐标
+					//ie8以下 不支持
+					// var left = event.pageX;
+					// var top = event.pageY;
+					
+					//兼容ie8
+					//获取滚动条距离		(水平同理)
+					var st = document.documentElement.scrollTop;
+					var left = event.clientX;
+					var top = event.clientY;
+					box1.style.left = left + "px";
+					//相加
+					box1.style.top = top + st +"px";
+				};
+				
+			};
+		</script>
+	</head>
+	<body style="height: 1000px;">
+		<div class="box1">
+			
+		</div>
+	</body>
+</html>

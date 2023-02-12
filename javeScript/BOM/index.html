@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			/*浏览器对象模型
+			 BOM通过js操作浏览器
+			 
+			BOM对象
+				window
+					浏览器窗口，也是网页中的全局对象
+				Navigator
+					当前浏览器的信息，可以识别不同的浏览器
+				Location
+					浏览器的地址栏信息，或操作浏览器跳转页面
+				History
+					浏览器历史记录，只能操作前后翻页
+				Screen
+					显示器相关信息
+			*/ 		
+		   
+				//navigator.userAgent 描述浏览器信息
+				if(/chrome/i.test(navigator.userAgent)){
+					alert("谷歌"); 		
+				}else if(/firefox/i.test(navigator.userAgent)){
+					alert("火狐");
+				}
+				
+				//检测是否是 ie浏览器	(包括ie11)		//edge为谷歌内核
+				if("ActiveXObject" in window){
+					alert("ie");
+				}
+				
+				
+				//History	浏览器历史记录
+					//history.length 访问的链接数量
+					
+					//history.back();	和浏览器前进按钮一样
+						//返回上一个页面
+					//history.forward();
+						//跳转下一个页面
+						
+					//history.go(2);	
+						//跳转2个页面
+						
+						
+				//Location	浏览器的地址栏信息
+					window.onload = function(){
+						var but = document.getElementById("but");
+						but.onclick = function(){
+							//可以修改地址
+							//会生成历史记录
+							location = "http://www.baidu.com";
+							
+							//location.assign	可以修改地址和上面一样	会生成历史记录
+							//location.assign("http://www.baidu.com");
+							
+							//location.reload();	刷新页面
+							//location.reload(true);强制清除缓存如：输入框的文字会在刷新页面时清除
+						
+							//location.replace	可以修改地址		不会生成历史记录
+							//location.replace("http://www.baidu.com");
+						};
+						
+					};
+		</script>
+	</head>
+	<body>
+		<button id="but" type="button">button</button>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态绑定style属性(对象语法)</title>
+</head>
+
+<body>
+  <!-- 使用对象绑定style -->
+  <div class="box">
+    <!-- 写 '' 输入值-->
+    <h1 :style="{color:'blue',fontSize:'40px'}">{{message}}</h1>
+    <!-- lColor 为读取变量值 -->
+    <h1 :style="{color:lColor,fontSize:lSize+'px'}">{{message}}</h1>
+    <h1 :style="getStyles()">{{message}}</h1>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '.box',
+    data: {
+      message: '你好',
+      lColor: 'red',
+      // lSize:'50px'
+      lSize:50
+    },
+    methods: {
+      getStyles:function(){
+        return {color:this.lColor,fontSize:this.lSize+'px'};
+      }
+    }
+  })
+</script>
+
+</html>

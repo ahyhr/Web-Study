@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			
+			var s = "hello	hello";
+			
+			//s.length	字符串长度
+			
+			//s.charAt()	指定位置字符（索引）
+			
+			//s.charCodeAt()	指定位置字符编码Unicode编码
+			
+			//String.fromCharCode(0x0001)	根据字符编码获取字符
+			
+			//s.indexOf("e")	  返回字符串中是否有该内容
+								//有返回索引		没有返回-1
+								//参数2		为开始查找位置
+			var sre = s.indexOf("l",2);
+			console.log(sre);       	
+			//s.lastIndexOf()	从后向前查找
+			
+			//s.slice()		截取指定的内容  不会影响原字符串
+			
+			
+			//str.split(",")	将字符串拆分成数组
+			var str = "abc,def,ghi,jkl";
+			var result = str.split(",");
+			console.log(result[1]);
+			
+			
+			//str.toUpperCase()		转换成大写返回
+			//str.toLowerCase()		转换成小写返回
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

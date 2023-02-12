@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则扩展_命名捕获分组</title>
+    <script>
+        //不使用 命名分组需要使用索引
+        let str = '<a href="http://www.baidu.com">百度</a>';
+
+        const reg = /<a href="(.*)">(.*)<\/a>/;
+        const result = reg.exec(str);
+
+        console.log(result);
+        console.log(result[1]);
+        console.log(result[2]);
+        
+
+        // ?<名称>      
+        const reg2 = /<a href="(?<url>.*)">(?<test>.*)<\/a>/;
+        const result2 = reg2.exec(str);
+
+        console.log(result2);
+        console.log(result2.groups.url);
+        console.log(result2.groups.test);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>切换登录练习</title>
+</head>
+<body>
+  <div class="box">
+    <div class="dl">
+      <div v-if="show">
+        <label for="username">账号登录</label>
+        <!-- key=''  解决切换时不会清除内容的问题-->
+        <input type="text" id="username" key="username">  
+      </div>
+  
+      <div v-else>
+        <label for="emilname">邮箱登录</label>
+        <input type="text" id="emilname" key="emilname">
+      </div>
+    </div>
+    <button @click = 'qh'>切换登录</button>
+  </div>
+  
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'.box',
+    data:{
+      show:true
+    },
+    methods: {
+      qh(){
+        this.show = !this.show;
+        console.log("阿");
+      }
+    },
+  })
+</script>
+</html>

@@ -1,0 +1,22 @@
+
+.birthday.data-v-0823c9f9{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+.page_block.data-v-0823c9f9{
+	margin-top: 100rpx;
+}
+.date.data-v-0823c9f9{
+	height: 80rpx;
+	padding: 20rpx 0 0 20rpx;
+	background-color: #fff;
+	line-height: 60rpx;
+}
+.submit_btn.data-v-0823c9f9{
+	width: 95%;
+	margin-top: 40rpx;
+}
+

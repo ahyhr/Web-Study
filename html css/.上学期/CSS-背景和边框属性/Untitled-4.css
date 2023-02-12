@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+body{background-image:url(images/bj.jpg);
+background-color:#000;
+background-position:top right;
+background-repeat:no-repeat;
+}
+p{color:#FF0;
+font-size:14px;}
+a{color:#F00;}
