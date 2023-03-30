@@ -13,7 +13,8 @@ export const useMainStore = defineStore("main", {
       menuList: [
         { name: "订单管理" },
         { name: "订单列表" },
-        { name: "测试", children: [{ name: "骨架屏" }, { name: "布局" }] }
+        { name: "测试", children: [{ name: "骨架屏" }, { name: "布局" }] },
+        { name: "three js" }
       ]
     };
   },

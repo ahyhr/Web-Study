@@ -10,7 +10,7 @@ export function deleteRight(id: number) {
 	return request.delete({ url: `${api.rights}/${id}` });
 }
 
-export function updateRights(id: number, data: any) {
+export function updateRights<T>(id: number, data: T) {
 	return request.patch({ url: `${api.rights}/${id}`, data });
 }
 

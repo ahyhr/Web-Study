@@ -2,18 +2,18 @@
   <div class="layout">
     <el-container>
       <el-aside width="200px">
-        <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+        <el-menu :default-active="route.path" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
           <template v-for="item of mainStore.routers" :key="item.name">
-            <el-sub-menu v-if="item.children?.length">
+            <el-sub-menu v-if="item.children?.length" :index="item.path">
               <template #title>
                 <el-icon><location /></el-icon>
                 <span>{{ item.meta?.name }}</span>
               </template>
               <template v-for="item2 of item.children" :key="item2.name">
-                <el-menu-item :index="item2.name" @click="navTo(item2.name)">{{ item2.meta?.name }}</el-menu-item>
+                <el-menu-item :index="item2.path" @click="navTo(item2.name)">{{ item2.meta?.name }}</el-menu-item>
               </template>
             </el-sub-menu>
-            <el-menu-item v-else :index="item.name" @click="navTo(item.name)">{{ item.meta?.name }}</el-menu-item>
+            <el-menu-item v-else :index="item.path" @click="navTo(item.name)">{{ item.meta?.name }}</el-menu-item>
           </template>
         </el-menu>
       </el-aside>
@@ -27,24 +27,24 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-import { RouteRecordName, useRouter } from "vue-router";
+import { RouteRecordName, useRouter, useRoute } from "vue-router";
 import Main from "./components/main.vue";
 import { Document, Menu as IconMenu, Location, Setting } from "@element-plus/icons-vue";
 import { useMainStore } from "@/store";
 
 const mainStore = useMainStore();
-
 const router = useRouter();
+const route = useRoute();
 
 const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
+  // console.log(key, keyPath);
 };
 const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
+  // console.log(key, keyPath);
 };
 
 const navTo = (name: RouteRecordName | undefined) => {
-  console.log(router.getRoutes());
+  // console.log(router.getRoutes());
 
   router.push({ name });
 };

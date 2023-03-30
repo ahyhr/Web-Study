@@ -40,7 +40,13 @@ export const dynamicRouter: RouteRecordRaw[] = [
     meta: { name: "订单列表" }
   },
   {
-    path: "",
+    path: "/threejs",
+    name: "threejs",
+    component: () => import("@/views/threejs/threejs.vue"),
+    meta: { name: "three js" }
+  },
+  {
+    path: "/buju",
     name: "AA",
     meta: { name: "测试" },
     children: [
@@ -61,7 +67,7 @@ export const dynamicRouter: RouteRecordRaw[] = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 });
 

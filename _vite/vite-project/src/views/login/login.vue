@@ -17,7 +17,7 @@ const mainStore = useMainStore();
 const router = useRouter();
 
 const login = () => {
-  mainStore.setRouter(mainStore.menuList);
+  mainStore.setRouter();
   router.push({ name: "layout" });
 };
 </script>

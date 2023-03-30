@@ -12,7 +12,7 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   return {
-    base: "/",
+    base: "./",
     resolve: {
       alias: {
         "@": resolve(__dirname, "./src")
@@ -28,10 +28,10 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
       }),
       createHtmlPlugin({
         inject: {
-					data: {
-						VITE_APP_TITLE: env.VITE_APP_TITLE
-					}
-				}
+          data: {
+            VITE_APP_TITLE: env.VITE_APP_TITLE
+          }
+        }
       }),
       legacy({
         targets: ["defaults", "ie >= 11", "chrome 52"], //需要兼容的目标列表，可以设置多个
@@ -63,19 +63,19 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
       }
     },
     // * 打包去除 console.log && debugger
-		esbuild: {
-			pure: env.VITE_DROP_CONSOLE as unknown as boolean ? ["console.log", "debugger"] : []
-		},
+    esbuild: {
+      pure: (env.VITE_DROP_CONSOLE as unknown as boolean) ? ["console.log", "debugger"] : []
+    },
     build: {
       target: "es2015",
       // esbuild 打包更快，但是不能去除 console.log，terser打包慢，但能去除 console.log
-			minify: "terser",
-			terserOptions: {
-				compress: {
-					drop_console: env.VITE_DROP_CONSOLE as unknown as boolean,
-					drop_debugger: true
-				}
-			},
+      minify: "terser",
+      terserOptions: {
+        compress: {
+          drop_console: env.VITE_DROP_CONSOLE as unknown as boolean,
+          drop_debugger: true
+        }
+      },
       outDir: resolve(__dirname, "dist"),
       rollupOptions: {
         output: {
